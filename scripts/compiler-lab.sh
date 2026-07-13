@@ -40,12 +40,23 @@ common="-parse-as-library -sdk $sdk -target $target -module-name $module"
 # shellcheck disable=SC2086
 "$swiftc" $common -O -emit-assembly "$source_file" -o "$output/optimized.s"
 
-rg -o '\$s[A-Za-z0-9_]+' "$output/silgen.sil" "$output/canonical.sil" "$output/debug.s" "$output/optimized.s" \
-  | sed 's/^[^:]*://' | sort -u | "$demangle" > "$output/symbols.txt"
+if command -v rg >/dev/null 2>&1; then
+  rg -o '\$s[A-Za-z0-9_]+' "$output/silgen.sil" "$output/canonical.sil" "$output/debug.s" "$output/optimized.s" \
+    | sed 's/^[^:]*://' | sort -u | "$demangle" > "$output/symbols.txt"
+else
+  # shellcheck disable=SC2016
+  grep -Eho '\$s[A-Za-z0-9_]+' "$output/silgen.sil" "$output/canonical.sil" "$output/debug.s" "$output/optimized.s" \
+    | sort -u | "$demangle" > "$output/symbols.txt"
+fi
 
 for input in silgen.sil canonical.sil llvm.ll debug.s optimized.s; do
-  rg -n -C 8 "$symbol|class_method|witness_method|strong_(retain|release)|swift_(retain|release)|switch_enum" \
-    "$output/$input" | head -n 160 > "$output/$input.excerpt.txt" || true
+  if command -v rg >/dev/null 2>&1; then
+    rg -n -C 8 "$symbol|class_method|witness_method|strong_(retain|release)|swift_(retain|release)|switch_enum" \
+      "$output/$input" | head -n 160 > "$output/$input.excerpt.txt" || true
+  else
+    grep -En -C 8 "$symbol|class_method|witness_method|strong_(retain|release)|swift_(retain|release)|switch_enum" \
+      "$output/$input" | head -n 160 > "$output/$input.excerpt.txt" || true
+  fi
 done
 
 focus="$output/debug.s.excerpt.txt"
