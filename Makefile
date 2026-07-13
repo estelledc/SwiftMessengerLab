@@ -6,7 +6,7 @@ SIMULATOR_TARGET ?= booted
 DERIVED_DATA := .DerivedData
 BUNDLE_ID := org.example.SwiftMessengerLab
 
-.PHONY: build test test-ui compiler-lab compiler-test public-scan check run open clean
+.PHONY: build test test-ui compiler-lab compiler-test verify-showcase public-scan check release-check run open clean
 
 SAMPLE ?= property-access
 MODE ?= debug
@@ -39,10 +39,15 @@ compiler-lab:
 compiler-test:
 	./scripts/compiler-test.sh
 
+verify-showcase:
+	./scripts/verify-showcase.sh
+
 public-scan:
 	./scripts/public-scan.sh
 
-check: test compiler-test build public-scan
+check: test compiler-test build verify-showcase public-scan
+
+release-check: test test-ui compiler-test build verify-showcase public-scan
 
 run: build
 	xcrun simctl bootstatus '$(SIMULATOR_TARGET)' -b

@@ -1,0 +1,101 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>SwiftMessengerLab · Swift / UIKit 类型与 IM 业务实验室</title>
+  <meta name="description" content="面向零基础学习者的公开 Swift、Foundation、UIKit 与 IM 业务实验室：20 节短课、52 张类型卡和 5 个编译器显微镜样本。">
+  <link rel="canonical" href="https://estelledc.github.io/SwiftMessengerLab/">
+  <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="stylesheet" href="assets/style.css">
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="SwiftMessengerLab">
+  <meta property="og:description" content="从改一个属性，到追踪一次消息发送，再到观察 SIL 与 ARM64。">
+  <meta property="og:url" content="https://estelledc.github.io/SwiftMessengerLab/">
+  <meta property="og:image" content="https://estelledc.github.io/SwiftMessengerLab/assets/og-image.png">
+  <meta name="twitter:card" content="summary_large_image">
+</head>
+<body data-lessons="20" data-types="52" data-samples="5">
+  <header class="hero shell">
+    <nav aria-label="主导航">
+      <a class="brand" href="#top"><img src="assets/favicon.png" alt="SwiftMessengerLab 图标">SwiftMessengerLab</a>
+      <div><a href="#learn">学习系统</a><a href="#evidence">验证证据</a><a href="https://github.com/estelledc/SwiftMessengerLab">GitHub</a></div>
+    </nav>
+    <div class="hero-grid" id="top">
+      <div>
+        <p class="eyebrow">OPEN SOURCE · iOS 17+ · v1.0.0</p>
+        <h1>先改一个值，<br>再追到它为什么变化。</h1>
+        <p class="lead">一个给零基础学习者的双入口实验室：在 Messenger 里追踪发送、失败和重试；在 Learn 里拆开 Swift、Foundation、UIKit 与业务类型。</p>
+        <div class="actions"><a class="primary" href="https://github.com/estelledc/SwiftMessengerLab">查看源码</a><a class="secondary" href="#run">5 分钟运行</a></div>
+      </div>
+      <img class="app-icon" src="assets/app-icon.png" alt="由对话气泡、代码括号和书本组成的项目图标">
+    </div>
+    <dl class="metrics" aria-label="已验证的项目规模">
+      <div><dt>20</dt><dd>节短课</dd></div>
+      <div><dt>52</dt><dd>张唯一类型卡</dd></div>
+      <div><dt>5</dt><dd>个编译器样本</dd></div>
+      <div><dt>9 + 9</dt><dd>Core / UI 场景</dd></div>
+    </dl>
+  </header>
+
+  <main>
+    <section class="shell" id="learn">
+      <p class="eyebrow">TWO LABS, ONE TRACEABLE STORY</p>
+      <h2>从可见操作走到底层证据</h2>
+      <div class="two-col">
+        <article class="panel"><span class="number">01</span><h3>Messenger 业务实验室</h3><p>输入普通文本观察 <code>queued → sending → sent</code>；输入 <code>/fail</code> 走失败与同 id 重试。Repository、Transport 和 JSON Cache 都可打断点。</p></article>
+        <article class="panel"><span class="number">02</span><h3>Swift / UIKit 类型实验室</h3><p>每张类型卡给出类型种类、属性、方法、owner 和三层实验。课程可自由查看，进度只写“已操作 / 已回答”，不替你宣称掌握。</p></article>
+      </div>
+    </section>
+
+    <section class="screens shell" aria-labelledby="screens-title">
+      <p class="eyebrow">REAL SIMULATOR OUTPUT</p>
+      <h2 id="screens-title">不是概念稿，是可运行界面</h2>
+      <div class="screen-grid">
+        <figure><img src="assets/screenshot-messenger.png" alt="Messenger 会话列表真实模拟器截图"><figcaption>Messenger：虚构本地会话与发送链路</figcaption></figure>
+        <figure><img src="assets/screenshot-learn.png" alt="Learn 课程目录真实模拟器截图"><figcaption>Learn：20 节课程与类型 API 搜索</figcaption></figure>
+        <figure><img src="assets/screenshot-uiview.png" alt="UIView 白名单属性实验真实模拟器截图"><figcaption>UIView：alpha、颜色、隐藏与 Reset</figcaption></figure>
+      </div>
+    </section>
+
+    <section class="type-section shell">
+      <div class="section-heading"><div><p class="eyebrow">TYPE EXPLORER</p><h2>搜索 52 张类型卡</h2></div><label>筛选类型<input id="type-filter" type="search" autocomplete="off" placeholder="例如 UIView、append、Repository"></label></div>
+      <p id="type-count" class="muted" aria-live="polite">52 / 52 types</p>
+      <div id="type-list" class="type-list"></div>
+    </section>
+
+    <section class="compiler shell">
+      <p class="eyebrow">COMPILER MICROSCOPE</p>
+      <h2>只下钻五个小于 20 行的样本</h2>
+      <div class="pipeline" aria-label="编译器观察流水线"><span>Swift</span><b>→</b><span>SILGen</span><b>→</b><span>SIL</span><b>→</b><span>LLVM IR</span><b>→</b><span>ARM64</span></div>
+      <p>观察 getter / setter、值与引用、方法派发、闭包捕获和 enum 状态机。生成物进入忽略目录，仓库不提交与某个 Xcode 版本绑定的整页汇编。</p>
+    </section>
+
+    <section class="evidence shell" id="evidence">
+      <p class="eyebrow">EVIDENCE, NOT CLAIMS</p>
+      <h2>1.0.0 发布门禁</h2>
+      <div class="check-grid"><p><strong>Core</strong><br>发送、失败重试、缓存、目录引用、依赖无环和旧进度迁移。</p><p><strong>UI</strong><br>真实点击、属性 Reset、delegate 顺序、导航身份、稳定 id、搜索与数据隔离。</p><p><strong>Compiler</strong><br>五个样本均生成非空 SIL、IR 和 Debug / Optimized ARM64 片段。</p><p><strong>Public</strong><br>本地路径、凭证特征、内部标识、页面资源与 action pin 均自动审计。</p></div>
+    </section>
+
+    <section class="run shell" id="run">
+      <div><p class="eyebrow">RUN LOCALLY</p><h2>5 分钟开始第一次预测</h2><p>需要 macOS、Xcode 16+ 和 iOS 17+ Simulator。所有业务数据与失败回执都在本地生成。</p></div>
+      <pre><code>git clone https://github.com/estelledc/SwiftMessengerLab.git
+cd SwiftMessengerLab
+make build
+make run
+
+# 编译器显微镜
+make compiler-lab SAMPLE=property-access</code></pre>
+    </section>
+
+    <section class="limits shell">
+      <p class="eyebrow">PUBLIC BOUNDARY</p>
+      <h2>刻意不做什么</h2>
+      <p>不连接真实聊天服务，不复制商业客户端实现，不包含内部接口或材料，不逆向 UIKit 二进制。动画、手势、多媒体、SwiftUI、Objective-C 混编、账号、附件、推送和加密不属于 1.0.0。</p>
+    </section>
+  </main>
+
+  <footer class="shell"><p>MIT licensed · Built as a public learning lab.</p><a href="https://github.com/estelledc/SwiftMessengerLab/blob/main/docs/public-research-boundary.md">阅读公开边界</a></footer>
+  <script src="assets/app.js"></script>
+</body>
+</html>
