@@ -21,4 +21,8 @@ All notable changes to SwiftMessengerLab are documented here. The project follow
 - 仅包含公开 API、虚构数据与原创实现。
 - 不连接真实服务，不提供 IPA，不包含商业客户端实现或非公开材料。
 
+### Fixed
+
+- 修复 GitHub Pages 指标栏绕过共享容器、在桌面视口向左错位的问题，并增加结构审计防止同类回归。
+
 [1.0.0]: https://github.com/estelledc/SwiftMessengerLab/releases/tag/v1.0.0

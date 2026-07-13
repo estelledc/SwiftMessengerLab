@@ -46,6 +46,15 @@ def verify_action_pins(workflow: str) -> None:
             fail(f"action is not pinned to a full commit: {reference}")
 
 
+def verify_layout_composition(html: str) -> None:
+    for raw_classes in re.findall(r'class="([^"]+)"', html):
+        classes = set(raw_classes.split())
+        if {"jx-container", "jx-proof-rail"} <= classes:
+            fail("jx-proof-rail must be nested inside jx-container, not composed with it")
+    if not re.search(r'<div class="jx-container">\s*<ul class="jx-proof-rail"', html):
+        fail("proof rail is missing its shared layout container")
+
+
 def main() -> None:
     required = [
         HTML,
@@ -116,6 +125,7 @@ def main() -> None:
     verify_local_links(html)
     verify_local_links(not_found)
     verify_action_pins(workflow)
+    verify_layout_composition(html)
 
     if png_size(DOCS / "assets" / "og-image.png") != (1200, 630):
         fail("Open Graph image must be 1200x630")
