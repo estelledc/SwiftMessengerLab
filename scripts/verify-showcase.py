@@ -49,8 +49,13 @@ def verify_action_pins(workflow: str) -> None:
 def main() -> None:
     required = [
         HTML,
+        DOCS / "404.html",
         DOCS / "assets" / "style.css",
         DOCS / "assets" / "app.js",
+        DOCS / "assets" / "jx" / "VERSION",
+        DOCS / "assets" / "jx" / "tokens.css",
+        DOCS / "assets" / "jx" / "base.css",
+        DOCS / "assets" / "jx" / "components.css",
         DOCS / "assets" / "app-icon.png",
         DOCS / "assets" / "favicon.png",
         DOCS / "assets" / "og-image.png",
@@ -64,13 +69,41 @@ def main() -> None:
             fail(f"missing or empty: {path.relative_to(ROOT)}")
 
     html = HTML.read_text(encoding="utf-8")
+    not_found = (DOCS / "404.html").read_text(encoding="utf-8")
+    css = (DOCS / "assets" / "style.css").read_text(encoding="utf-8")
     javascript = (DOCS / "assets" / "app.js").read_text(encoding="utf-8")
+    tokens = (DOCS / "assets" / "jx" / "tokens.css").read_text(encoding="utf-8")
+    components = (DOCS / "assets" / "jx" / "components.css").read_text(encoding="utf-8")
     workflow = WORKFLOW.read_text(encoding="utf-8")
     catalog = (ROOT / "SwiftMessengerLab" / "Core" / "LearningCatalog.swift").read_text(encoding="utf-8")
 
     for marker in ('data-lessons="20"', 'data-types="52"', 'data-samples="5"'):
         if marker not in html:
             fail(f"missing verified metric marker: {marker}")
+    design_markers = [
+        '<meta name="theme-color" content="#f6f6f3">',
+        'assets/jx/tokens.css',
+        'assets/jx/base.css',
+        'assets/jx/components.css',
+        'This lab answers',
+        'jx-proof-rail',
+        'jx-footer',
+        'https://estelledc.github.io/">← Jason Xun',
+    ]
+    for marker in design_markers:
+        if marker not in html:
+            fail(f"missing main-site design marker: {marker}")
+    if html.count("<h1>") != 1:
+        fail("showcase must contain exactly one h1")
+    if (DOCS / "assets" / "jx" / "VERSION").read_text(encoding="utf-8").strip() != "2.2.0":
+        fail("Jason DS vendor version must be 2.2.0")
+    if "Jason DS · Tokens v2.2.0" not in tokens or ".jx-site-header" not in components:
+        fail("Jason DS vendor bundle is incomplete")
+    for marker in ("var(--jx-ink)", "var(--jx-surface)", "var(--jx-font-mono)", "@media (max-width: 760px)"):
+        if marker not in css:
+            fail(f"project stylesheet is missing Jason DS mapping: {marker}")
+    if "transition: all" in css or "transition: all" in components:
+        fail("transition: all is not allowed")
     if len(re.findall(r'^\s*card\("', catalog, re.MULTILINE)) != 52:
         fail("TypeCatalog does not contain exactly 52 card declarations")
     if len(re.findall(r'^\s*lesson\(\d+', catalog, re.MULTILINE)) != 20:
@@ -81,6 +114,7 @@ def main() -> None:
         fail("web type explorer does not list exactly 52 types")
 
     verify_local_links(html)
+    verify_local_links(not_found)
     verify_action_pins(workflow)
 
     if png_size(DOCS / "assets" / "og-image.png") != (1200, 630):
@@ -90,16 +124,26 @@ def main() -> None:
         if height <= width or width < 300:
             fail(f"unexpected simulator screenshot dimensions: {name} {width}x{height}")
 
-    forbidden = ["TO" + "DO", "lorem " + "ipsum", "replace" + "-me", "/" + "Us" + "ers/", "byte" + "dance", "la" + "rk"]
+    forbidden = [
+        "TO" + "DO",
+        "lorem " + "ipsum",
+        "replace" + "-me",
+        "/" + "Us" + "ers/",
+        "byte" + "dance",
+        "la" + "rk",
+        "#061534",
+        "#27c9ff",
+        "#ff8b73",
+    ]
     visible_sources = "\n".join(
         path.read_text(encoding="utf-8", errors="ignore")
-        for path in [HTML, DOCS / "assets" / "style.css", DOCS / "assets" / "app.js"]
+        for path in [HTML, DOCS / "404.html", DOCS / "assets" / "style.css", DOCS / "assets" / "app.js"]
     ).lower()
     for term in forbidden:
         if term.lower() in visible_sources:
             fail(f"forbidden public marker found: {term}")
 
-    print("Showcase audit: links, metrics, images, boundaries, and action pins passed")
+    print("Showcase audit: Jason DS 2.2.0, links, metrics, images, boundaries, and action pins passed")
 
 
 if __name__ == "__main__":

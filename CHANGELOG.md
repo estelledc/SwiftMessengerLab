@@ -14,6 +14,7 @@ All notable changes to SwiftMessengerLab are documented here. The project follow
 - 5 个 Swift → SIL → LLVM IR → ARM64 编译器显微镜样本。
 - 9 个 Core、9 个 UI 场景以及 compiler/public/showcase 发布门禁。
 - GitHub Pages 公开展示、真实 Simulator 截图和 pinned-actions 自动部署。
+- GitHub Pages 接入与个人主站一致的 Jason DS 2.2.0 vendor copy、证据标签与返回主站入口。
 
 ### Boundaries
 

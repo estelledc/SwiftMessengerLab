@@ -10,6 +10,8 @@
 
 ![Messenger、Learn 与 UIView 实验的真实 Simulator 界面](docs/assets/og-image.png)
 
+展示页使用与 [Jason Xun 主站](https://estelledc.github.io/) 相同的 Jason DS 2.2.0 vendor copy：共享纸白/墨黑双主题、排版、状态、导航、证据来源和页脚契约；项目只保留类型搜索、编译器流水线与真实 Simulator 截图等领域组件。
+
 ## 它解决什么问题
 
 零基础学习 API 时，最难的通常不是记名字，而是把名字放回一次真实变化中：
@@ -111,7 +113,7 @@ make test              # 9 个 Core 场景
 make test-ui           # 9 个 Simulator UI 场景
 make compiler-test     # 5 个编译器样本
 make build             # iOS Simulator build
-make verify-showcase   # Pages 资源、指标、链接和 action pin
+make verify-showcase   # Pages 资源、Jason DS、指标、链接和 action pin
 make public-scan       # 公开边界扫描
 make check             # 不含 UI 的日常门禁
 make release-check     # 含 UI 的发布门禁

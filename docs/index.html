@@ -3,99 +3,124 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>SwiftMessengerLab · Swift / UIKit 类型与 IM 业务实验室</title>
+  <meta name="theme-color" content="#f6f6f3">
+  <title>SwiftMessengerLab｜Swift / UIKit 类型与 IM 业务实验室</title>
   <meta name="description" content="面向零基础学习者的公开 Swift、Foundation、UIKit 与 IM 业务实验室：20 节短课、52 张类型卡和 5 个编译器显微镜样本。">
   <link rel="canonical" href="https://estelledc.github.io/SwiftMessengerLab/">
   <link rel="icon" type="image/png" href="assets/favicon.png">
+  <link rel="stylesheet" href="assets/jx/tokens.css">
+  <link rel="stylesheet" href="assets/jx/base.css">
+  <link rel="stylesheet" href="assets/jx/components.css">
   <link rel="stylesheet" href="assets/style.css">
   <meta property="og:type" content="website">
-  <meta property="og:title" content="SwiftMessengerLab">
+  <meta property="og:locale" content="zh_CN">
+  <meta property="og:site_name" content="Jason Xun">
+  <meta property="og:title" content="SwiftMessengerLab｜类型与业务实验室">
   <meta property="og:description" content="从改一个属性，到追踪一次消息发送，再到观察 SIL 与 ARM64。">
   <meta property="og:url" content="https://estelledc.github.io/SwiftMessengerLab/">
   <meta property="og:image" content="https://estelledc.github.io/SwiftMessengerLab/assets/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="SwiftMessengerLab 类型、消息状态和编译器证据概览">
   <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="SwiftMessengerLab｜类型与业务实验室">
+  <meta name="twitter:description" content="20 节短课、52 张类型卡与 5 个编译器样本。">
+  <meta name="twitter:image" content="https://estelledc.github.io/SwiftMessengerLab/assets/og-image.png">
 </head>
 <body data-lessons="20" data-types="52" data-samples="5">
-  <header class="hero shell">
-    <nav aria-label="主导航">
-      <a class="brand" href="#top"><img src="assets/favicon.png" alt="SwiftMessengerLab 图标">SwiftMessengerLab</a>
-      <div><a href="#learn">学习系统</a><a href="#evidence">验证证据</a><a href="https://github.com/estelledc/SwiftMessengerLab">GitHub</a></div>
-    </nav>
-    <div class="hero-grid" id="top">
-      <div>
-        <p class="eyebrow">OPEN SOURCE · iOS 17+ · v1.0.0</p>
-        <h1>先改一个值，<br>再追到它为什么变化。</h1>
-        <p class="lead">一个给零基础学习者的双入口实验室：在 Messenger 里追踪发送、失败和重试；在 Learn 里拆开 Swift、Foundation、UIKit 与业务类型。</p>
-        <div class="actions"><a class="primary" href="https://github.com/estelledc/SwiftMessengerLab">查看源码</a><a class="secondary" href="#run">5 分钟运行</a></div>
-      </div>
-      <img class="app-icon" src="assets/app-icon.png" alt="由对话气泡、代码括号和书本组成的项目图标">
+  <a class="jx-skip-link" href="#main">跳到主要内容</a>
+  <header class="jx-site-header" aria-label="站点导航">
+    <div class="jx-site-header__inner">
+      <a class="jx-site-header__identity" href="#top" aria-label="SwiftMessengerLab 首页">
+        <strong>SwiftMessengerLab</strong><span>Swift / UIKit learning lab</span>
+      </a>
+      <nav class="jx-site-nav" aria-label="主导航">
+        <div class="jx-site-nav__links"><a href="#system">System</a><a href="#evidence">Evidence</a><a href="#run">Run</a><a href="https://github.com/estelledc/SwiftMessengerLab" target="_blank" rel="noopener">GitHub ↗</a></div>
+        <details class="jx-site-nav__menu"><summary>Menu</summary><nav aria-label="移动导航"><a href="#system">System</a><a href="#evidence">Evidence</a><a href="#run">Run</a><a href="https://github.com/estelledc/SwiftMessengerLab" target="_blank" rel="noopener">GitHub ↗</a></nav></details>
+      </nav>
     </div>
-    <dl class="metrics" aria-label="已验证的项目规模">
-      <div><dt>20</dt><dd>节短课</dd></div>
-      <div><dt>52</dt><dd>张唯一类型卡</dd></div>
-      <div><dt>5</dt><dd>个编译器样本</dd></div>
-      <div><dt>9 + 9</dt><dd>Core / UI 场景</dd></div>
-    </dl>
   </header>
 
-  <main>
-    <section class="shell" id="learn">
-      <p class="eyebrow">TWO LABS, ONE TRACEABLE STORY</p>
-      <h2>从可见操作走到底层证据</h2>
-      <div class="two-col">
-        <article class="panel"><span class="number">01</span><h3>Messenger 业务实验室</h3><p>输入普通文本观察 <code>queued → sending → sent</code>；输入 <code>/fail</code> 走失败与同 id 重试。Repository、Transport 和 JSON Cache 都可打断点。</p></article>
-        <article class="panel"><span class="number">02</span><h3>Swift / UIKit 类型实验室</h3><p>每张类型卡给出类型种类、属性、方法、owner 和三层实验。课程可自由查看，进度只写“已操作 / 已回答”，不替你宣称掌握。</p></article>
-      </div>
-    </section>
+  <main id="main">
+    <article>
+      <header class="lab-hero jx-container" id="top">
+        <div>
+          <div class="lab-kicker"><span class="jx-chip" data-state="shipped">Shipped · v1.0.0</span><span class="jx-eyebrow"><span class="jx-eyebrow__rule"></span>Public iOS learning system</span></div>
+          <h1>先改一个值，<br>再追到它为什么变化。</h1>
+          <p class="lab-lede">一个给零基础学习者的双入口实验室：在 Messenger 里追踪发送、失败和重试；在 Learn 里拆开 Swift、Foundation、UIKit 与业务类型。</p>
+          <p class="lab-summary-en" lang="en">A public, beginner-oriented iOS lab that connects visible UI changes, message delivery states, source code, LLDB, SIL, LLVM IR, and ARM64 evidence.</p>
+          <div class="lab-actions"><a class="jx-action" href="https://github.com/estelledc/SwiftMessengerLab" target="_blank" rel="noopener">查看源码 ↗</a><a class="jx-action jx-action--secondary" href="#run">5 分钟运行</a></div>
+        </div>
+        <aside class="lab-facts" aria-label="项目事实">
+          <img class="lab-mark" src="assets/app-icon.png" width="1024" height="1024" alt="由对话气泡、代码括号和书本组成的项目图标">
+          <dl><div><dt>Role</dt><dd>作者 · 学习系统与 iOS 实验设计</dd></div><div><dt>Core loop</dt><dd>预测 → 操作 → 观察 → 解释 → 验证</dd></div><div><dt>Platform</dt><dd>iOS 17+ · Xcode 16+ · UIKit</dd></div><div><dt>Boundary</dt><dd>纯本地数据 · 不连接真实聊天服务</dd></div></dl>
+        </aside>
+      </header>
 
-    <section class="screens shell" aria-labelledby="screens-title">
-      <p class="eyebrow">REAL SIMULATOR OUTPUT</p>
-      <h2 id="screens-title">不是概念稿，是可运行界面</h2>
-      <div class="screen-grid">
-        <figure><img src="assets/screenshot-messenger.png" alt="Messenger 会话列表真实模拟器截图"><figcaption>Messenger：虚构本地会话与发送链路</figcaption></figure>
-        <figure><img src="assets/screenshot-learn.png" alt="Learn 课程目录真实模拟器截图"><figcaption>Learn：20 节课程与类型 API 搜索</figcaption></figure>
-        <figure><img src="assets/screenshot-uiview.png" alt="UIView 白名单属性实验真实模拟器截图"><figcaption>UIView：alpha、颜色、隐藏与 Reset</figcaption></figure>
-      </div>
-    </section>
+      <aside class="jx-case-question jx-container" aria-label="本项目回答的问题">
+        <p class="jx-case-question__label">This lab answers</p>
+        <div><strong class="jx-case-question__prompt">怎样让零基础学习者不只“看懂 API”，而能亲手改值、追调用链，并用编译器证据解释结果？</strong><p class="jx-case-question__context">每个重点类型都连接 App 控件、LLDB 和源码；学习进度只记录操作与回答，不把点击完成冒充掌握。</p></div>
+      </aside>
 
-    <section class="type-section shell">
-      <div class="section-heading"><div><p class="eyebrow">TYPE EXPLORER</p><h2>搜索 52 张类型卡</h2></div><label>筛选类型<input id="type-filter" type="search" autocomplete="off" placeholder="例如 UIView、append、Repository"></label></div>
-      <p id="type-count" class="muted" aria-live="polite">52 / 52 types</p>
-      <div id="type-list" class="type-list"></div>
-    </section>
+      <ul class="jx-proof-rail jx-container" aria-label="已验证的项目规模">
+        <li><span class="jx-proof-rail__label">Curriculum</span><strong class="jx-proof-rail__value">20</strong><span class="jx-proof-rail__detail">节短课</span><span class="jx-source-tag" data-source="build">source count</span></li>
+        <li><span class="jx-proof-rail__label">Type catalog</span><strong class="jx-proof-rail__value">52</strong><span class="jx-proof-rail__detail">张唯一类型卡</span><span class="jx-source-tag" data-source="build">source count</span></li>
+        <li><span class="jx-proof-rail__label">Compiler lab</span><strong class="jx-proof-rail__value">5</strong><span class="jx-proof-rail__detail">个最小样本</span><span class="jx-source-tag" data-source="measured">verified</span></li>
+        <li><span class="jx-proof-rail__label">Test scenarios</span><strong class="jx-proof-rail__value">9 + 9</strong><span class="jx-proof-rail__detail">Core / UI</span><span class="jx-source-tag" data-source="measured">release gate</span></li>
+      </ul>
 
-    <section class="compiler shell">
-      <p class="eyebrow">COMPILER MICROSCOPE</p>
-      <h2>只下钻五个小于 20 行的样本</h2>
-      <div class="pipeline" aria-label="编译器观察流水线"><span>Swift</span><b>→</b><span>SILGen</span><b>→</b><span>SIL</span><b>→</b><span>LLVM IR</span><b>→</b><span>ARM64</span></div>
-      <p>观察 getter / setter、值与引用、方法派发、闭包捕获和 enum 状态机。生成物进入忽略目录，仓库不提交与某个 Xcode 版本绑定的整页汇编。</p>
-    </section>
+      <section class="lab-section jx-container" id="system">
+        <div class="lab-section__heading"><div><p class="jx-eyebrow"><span class="jx-eyebrow__rule"></span>System</p><h2>两间实验室，共用一条证据链。</h2></div><p>业务行为提供问题，类型实验拆解机制，编译器样本负责把观察继续向下追。</p></div>
+        <div class="lab-card-grid">
+          <article class="lab-card"><span class="lab-index">01 / Messenger</span><h3>消息发送不是一次按钮点击</h3><p>输入普通文本观察 <code>queued → sending → sent</code>；输入 <code>/fail</code> 走失败与同 id 重试。Repository、Transport 和 JSON Cache 都可打断点。</p></article>
+          <article class="lab-card"><span class="lab-index">02 / Learn</span><h3>类型卡不是 API 百科</h3><p>每张卡给出类型种类、属性、方法、owner 和三层实验。课程可自由查看，进度只写“已操作 / 已回答”。</p></article>
+        </div>
+      </section>
 
-    <section class="evidence shell" id="evidence">
-      <p class="eyebrow">EVIDENCE, NOT CLAIMS</p>
-      <h2>1.0.0 发布门禁</h2>
-      <div class="check-grid"><p><strong>Core</strong><br>发送、失败重试、缓存、目录引用、依赖无环和旧进度迁移。</p><p><strong>UI</strong><br>真实点击、属性 Reset、delegate 顺序、导航身份、稳定 id、搜索与数据隔离。</p><p><strong>Compiler</strong><br>五个样本均生成非空 SIL、IR 和 Debug / Optimized ARM64 片段。</p><p><strong>Public</strong><br>本地路径、凭证特征、内部标识、页面资源与 action pin 均自动审计。</p></div>
-    </section>
+      <section class="lab-section jx-container" aria-labelledby="screens-title">
+        <div class="lab-section__heading"><div><p class="jx-eyebrow"><span class="jx-eyebrow__rule"></span>Real simulator output</p><h2 id="screens-title">不是概念稿，是可运行界面。</h2></div><p>三张截图分别对应业务入口、课程目录和可直接改值的 UIView 实验。</p></div>
+        <div class="lab-screen-grid">
+          <figure><div class="lab-screen"><img src="assets/screenshot-messenger.png" alt="Messenger 会话列表真实模拟器截图" loading="lazy" decoding="async"></div><figcaption><strong>Messenger</strong><span>虚构本地会话与发送链路</span></figcaption></figure>
+          <figure><div class="lab-screen"><img src="assets/screenshot-learn.png" alt="Learn 课程目录真实模拟器截图" loading="lazy" decoding="async"></div><figcaption><strong>Learn</strong><span>20 节课程与类型 API 搜索</span></figcaption></figure>
+          <figure><div class="lab-screen"><img src="assets/screenshot-uiview.png" alt="UIView 白名单属性实验真实模拟器截图" loading="lazy" decoding="async"></div><figcaption><strong>UIView</strong><span>alpha、颜色、隐藏与 Reset</span></figcaption></figure>
+        </div>
+      </section>
 
-    <section class="run shell" id="run">
-      <div><p class="eyebrow">RUN LOCALLY</p><h2>5 分钟开始第一次预测</h2><p>需要 macOS、Xcode 16+ 和 iOS 17+ Simulator。所有业务数据与失败回执都在本地生成。</p></div>
-      <pre><code>git clone https://github.com/estelledc/SwiftMessengerLab.git
+      <section class="lab-section jx-container" aria-labelledby="type-title">
+        <div class="lab-section__heading lab-section__heading--control"><div><p class="jx-eyebrow"><span class="jx-eyebrow__rule"></span>Type explorer</p><h2 id="type-title">搜索 52 张类型卡。</h2></div><label class="lab-filter">筛选类型<input id="type-filter" type="search" autocomplete="off" placeholder="例如 UIView、Array、Repository"></label></div>
+        <p id="type-count" class="lab-count" aria-live="polite">52 / 52 types</p>
+        <div id="type-list" class="lab-token-list"></div>
+      </section>
+
+      <section class="lab-section jx-container">
+        <div class="lab-section__heading"><div><p class="jx-eyebrow"><span class="jx-eyebrow__rule"></span>Compiler microscope</p><h2>只下钻五个小于 20 行的样本。</h2></div><p>避免把整页 UIKit 汇编误当成零基础教材，只定位能回答当前问题的函数与符号。</p></div>
+        <ol class="lab-pipeline" aria-label="编译器观察流水线"><li>Swift</li><li>SILGen</li><li>SIL</li><li>LLVM IR</li><li>ARM64</li></ol>
+        <p class="lab-note">观察 getter / setter、值与引用、方法派发、闭包捕获和 enum 状态机。生成物进入忽略目录，不提交与某个 Xcode 版本绑定的整页汇编。</p>
+      </section>
+
+      <section class="lab-section jx-container" id="evidence">
+        <div class="lab-section__heading"><div><p class="jx-eyebrow"><span class="jx-eyebrow__rule"></span>Evidence, not claims</p><h2>1.0.0 发布门禁。</h2></div><p>页面上的数字必须能回到源码、测试或构建结果，不能用展示文案替代验证。</p></div>
+        <ul class="lab-evidence-list"><li><div><strong>Core</strong><p>发送、失败重试、缓存、目录引用、依赖无环和旧进度迁移。</p></div><span class="jx-source-tag" data-source="measured">XCTest</span></li><li><div><strong>UI</strong><p>真实点击、属性 Reset、delegate 顺序、导航身份、稳定 id、搜索与数据隔离。</p></div><span class="jx-source-tag" data-source="measured">XCUITest</span></li><li><div><strong>Compiler</strong><p>五个样本均生成非空 SIL、IR 和 Debug / Optimized ARM64 片段。</p></div><span class="jx-source-tag" data-source="build">script</span></li><li><div><strong>Public</strong><p>本地路径、凭证特征、内部标识、页面资源与 Action SHA 固定均自动审计。</p></div><span class="jx-source-tag" data-source="build">audit</span></li></ul>
+        <p class="jx-verification-line">Release evidence is reproducible from the public repository.</p>
+      </section>
+
+      <section class="lab-section jx-container" id="run">
+        <div class="lab-run"><div><p class="jx-eyebrow"><span class="jx-eyebrow__rule"></span>Run locally</p><h2>5 分钟开始第一次预测。</h2><p>需要 macOS、Xcode 16+ 和 iOS 17+ Simulator。所有业务数据与失败回执都在本地生成。</p></div><pre><code>git clone https://github.com/estelledc/SwiftMessengerLab.git
 cd SwiftMessengerLab
 make build
 make run
 
 # 编译器显微镜
-make compiler-lab SAMPLE=property-access</code></pre>
-    </section>
+make compiler-lab SAMPLE=property-access</code></pre></div>
+      </section>
 
-    <section class="limits shell">
-      <p class="eyebrow">PUBLIC BOUNDARY</p>
-      <h2>刻意不做什么</h2>
-      <p>不连接真实聊天服务，不复制商业客户端实现，不包含内部接口或材料，不逆向 UIKit 二进制。动画、手势、多媒体、SwiftUI、Objective-C 混编、账号、附件、推送和加密不属于 1.0.0。</p>
-    </section>
+      <section class="lab-section jx-container">
+        <div class="lab-section__heading"><div><p class="jx-eyebrow"><span class="jx-eyebrow__rule"></span>Public boundary</p><h2>刻意不做什么。</h2></div><p class="lab-limit">不连接真实聊天服务，不复制商业客户端实现，不包含内部接口或材料，不逆向 UIKit 二进制。动画、手势、多媒体、SwiftUI、Objective-C 混编、账号、附件、推送和加密不属于 1.0.0。</p></div>
+      </section>
+    </article>
   </main>
 
-  <footer class="shell"><p>MIT licensed · Built as a public learning lab.</p><a href="https://github.com/estelledc/SwiftMessengerLab/blob/main/docs/public-research-boundary.md">阅读公开边界</a></footer>
+  <footer class="jx-footer"><div class="jx-footer__colophon"><strong>SwiftMessengerLab</strong>Public Swift / UIKit learning lab.</div><nav class="jx-footer__index" aria-label="页脚导航"><a href="https://estelledc.github.io/">← Jason Xun</a><a href="https://estelledc.github.io/work/">Work</a><a href="https://github.com/estelledc/SwiftMessengerLab">GitHub ↗</a><a href="https://github.com/estelledc/SwiftMessengerLab/blob/main/docs/public-research-boundary.md">公开边界 ↗</a></nav><div class="jx-footer__stamp">Jason DS 2.2.0<br>Reviewed 2026.07</div></footer>
   <script src="assets/app.js"></script>
 </body>
 </html>
