@@ -6,7 +6,8 @@ let package = Package(
     name: "SwiftMessengerCore",
     platforms: [.macOS(.v14)],
     products: [
-        .library(name: "SwiftMessengerCore", targets: ["SwiftMessengerCore"])
+        .library(name: "SwiftMessengerCore", targets: ["SwiftMessengerCore"]),
+        .executable(name: "type-catalog-exporter", targets: ["TypeCatalogExporter"])
     ],
     targets: [
         .target(
@@ -17,7 +18,11 @@ let package = Package(
             name: "SwiftMessengerCoreTests",
             dependencies: ["SwiftMessengerCore"],
             path: "Tests/SwiftMessengerCoreTests"
+        ),
+        .executableTarget(
+            name: "TypeCatalogExporter",
+            dependencies: ["SwiftMessengerCore"],
+            path: "Tools/TypeCatalogExporter"
         )
     ]
 )
-

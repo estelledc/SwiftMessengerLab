@@ -1,0 +1,4819 @@
+{
+  "cards" : [
+    {
+      "experiment" : {
+        "compilerSample" : "property-access",
+        "control" : "propertyObserver",
+        "id" : "type.PropertyBox",
+        "sourceFile" : "SwiftMessengerLab/Core/LabTypes.swift"
+      },
+      "lessons" : [
+        {
+          "coreAbility" : "能区分值存在哪里与何时计算",
+          "id" : 2,
+          "title" : "存储、计算、lazy 与 didSet"
+        }
+      ],
+      "metadata" : {
+        "analogy" : "带仪表盘的储物柜",
+        "conformances" : [
+
+        ],
+        "createdBy" : "源码中的初始化器、字面量或工厂方法",
+        "experimentID" : "type.PropertyBox",
+        "id" : "PropertyBox",
+        "inheritance" : [
+
+        ],
+        "kind" : "class",
+        "methods" : [
+          {
+            "id" : "init()",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "init()",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "init()",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "stored.setter",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "stored.setter",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "stored.setter",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "doubled.getter",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "doubled.getter",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "doubled.getter",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          }
+        ],
+        "module" : "SwiftMessengerCore",
+        "name" : "PropertyBox",
+        "ownedBy" : "创建它的强引用、UIKit 层级或业务组合根",
+        "properties" : [
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "stored",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "stored",
+            "observationQuestion" : "修改 stored 后，预览和日志分别发生什么变化？",
+            "type" : "Int"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "lazyText",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "lazyText",
+            "observationQuestion" : "修改 lazyText 后，预览和日志分别发生什么变化？",
+            "type" : "String"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "doubled",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "doubled",
+            "observationQuestion" : "为什么 doubled 不能直接赋值，应该改变哪个输入？",
+            "type" : "Int"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "didSetCount",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "didSetCount",
+            "observationQuestion" : "为什么 didSetCount 不能直接赋值，应该改变哪个输入？",
+            "type" : "Int"
+          }
+        ],
+        "purpose" : "把存储、计算、lazy 与 didSet 放进一个可观察对象。",
+        "relatedTypeIDs" : [
+
+        ],
+        "releasedWhen" : "最后一个强引用解除时"
+      }
+    },
+    {
+      "experiment" : {
+        "control" : "text",
+        "id" : "type.MessageDraft",
+        "sourceFile" : "SwiftMessengerLab/Core/LabTypes.swift"
+      },
+      "lessons" : [
+        {
+          "coreAbility" : "能从签名说清输入、输出和副作用",
+          "id" : 3,
+          "title" : "方法、init、self 与访问控制"
+        }
+      ],
+      "metadata" : {
+        "analogy" : "发送前的表单",
+        "conformances" : [
+
+        ],
+        "createdBy" : "源码中的初始化器、字面量或工厂方法",
+        "experimentID" : "type.MessageDraft",
+        "id" : "MessageDraft",
+        "inheritance" : [
+
+        ],
+        "kind" : "struct",
+        "methods" : [
+          {
+            "id" : "init(text:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "init(text:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "init(text:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "clear()",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "clear()",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "clear()",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          }
+        ],
+        "module" : "SwiftMessengerCore",
+        "name" : "MessageDraft",
+        "ownedBy" : "当前变量或包含它的值",
+        "properties" : [
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "text",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "text",
+            "observationQuestion" : "修改 text 后，预览和日志分别发生什么变化？",
+            "type" : "String"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "trimmedText",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "trimmedText",
+            "observationQuestion" : "为什么 trimmedText 不能直接赋值，应该改变哪个输入？",
+            "type" : "String"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "isSendable",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "isSendable",
+            "observationQuestion" : "为什么 isSendable 不能直接赋值，应该改变哪个输入？",
+            "type" : "Bool"
+          }
+        ],
+        "purpose" : "保存输入中的消息草稿并计算可发送状态。",
+        "relatedTypeIDs" : [
+
+        ],
+        "releasedWhen" : "值离开作用域或从容器移除时"
+      }
+    },
+    {
+      "experiment" : {
+        "compilerSample" : "value-and-reference",
+        "control" : "valueReference",
+        "id" : "type.ValueCounter",
+        "sourceFile" : "SwiftMessengerLab/Core/LabTypes.swift"
+      },
+      "lessons" : [
+        {
+          "coreAbility" : "能用 === 证明两个变量是否指向同一实例",
+          "id" : 4,
+          "title" : "struct 与 class：复制和共享"
+        }
+      ],
+      "metadata" : {
+        "analogy" : "复印出来的计数卡",
+        "conformances" : [
+
+        ],
+        "createdBy" : "源码中的初始化器、字面量或工厂方法",
+        "experimentID" : "type.ValueCounter",
+        "id" : "ValueCounter",
+        "inheritance" : [
+
+        ],
+        "kind" : "struct",
+        "methods" : [
+          {
+            "id" : "init(value:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "init(value:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "init(value:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "increment()",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "increment()",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "increment()",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          }
+        ],
+        "module" : "SwiftMessengerCore",
+        "name" : "ValueCounter",
+        "ownedBy" : "当前变量或包含它的值",
+        "properties" : [
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "value",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "value",
+            "observationQuestion" : "修改 value 后，预览和日志分别发生什么变化？",
+            "type" : "Int"
+          }
+        ],
+        "purpose" : "用最小结构体观察复制后的独立修改。",
+        "relatedTypeIDs" : [
+
+        ],
+        "releasedWhen" : "值离开作用域或从容器移除时"
+      }
+    },
+    {
+      "experiment" : {
+        "compilerSample" : "value-and-reference",
+        "control" : "valueReference",
+        "id" : "type.ReferenceCounter",
+        "sourceFile" : "SwiftMessengerLab/Core/LabTypes.swift"
+      },
+      "lessons" : [
+        {
+          "coreAbility" : "能用 === 证明两个变量是否指向同一实例",
+          "id" : 4,
+          "title" : "struct 与 class：复制和共享"
+        }
+      ],
+      "metadata" : {
+        "analogy" : "多人共用的计数器",
+        "conformances" : [
+
+        ],
+        "createdBy" : "源码中的初始化器、字面量或工厂方法",
+        "experimentID" : "type.ReferenceCounter",
+        "id" : "ReferenceCounter",
+        "inheritance" : [
+
+        ],
+        "kind" : "class",
+        "methods" : [
+          {
+            "id" : "init(value:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "init(value:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "init(value:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "increment()",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "increment()",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "increment()",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          }
+        ],
+        "module" : "SwiftMessengerCore",
+        "name" : "ReferenceCounter",
+        "ownedBy" : "创建它的强引用、UIKit 层级或业务组合根",
+        "properties" : [
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "value",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "value",
+            "observationQuestion" : "修改 value 后，预览和日志分别发生什么变化？",
+            "type" : "Int"
+          }
+        ],
+        "purpose" : "用最小类观察共享实例与对象身份。",
+        "relatedTypeIDs" : [
+
+        ],
+        "releasedWhen" : "最后一个强引用解除时"
+      }
+    },
+    {
+      "experiment" : {
+        "compilerSample" : "enum-state-machine",
+        "control" : "stateMachine",
+        "id" : "type.Optional",
+        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+      },
+      "lessons" : [
+        {
+          "coreAbility" : "能穷尽处理消息的每一种状态",
+          "id" : 5,
+          "title" : "Optional、enum、switch 与错误状态"
+        }
+      ],
+      "metadata" : {
+        "analogy" : "可能空着的快递柜",
+        "conformances" : [
+          "ExpressibleByNilLiteral"
+        ],
+        "createdBy" : "源码中的初始化器、字面量或工厂方法",
+        "experimentID" : "type.Optional",
+        "id" : "Optional",
+        "inheritance" : [
+
+        ],
+        "kind" : "enum",
+        "methods" : [
+          {
+            "id" : "map(_:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "map(_:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "map(_:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "flatMap(_:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "flatMap(_:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "flatMap(_:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          }
+        ],
+        "module" : "Swift",
+        "name" : "Optional",
+        "ownedBy" : "当前变量或包含它的值",
+        "properties" : [
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "unsafelyUnwrapped",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "unsafelyUnwrapped",
+            "observationQuestion" : "为什么 unsafelyUnwrapped 不能直接赋值，应该改变哪个输入？",
+            "type" : "Wrapped"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "debugDescription",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "debugDescription",
+            "observationQuestion" : "为什么 debugDescription 不能直接赋值，应该改变哪个输入？",
+            "type" : "String"
+          }
+        ],
+        "purpose" : "明确表达一个值存在或不存在。",
+        "relatedTypeIDs" : [
+
+        ],
+        "releasedWhen" : "值离开作用域或从容器移除时"
+      }
+    },
+    {
+      "experiment" : {
+        "compilerSample" : "enum-state-machine",
+        "control" : "stateMachine",
+        "id" : "type.DeliveryState",
+        "sourceFile" : "SwiftMessengerLab/Core/Models.swift"
+      },
+      "lessons" : [
+        {
+          "coreAbility" : "能穷尽处理消息的每一种状态",
+          "id" : 5,
+          "title" : "Optional、enum、switch 与错误状态"
+        },
+        {
+          "coreAbility" : "能从点击 Send 追到发送、落库、失败和重试",
+          "id" : 20,
+          "title" : "映射回 IM：环境、仓库、传输与缓存"
+        }
+      ],
+      "metadata" : {
+        "analogy" : "快递轨迹",
+        "conformances" : [
+          "Codable",
+          "Hashable",
+          "Sendable"
+        ],
+        "createdBy" : "源码中的初始化器、字面量或工厂方法",
+        "experimentID" : "type.DeliveryState",
+        "id" : "DeliveryState",
+        "inheritance" : [
+
+        ],
+        "kind" : "enum",
+        "methods" : [
+          {
+            "id" : "init?(rawValue:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "init?(rawValue:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "init?(rawValue:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "encode(to:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "encode(to:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "encode(to:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          }
+        ],
+        "module" : "SwiftMessengerCore",
+        "name" : "DeliveryState",
+        "ownedBy" : "当前变量或包含它的值",
+        "properties" : [
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "rawValue",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "rawValue",
+            "observationQuestion" : "为什么 rawValue 不能直接赋值，应该改变哪个输入？",
+            "type" : "String"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "displayText",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "displayText",
+            "observationQuestion" : "为什么 displayText 不能直接赋值，应该改变哪个输入？",
+            "type" : "String"
+          }
+        ],
+        "purpose" : "将消息发送限制在有限且可穷尽处理的状态中。",
+        "relatedTypeIDs" : [
+
+        ],
+        "releasedWhen" : "值离开作用域或从容器移除时"
+      }
+    },
+    {
+      "experiment" : {
+        "compilerSample" : "method-dispatch",
+        "control" : "ownership",
+        "id" : "type.MessageTransport",
+        "sourceFile" : "SwiftMessengerLab/Core/MessageTransport.swift"
+      },
+      "lessons" : [
+        {
+          "coreAbility" : "能画出回调关系和强弱引用",
+          "id" : 6,
+          "title" : "protocol、delegate、closure、weak 与 ARC"
+        },
+        {
+          "coreAbility" : "能从点击 Send 追到发送、落库、失败和重试",
+          "id" : 20,
+          "title" : "映射回 IM：环境、仓库、传输与缓存"
+        }
+      ],
+      "metadata" : {
+        "analogy" : "统一规格的插座",
+        "conformances" : [
+          "Sendable"
+        ],
+        "createdBy" : "源码中的初始化器、字面量或工厂方法",
+        "experimentID" : "type.MessageTransport",
+        "id" : "MessageTransport",
+        "inheritance" : [
+
+        ],
+        "kind" : "protocol",
+        "methods" : [
+          {
+            "id" : "send(_:isRetry:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "send(_:isRetry:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "send(_:isRetry:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          }
+        ],
+        "module" : "SwiftMessengerCore",
+        "name" : "MessageTransport",
+        "ownedBy" : "当前变量或包含它的值",
+        "properties" : [
+
+        ],
+        "purpose" : "隔离消息发送能力，使业务不依赖具体网络实现。",
+        "relatedTypeIDs" : [
+          "MockMessageTransport",
+          "Message"
+        ],
+        "releasedWhen" : "值离开作用域或从容器移除时"
+      }
+    },
+    {
+      "experiment" : {
+        "compilerSample" : "closure-capture",
+        "control" : "ownership",
+        "id" : "type.CaptureOwner",
+        "sourceFile" : "SwiftMessengerLab/Core/LabTypes.swift"
+      },
+      "lessons" : [
+        {
+          "coreAbility" : "能画出回调关系和强弱引用",
+          "id" : 6,
+          "title" : "protocol、delegate、closure、weak 与 ARC"
+        }
+      ],
+      "metadata" : {
+        "analogy" : "持有回拨电话的联系人",
+        "conformances" : [
+
+        ],
+        "createdBy" : "源码中的初始化器、字面量或工厂方法",
+        "experimentID" : "type.CaptureOwner",
+        "id" : "CaptureOwner",
+        "inheritance" : [
+
+        ],
+        "kind" : "class",
+        "methods" : [
+          {
+            "id" : "init()",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "init()",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "init()",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "installWeakCallback()",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "installWeakCallback()",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "installWeakCallback()",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          }
+        ],
+        "module" : "SwiftMessengerCore",
+        "name" : "CaptureOwner",
+        "ownedBy" : "创建它的强引用、UIKit 层级或业务组合根",
+        "properties" : [
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "label",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "label",
+            "observationQuestion" : "修改 label 后，预览和日志分别发生什么变化？",
+            "type" : "String"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "callback",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "callback",
+            "observationQuestion" : "修改 callback 后，预览和日志分别发生什么变化？",
+            "type" : "(() -> Void)?"
+          }
+        ],
+        "purpose" : "用强捕获与 weak 捕获观察闭包所有权。",
+        "relatedTypeIDs" : [
+
+        ],
+        "releasedWhen" : "最后一个强引用解除时"
+      }
+    },
+    {
+      "experiment" : {
+        "control" : "text",
+        "id" : "type.String",
+        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+      },
+      "lessons" : [
+        {
+          "coreAbility" : "能选择 Array、Set、Dictionary 并使用高频 API",
+          "id" : 7,
+          "title" : "String 与集合"
+        }
+      ],
+      "metadata" : {
+        "analogy" : "一串可编辑字符",
+        "conformances" : [
+          "Collection",
+          "Hashable",
+          "Codable"
+        ],
+        "createdBy" : "源码中的初始化器、字面量或工厂方法",
+        "experimentID" : "type.String",
+        "id" : "String",
+        "inheritance" : [
+
+        ],
+        "kind" : "struct",
+        "methods" : [
+          {
+            "id" : "append(_:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "append(_:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "append(_:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "contains(_:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "contains(_:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "contains(_:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "split(separator:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "split(separator:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "split(separator:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          }
+        ],
+        "module" : "Swift",
+        "name" : "String",
+        "ownedBy" : "当前变量或包含它的值",
+        "properties" : [
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "count",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "count",
+            "observationQuestion" : "为什么 count 不能直接赋值，应该改变哪个输入？",
+            "type" : "Int"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "isEmpty",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "isEmpty",
+            "observationQuestion" : "为什么 isEmpty 不能直接赋值，应该改变哪个输入？",
+            "type" : "Bool"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "first",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "first",
+            "observationQuestion" : "为什么 first 不能直接赋值，应该改变哪个输入？",
+            "type" : "Character?"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "utf8",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "utf8",
+            "observationQuestion" : "为什么 utf8 不能直接赋值，应该改变哪个输入？",
+            "type" : "UTF8View"
+          }
+        ],
+        "purpose" : "保存可扩展字形集合并提供文本操作。",
+        "relatedTypeIDs" : [
+
+        ],
+        "releasedWhen" : "值离开作用域或从容器移除时"
+      }
+    },
+    {
+      "experiment" : {
+        "control" : "text",
+        "id" : "type.Array",
+        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+      },
+      "lessons" : [
+        {
+          "coreAbility" : "能选择 Array、Set、Dictionary 并使用高频 API",
+          "id" : 7,
+          "title" : "String 与集合"
+        }
+      ],
+      "metadata" : {
+        "analogy" : "有顺序的清单",
+        "conformances" : [
+          "RandomAccessCollection"
+        ],
+        "createdBy" : "源码中的初始化器、字面量或工厂方法",
+        "experimentID" : "type.Array",
+        "id" : "Array",
+        "inheritance" : [
+
+        ],
+        "kind" : "struct",
+        "methods" : [
+          {
+            "id" : "append(_:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "append(_:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "append(_:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "insert(_:at:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "insert(_:at:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "insert(_:at:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "remove(at:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "remove(at:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "remove(at:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          }
+        ],
+        "module" : "Swift",
+        "name" : "Array",
+        "ownedBy" : "当前变量或包含它的值",
+        "properties" : [
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "count",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "count",
+            "observationQuestion" : "为什么 count 不能直接赋值，应该改变哪个输入？",
+            "type" : "Int"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "isEmpty",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "isEmpty",
+            "observationQuestion" : "为什么 isEmpty 不能直接赋值，应该改变哪个输入？",
+            "type" : "Bool"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "first",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "first",
+            "observationQuestion" : "为什么 first 不能直接赋值，应该改变哪个输入？",
+            "type" : "Element?"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "last",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "last",
+            "observationQuestion" : "为什么 last 不能直接赋值，应该改变哪个输入？",
+            "type" : "Element?"
+          }
+        ],
+        "purpose" : "按顺序保存可重复元素。",
+        "relatedTypeIDs" : [
+
+        ],
+        "releasedWhen" : "值离开作用域或从容器移除时"
+      }
+    },
+    {
+      "experiment" : {
+        "control" : "text",
+        "id" : "type.Set",
+        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+      },
+      "lessons" : [
+        {
+          "coreAbility" : "能选择 Array、Set、Dictionary 并使用高频 API",
+          "id" : 7,
+          "title" : "String 与集合"
+        }
+      ],
+      "metadata" : {
+        "analogy" : "去重名单",
+        "conformances" : [
+          "Collection"
+        ],
+        "createdBy" : "源码中的初始化器、字面量或工厂方法",
+        "experimentID" : "type.Set",
+        "id" : "Set",
+        "inheritance" : [
+
+        ],
+        "kind" : "struct",
+        "methods" : [
+          {
+            "id" : "insert(_:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "insert(_:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "insert(_:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "contains(_:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "contains(_:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "contains(_:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "remove(_:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "remove(_:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "remove(_:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          }
+        ],
+        "module" : "Swift",
+        "name" : "Set",
+        "ownedBy" : "当前变量或包含它的值",
+        "properties" : [
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "count",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "count",
+            "observationQuestion" : "为什么 count 不能直接赋值，应该改变哪个输入？",
+            "type" : "Int"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "isEmpty",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "isEmpty",
+            "observationQuestion" : "为什么 isEmpty 不能直接赋值，应该改变哪个输入？",
+            "type" : "Bool"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "first",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "first",
+            "observationQuestion" : "为什么 first 不能直接赋值，应该改变哪个输入？",
+            "type" : "Element?"
+          }
+        ],
+        "purpose" : "保存不重复且可快速判断成员关系的元素。",
+        "relatedTypeIDs" : [
+
+        ],
+        "releasedWhen" : "值离开作用域或从容器移除时"
+      }
+    },
+    {
+      "experiment" : {
+        "control" : "text",
+        "id" : "type.Dictionary",
+        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+      },
+      "lessons" : [
+        {
+          "coreAbility" : "能选择 Array、Set、Dictionary 并使用高频 API",
+          "id" : 7,
+          "title" : "String 与集合"
+        }
+      ],
+      "metadata" : {
+        "analogy" : "键值通讯录",
+        "conformances" : [
+          "Collection"
+        ],
+        "createdBy" : "源码中的初始化器、字面量或工厂方法",
+        "experimentID" : "type.Dictionary",
+        "id" : "Dictionary",
+        "inheritance" : [
+
+        ],
+        "kind" : "struct",
+        "methods" : [
+          {
+            "id" : "updateValue(_:forKey:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "updateValue(_:forKey:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "updateValue(_:forKey:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "removeValue(forKey:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "removeValue(forKey:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "removeValue(forKey:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "merge(_:uniquingKeysWith:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "merge(_:uniquingKeysWith:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "merge(_:uniquingKeysWith:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          }
+        ],
+        "module" : "Swift",
+        "name" : "Dictionary",
+        "ownedBy" : "当前变量或包含它的值",
+        "properties" : [
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "count",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "count",
+            "observationQuestion" : "为什么 count 不能直接赋值，应该改变哪个输入？",
+            "type" : "Int"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "isEmpty",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "isEmpty",
+            "observationQuestion" : "为什么 isEmpty 不能直接赋值，应该改变哪个输入？",
+            "type" : "Bool"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "keys",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "keys",
+            "observationQuestion" : "为什么 keys 不能直接赋值，应该改变哪个输入？",
+            "type" : "Keys"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "values",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "values",
+            "observationQuestion" : "为什么 values 不能直接赋值，应该改变哪个输入？",
+            "type" : "Values"
+          }
+        ],
+        "purpose" : "通过唯一 key 保存和查找 value。",
+        "relatedTypeIDs" : [
+
+        ],
+        "releasedWhen" : "值离开作用域或从容器移除时"
+      }
+    },
+    {
+      "experiment" : {
+        "control" : "foundation",
+        "id" : "type.UUID",
+        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+      },
+      "lessons" : [
+        {
+          "coreAbility" : "能把业务值编码为 Data 并写入 URL",
+          "id" : 8,
+          "title" : "Foundation 常用值与持久化"
+        }
+      ],
+      "metadata" : {
+        "analogy" : "不会重复的号码牌",
+        "conformances" : [
+          "Hashable",
+          "Codable",
+          "Sendable"
+        ],
+        "createdBy" : "源码中的初始化器、字面量或工厂方法",
+        "experimentID" : "type.UUID",
+        "id" : "UUID",
+        "inheritance" : [
+
+        ],
+        "kind" : "struct",
+        "methods" : [
+          {
+            "id" : "init()",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "init()",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "init()",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "init?(uuidString:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "init?(uuidString:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "init?(uuidString:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          }
+        ],
+        "module" : "Foundation",
+        "name" : "UUID",
+        "ownedBy" : "当前变量或包含它的值",
+        "properties" : [
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "uuidString",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "uuidString",
+            "observationQuestion" : "为什么 uuidString 不能直接赋值，应该改变哪个输入？",
+            "type" : "String"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "uuid",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "uuid",
+            "observationQuestion" : "为什么 uuid 不能直接赋值，应该改变哪个输入？",
+            "type" : "uuid_t"
+          }
+        ],
+        "purpose" : "生成和解析适合作为稳定身份的 128 位值。",
+        "relatedTypeIDs" : [
+
+        ],
+        "releasedWhen" : "值离开作用域或从容器移除时"
+      }
+    },
+    {
+      "experiment" : {
+        "control" : "foundation",
+        "id" : "type.Date",
+        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+      },
+      "lessons" : [
+        {
+          "coreAbility" : "能把业务值编码为 Data 并写入 URL",
+          "id" : 8,
+          "title" : "Foundation 常用值与持久化"
+        }
+      ],
+      "metadata" : {
+        "analogy" : "时间轴上的刻度",
+        "conformances" : [
+          "Comparable",
+          "Codable",
+          "Sendable"
+        ],
+        "createdBy" : "源码中的初始化器、字面量或工厂方法",
+        "experimentID" : "type.Date",
+        "id" : "Date",
+        "inheritance" : [
+
+        ],
+        "kind" : "struct",
+        "methods" : [
+          {
+            "id" : "addingTimeInterval(_:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "addingTimeInterval(_:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "addingTimeInterval(_:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "distance(to:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "distance(to:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "distance(to:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "compare(_:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "compare(_:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "compare(_:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          }
+        ],
+        "module" : "Foundation",
+        "name" : "Date",
+        "ownedBy" : "当前变量或包含它的值",
+        "properties" : [
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "timeIntervalSince1970",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "timeIntervalSince1970",
+            "observationQuestion" : "为什么 timeIntervalSince1970 不能直接赋值，应该改变哪个输入？",
+            "type" : "TimeInterval"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "description",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "description",
+            "observationQuestion" : "为什么 description 不能直接赋值，应该改变哪个输入？",
+            "type" : "String"
+          }
+        ],
+        "purpose" : "表示与时区无关的时间点。",
+        "relatedTypeIDs" : [
+
+        ],
+        "releasedWhen" : "值离开作用域或从容器移除时"
+      }
+    },
+    {
+      "experiment" : {
+        "control" : "foundation",
+        "id" : "type.URL",
+        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+      },
+      "lessons" : [
+        {
+          "coreAbility" : "能把业务值编码为 Data 并写入 URL",
+          "id" : 8,
+          "title" : "Foundation 常用值与持久化"
+        }
+      ],
+      "metadata" : {
+        "analogy" : "带规则的地址",
+        "conformances" : [
+          "Hashable",
+          "Codable",
+          "Sendable"
+        ],
+        "createdBy" : "源码中的初始化器、字面量或工厂方法",
+        "experimentID" : "type.URL",
+        "id" : "URL",
+        "inheritance" : [
+
+        ],
+        "kind" : "struct",
+        "methods" : [
+          {
+            "id" : "appendingPathComponent(_:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "appendingPathComponent(_:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "appendingPathComponent(_:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "deletingLastPathComponent()",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "deletingLastPathComponent()",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "deletingLastPathComponent()",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          }
+        ],
+        "module" : "Foundation",
+        "name" : "URL",
+        "ownedBy" : "当前变量或包含它的值",
+        "properties" : [
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "absoluteString",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "absoluteString",
+            "observationQuestion" : "为什么 absoluteString 不能直接赋值，应该改变哪个输入？",
+            "type" : "String"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "path",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "path",
+            "observationQuestion" : "为什么 path 不能直接赋值，应该改变哪个输入？",
+            "type" : "String"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "lastPathComponent",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "lastPathComponent",
+            "observationQuestion" : "为什么 lastPathComponent 不能直接赋值，应该改变哪个输入？",
+            "type" : "String"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "isFileURL",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "isFileURL",
+            "observationQuestion" : "为什么 isFileURL 不能直接赋值，应该改变哪个输入？",
+            "type" : "Bool"
+          }
+        ],
+        "purpose" : "结构化表示文件或网络资源位置。",
+        "relatedTypeIDs" : [
+
+        ],
+        "releasedWhen" : "值离开作用域或从容器移除时"
+      }
+    },
+    {
+      "experiment" : {
+        "control" : "foundation",
+        "id" : "type.Data",
+        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+      },
+      "lessons" : [
+        {
+          "coreAbility" : "能把业务值编码为 Data 并写入 URL",
+          "id" : 8,
+          "title" : "Foundation 常用值与持久化"
+        }
+      ],
+      "metadata" : {
+        "analogy" : "装字节的密封袋",
+        "conformances" : [
+          "RandomAccessCollection",
+          "Codable",
+          "Sendable"
+        ],
+        "createdBy" : "源码中的初始化器、字面量或工厂方法",
+        "experimentID" : "type.Data",
+        "id" : "Data",
+        "inheritance" : [
+
+        ],
+        "kind" : "struct",
+        "methods" : [
+          {
+            "id" : "append(_:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "append(_:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "append(_:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "write(to:options:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "write(to:options:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "write(to:options:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "base64EncodedString()",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "base64EncodedString()",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "base64EncodedString()",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          }
+        ],
+        "module" : "Foundation",
+        "name" : "Data",
+        "ownedBy" : "当前变量或包含它的值",
+        "properties" : [
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "count",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "count",
+            "observationQuestion" : "为什么 count 不能直接赋值，应该改变哪个输入？",
+            "type" : "Int"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "isEmpty",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "isEmpty",
+            "observationQuestion" : "为什么 isEmpty 不能直接赋值，应该改变哪个输入？",
+            "type" : "Bool"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "startIndex",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "startIndex",
+            "observationQuestion" : "为什么 startIndex 不能直接赋值，应该改变哪个输入？",
+            "type" : "Int"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "endIndex",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "endIndex",
+            "observationQuestion" : "为什么 endIndex 不能直接赋值，应该改变哪个输入？",
+            "type" : "Int"
+          }
+        ],
+        "purpose" : "保存原始字节，是编码与文件 I/O 的边界值。",
+        "relatedTypeIDs" : [
+
+        ],
+        "releasedWhen" : "值离开作用域或从容器移除时"
+      }
+    },
+    {
+      "experiment" : {
+        "control" : "foundation",
+        "id" : "type.FileManager",
+        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+      },
+      "lessons" : [
+        {
+          "coreAbility" : "能把业务值编码为 Data 并写入 URL",
+          "id" : 8,
+          "title" : "Foundation 常用值与持久化"
+        }
+      ],
+      "metadata" : {
+        "analogy" : "文件仓库管理员",
+        "conformances" : [
+
+        ],
+        "createdBy" : "源码中的初始化器、字面量或工厂方法",
+        "experimentID" : "type.FileManager",
+        "id" : "FileManager",
+        "inheritance" : [
+          "NSObject"
+        ],
+        "kind" : "class",
+        "methods" : [
+          {
+            "id" : "fileExists(atPath:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "fileExists(atPath:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "fileExists(atPath:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "createDirectory(at:withIntermediateDirectories:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "createDirectory(at:withIntermediateDirectories:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "createDirectory(at:withIntermediateDirectories:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "removeItem(at:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "removeItem(at:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "removeItem(at:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          }
+        ],
+        "module" : "Foundation",
+        "name" : "FileManager",
+        "ownedBy" : "创建它的强引用、UIKit 层级或业务组合根",
+        "properties" : [
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "default",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "default",
+            "observationQuestion" : "为什么 default 不能直接赋值，应该改变哪个输入？",
+            "type" : "FileManager"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "currentDirectoryPath",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "currentDirectoryPath",
+            "observationQuestion" : "为什么 currentDirectoryPath 不能直接赋值，应该改变哪个输入？",
+            "type" : "String"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "temporaryDirectory",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "temporaryDirectory",
+            "observationQuestion" : "为什么 temporaryDirectory 不能直接赋值，应该改变哪个输入？",
+            "type" : "URL"
+          }
+        ],
+        "purpose" : "查询和修改文件系统中的目录与文件。",
+        "relatedTypeIDs" : [
+
+        ],
+        "releasedWhen" : "最后一个强引用解除时"
+      }
+    },
+    {
+      "experiment" : {
+        "control" : "concurrency",
+        "id" : "type.Task",
+        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+      },
+      "lessons" : [
+        {
+          "coreAbility" : "能追踪成功和失败两条异步控制流",
+          "id" : 9,
+          "title" : "Task、async/await、throws 与 Result"
+        }
+      ],
+      "metadata" : {
+        "analogy" : "可以取消的任务单",
+        "conformances" : [
+          "Sendable"
+        ],
+        "createdBy" : "源码中的初始化器、字面量或工厂方法",
+        "experimentID" : "type.Task",
+        "id" : "Task",
+        "inheritance" : [
+
+        ],
+        "kind" : "struct",
+        "methods" : [
+          {
+            "id" : "init(priority:operation:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "init(priority:operation:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "init(priority:operation:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "cancel()",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "cancel()",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "cancel()",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "sleep(nanoseconds:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "sleep(nanoseconds:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "sleep(nanoseconds:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          }
+        ],
+        "module" : "Swift",
+        "name" : "Task",
+        "ownedBy" : "当前变量或包含它的值",
+        "properties" : [
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "value",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "value",
+            "observationQuestion" : "为什么 value 不能直接赋值，应该改变哪个输入？",
+            "type" : "Success"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "result",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "result",
+            "observationQuestion" : "为什么 result 不能直接赋值，应该改变哪个输入？",
+            "type" : "Result"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "isCancelled",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "isCancelled",
+            "observationQuestion" : "为什么 isCancelled 不能直接赋值，应该改变哪个输入？",
+            "type" : "Bool"
+          }
+        ],
+        "purpose" : "管理一个结构化或非结构化异步工作单元。",
+        "relatedTypeIDs" : [
+
+        ],
+        "releasedWhen" : "值离开作用域或从容器移除时"
+      }
+    },
+    {
+      "experiment" : {
+        "compilerSample" : "enum-state-machine",
+        "control" : "stateMachine",
+        "id" : "type.Result",
+        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+      },
+      "lessons" : [
+        {
+          "coreAbility" : "能追踪成功和失败两条异步控制流",
+          "id" : 9,
+          "title" : "Task、async/await、throws 与 Result"
+        }
+      ],
+      "metadata" : {
+        "analogy" : "只装成功或失败之一的信封",
+        "conformances" : [
+          "Sendable when payloads are Sendable"
+        ],
+        "createdBy" : "源码中的初始化器、字面量或工厂方法",
+        "experimentID" : "type.Result",
+        "id" : "Result",
+        "inheritance" : [
+
+        ],
+        "kind" : "enum",
+        "methods" : [
+          {
+            "id" : "get()",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "get()",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "get()",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "map(_:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "map(_:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "map(_:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "flatMap(_:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "flatMap(_:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "flatMap(_:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "mapError(_:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "mapError(_:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "mapError(_:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          }
+        ],
+        "module" : "Swift",
+        "name" : "Result",
+        "ownedBy" : "当前变量或包含它的值",
+        "properties" : [
+
+        ],
+        "purpose" : "把成功值或失败值保存为可传递状态。",
+        "relatedTypeIDs" : [
+
+        ],
+        "releasedWhen" : "值离开作用域或从容器移除时"
+      }
+    },
+    {
+      "experiment" : {
+        "control" : "navigation",
+        "id" : "type.UIResponder",
+        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+      },
+      "lessons" : [
+        {
+          "coreAbility" : "能从进程入口追到首个可见页面",
+          "id" : 10,
+          "title" : "UIResponder → UIApplication → UIScene → UIWindow"
+        }
+      ],
+      "metadata" : {
+        "analogy" : "事件接力队员",
+        "conformances" : [
+
+        ],
+        "createdBy" : "UIKit、SceneDelegate 或页面配置代码",
+        "experimentID" : "type.UIResponder",
+        "id" : "UIResponder",
+        "inheritance" : [
+          "NSObject"
+        ],
+        "kind" : "class",
+        "methods" : [
+          {
+            "id" : "becomeFirstResponder()",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "becomeFirstResponder()",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "becomeFirstResponder()",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "resignFirstResponder()",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "resignFirstResponder()",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "resignFirstResponder()",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "touchesBegan(_:with:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "touchesBegan(_:with:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "touchesBegan(_:with:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          }
+        ],
+        "module" : "UIKit",
+        "name" : "UIResponder",
+        "ownedBy" : "创建它的强引用、UIKit 层级或业务组合根",
+        "properties" : [
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "next",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "next",
+            "observationQuestion" : "为什么 next 不能直接赋值，应该改变哪个输入？",
+            "type" : "UIResponder?"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "canBecomeFirstResponder",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "canBecomeFirstResponder",
+            "observationQuestion" : "为什么 canBecomeFirstResponder 不能直接赋值，应该改变哪个输入？",
+            "type" : "Bool"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "isFirstResponder",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "isFirstResponder",
+            "observationQuestion" : "为什么 isFirstResponder 不能直接赋值，应该改变哪个输入？",
+            "type" : "Bool"
+          }
+        ],
+        "purpose" : "构成触摸、按键和 action 的响应链节点。",
+        "relatedTypeIDs" : [
+
+        ],
+        "releasedWhen" : "最后一个强引用解除时"
+      }
+    },
+    {
+      "experiment" : {
+        "control" : "navigation",
+        "id" : "type.UIApplication",
+        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+      },
+      "lessons" : [
+        {
+          "coreAbility" : "能从进程入口追到首个可见页面",
+          "id" : 10,
+          "title" : "UIResponder → UIApplication → UIScene → UIWindow"
+        }
+      ],
+      "metadata" : {
+        "analogy" : "应用总调度台",
+        "conformances" : [
+
+        ],
+        "createdBy" : "UIKit、SceneDelegate 或页面配置代码",
+        "experimentID" : "type.UIApplication",
+        "id" : "UIApplication",
+        "inheritance" : [
+          "UIResponder"
+        ],
+        "kind" : "class",
+        "methods" : [
+          {
+            "id" : "sendAction(_:to:from:for:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "sendAction(_:to:from:for:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "sendAction(_:to:from:for:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "open(_:options:completionHandler:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "open(_:options:completionHandler:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "open(_:options:completionHandler:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          }
+        ],
+        "module" : "UIKit",
+        "name" : "UIApplication",
+        "ownedBy" : "创建它的强引用、UIKit 层级或业务组合根",
+        "properties" : [
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "shared",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "shared",
+            "observationQuestion" : "为什么 shared 不能直接赋值，应该改变哪个输入？",
+            "type" : "UIApplication"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "connectedScenes",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "connectedScenes",
+            "observationQuestion" : "为什么 connectedScenes 不能直接赋值，应该改变哪个输入？",
+            "type" : "Set<UIScene>"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "applicationState",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "applicationState",
+            "observationQuestion" : "为什么 applicationState 不能直接赋值，应该改变哪个输入？",
+            "type" : "State"
+          }
+        ],
+        "purpose" : "代表应用进程并协调 scene、事件与系统状态。",
+        "relatedTypeIDs" : [
+
+        ],
+        "releasedWhen" : "最后一个强引用解除时"
+      }
+    },
+    {
+      "experiment" : {
+        "control" : "navigation",
+        "id" : "type.UIScene",
+        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+      },
+      "lessons" : [
+        {
+          "coreAbility" : "能从进程入口追到首个可见页面",
+          "id" : 10,
+          "title" : "UIResponder → UIApplication → UIScene → UIWindow"
+        }
+      ],
+      "metadata" : {
+        "analogy" : "一场独立舞台演出",
+        "conformances" : [
+
+        ],
+        "createdBy" : "UIKit、SceneDelegate 或页面配置代码",
+        "experimentID" : "type.UIScene",
+        "id" : "UIScene",
+        "inheritance" : [
+          "UIResponder"
+        ],
+        "kind" : "class",
+        "methods" : [
+          {
+            "id" : "init(session:connectionOptions:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "init(session:connectionOptions:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "init(session:connectionOptions:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "open(_:options:completionHandler:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "open(_:options:completionHandler:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "open(_:options:completionHandler:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          }
+        ],
+        "module" : "UIKit",
+        "name" : "UIScene",
+        "ownedBy" : "创建它的强引用、UIKit 层级或业务组合根",
+        "properties" : [
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "delegate",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "delegate",
+            "observationQuestion" : "修改 delegate 后，预览和日志分别发生什么变化？",
+            "type" : "UISceneDelegate?"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "title",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "title",
+            "observationQuestion" : "修改 title 后，预览和日志分别发生什么变化？",
+            "type" : "String?"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "session",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "session",
+            "observationQuestion" : "为什么 session 不能直接赋值，应该改变哪个输入？",
+            "type" : "UISceneSession"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "activationState",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "activationState",
+            "observationQuestion" : "为什么 activationState 不能直接赋值，应该改变哪个输入？",
+            "type" : "ActivationState"
+          }
+        ],
+        "purpose" : "表示应用界面的一次独立系统会话。",
+        "relatedTypeIDs" : [
+
+        ],
+        "releasedWhen" : "最后一个强引用解除时"
+      }
+    },
+    {
+      "experiment" : {
+        "control" : "navigation",
+        "id" : "type.UIWindow",
+        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+      },
+      "lessons" : [
+        {
+          "coreAbility" : "能从进程入口追到首个可见页面",
+          "id" : 10,
+          "title" : "UIResponder → UIApplication → UIScene → UIWindow"
+        }
+      ],
+      "metadata" : {
+        "analogy" : "装舞台的窗框",
+        "conformances" : [
+
+        ],
+        "createdBy" : "UIKit、SceneDelegate 或页面配置代码",
+        "experimentID" : "type.UIWindow",
+        "id" : "UIWindow",
+        "inheritance" : [
+          "UIView"
+        ],
+        "kind" : "class",
+        "methods" : [
+          {
+            "id" : "makeKeyAndVisible()",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "makeKeyAndVisible()",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "makeKeyAndVisible()",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "makeKey()",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "makeKey()",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "makeKey()",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "resignKey()",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "resignKey()",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "resignKey()",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          }
+        ],
+        "module" : "UIKit",
+        "name" : "UIWindow",
+        "ownedBy" : "创建它的强引用、UIKit 层级或业务组合根",
+        "properties" : [
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "windowScene",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "windowScene",
+            "observationQuestion" : "修改 windowScene 后，预览和日志分别发生什么变化？",
+            "type" : "UIWindowScene?"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "rootViewController",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "rootViewController",
+            "observationQuestion" : "修改 rootViewController 后，预览和日志分别发生什么变化？",
+            "type" : "UIViewController?"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "windowLevel",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "windowLevel",
+            "observationQuestion" : "修改 windowLevel 后，预览和日志分别发生什么变化？",
+            "type" : "Level"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "isKeyWindow",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "isKeyWindow",
+            "observationQuestion" : "为什么 isKeyWindow 不能直接赋值，应该改变哪个输入？",
+            "type" : "Bool"
+          }
+        ],
+        "purpose" : "把控制器树接入某个 UIWindowScene 并显示。",
+        "relatedTypeIDs" : [
+          "UIScene",
+          "UIViewController"
+        ],
+        "releasedWhen" : "最后一个强引用解除时"
+      }
+    },
+    {
+      "experiment" : {
+        "control" : "viewAppearance",
+        "id" : "type.UIView",
+        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+      },
+      "lessons" : [
+        {
+          "coreAbility" : "能解释 frame 与 bounds，并用三种方式改外观",
+          "id" : 11,
+          "title" : "UIView 几何、外观与层级"
+        }
+      ],
+      "metadata" : {
+        "analogy" : "贴在画布上的透明卡片",
+        "conformances" : [
+
+        ],
+        "createdBy" : "UIKit、SceneDelegate 或页面配置代码",
+        "experimentID" : "type.UIView",
+        "id" : "UIView",
+        "inheritance" : [
+          "UIResponder"
+        ],
+        "kind" : "class",
+        "methods" : [
+          {
+            "id" : "addSubview(_:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "addSubview(_:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "addSubview(_:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "removeFromSuperview()",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "removeFromSuperview()",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "removeFromSuperview()",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "layoutIfNeeded()",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "layoutIfNeeded()",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "layoutIfNeeded()",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          }
+        ],
+        "module" : "UIKit",
+        "name" : "UIView",
+        "ownedBy" : "创建它的强引用、UIKit 层级或业务组合根",
+        "properties" : [
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "frame",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "frame",
+            "observationQuestion" : "修改 frame 后，预览和日志分别发生什么变化？",
+            "type" : "CGRect"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "bounds",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "bounds",
+            "observationQuestion" : "修改 bounds 后，预览和日志分别发生什么变化？",
+            "type" : "CGRect"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "center",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "center",
+            "observationQuestion" : "修改 center 后，预览和日志分别发生什么变化？",
+            "type" : "CGPoint"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "alpha",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "alpha",
+            "observationQuestion" : "修改 alpha 后，预览和日志分别发生什么变化？",
+            "type" : "CGFloat"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "isHidden",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "isHidden",
+            "observationQuestion" : "修改 isHidden 后，预览和日志分别发生什么变化？",
+            "type" : "Bool"
+          }
+        ],
+        "purpose" : "管理矩形区域、绘制、层级和布局。",
+        "relatedTypeIDs" : [
+          "NSLayoutConstraint"
+        ],
+        "releasedWhen" : "最后一个强引用解除时"
+      }
+    },
+    {
+      "experiment" : {
+        "control" : "viewAppearance",
+        "id" : "type.NSLayoutAnchor",
+        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+      },
+      "lessons" : [
+        {
+          "coreAbility" : "能写出一组不冲突的约束",
+          "id" : 12,
+          "title" : "Auto Layout、anchor 与 UIStackView"
+        }
+      ],
+      "metadata" : {
+        "analogy" : "只连接同类尺寸的卡扣",
+        "conformances" : [
+
+        ],
+        "createdBy" : "UIKit、SceneDelegate 或页面配置代码",
+        "experimentID" : "type.NSLayoutAnchor",
+        "id" : "NSLayoutAnchor",
+        "inheritance" : [
+          "NSObject"
+        ],
+        "kind" : "class",
+        "methods" : [
+          {
+            "id" : "constraint(equalTo:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "constraint(equalTo:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "constraint(equalTo:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "constraint(equalTo:constant:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "constraint(equalTo:constant:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "constraint(equalTo:constant:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "constraint(greaterThanOrEqualTo:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "constraint(greaterThanOrEqualTo:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "constraint(greaterThanOrEqualTo:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          }
+        ],
+        "module" : "UIKit",
+        "name" : "NSLayoutAnchor",
+        "ownedBy" : "创建它的强引用、UIKit 层级或业务组合根",
+        "properties" : [
+
+        ],
+        "purpose" : "以类型安全方式创建某一轴或尺寸的约束。",
+        "relatedTypeIDs" : [
+
+        ],
+        "releasedWhen" : "最后一个强引用解除时"
+      }
+    },
+    {
+      "experiment" : {
+        "control" : "viewAppearance",
+        "id" : "type.NSLayoutConstraint",
+        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+      },
+      "lessons" : [
+        {
+          "coreAbility" : "能写出一组不冲突的约束",
+          "id" : 12,
+          "title" : "Auto Layout、anchor 与 UIStackView"
+        }
+      ],
+      "metadata" : {
+        "analogy" : "布局方程",
+        "conformances" : [
+
+        ],
+        "createdBy" : "UIKit、SceneDelegate 或页面配置代码",
+        "experimentID" : "type.NSLayoutConstraint",
+        "id" : "NSLayoutConstraint",
+        "inheritance" : [
+          "NSObject"
+        ],
+        "kind" : "class",
+        "methods" : [
+          {
+            "id" : "activate(_:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "activate(_:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "activate(_:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "deactivate(_:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "deactivate(_:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "deactivate(_:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          }
+        ],
+        "module" : "UIKit",
+        "name" : "NSLayoutConstraint",
+        "ownedBy" : "创建它的强引用、UIKit 层级或业务组合根",
+        "properties" : [
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "isActive",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "isActive",
+            "observationQuestion" : "修改 isActive 后，预览和日志分别发生什么变化？",
+            "type" : "Bool"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "constant",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "constant",
+            "observationQuestion" : "修改 constant 后，预览和日志分别发生什么变化？",
+            "type" : "CGFloat"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "priority",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "priority",
+            "observationQuestion" : "修改 priority 后，预览和日志分别发生什么变化？",
+            "type" : "UILayoutPriority"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "firstItem",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "firstItem",
+            "observationQuestion" : "为什么 firstItem 不能直接赋值，应该改变哪个输入？",
+            "type" : "AnyObject?"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "secondItem",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "secondItem",
+            "observationQuestion" : "为什么 secondItem 不能直接赋值，应该改变哪个输入？",
+            "type" : "AnyObject?"
+          }
+        ],
+        "purpose" : "描述两个布局属性之间的方程和优先级。",
+        "relatedTypeIDs" : [
+
+        ],
+        "releasedWhen" : "最后一个强引用解除时"
+      }
+    },
+    {
+      "experiment" : {
+        "control" : "viewAppearance",
+        "id" : "type.UIStackView",
+        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+      },
+      "lessons" : [
+        {
+          "coreAbility" : "能写出一组不冲突的约束",
+          "id" : 12,
+          "title" : "Auto Layout、anchor 与 UIStackView"
+        }
+      ],
+      "metadata" : {
+        "analogy" : "自动排队的展示架",
+        "conformances" : [
+
+        ],
+        "createdBy" : "UIKit、SceneDelegate 或页面配置代码",
+        "experimentID" : "type.UIStackView",
+        "id" : "UIStackView",
+        "inheritance" : [
+          "UIView"
+        ],
+        "kind" : "class",
+        "methods" : [
+          {
+            "id" : "addArrangedSubview(_:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "addArrangedSubview(_:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "addArrangedSubview(_:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "removeArrangedSubview(_:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "removeArrangedSubview(_:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "removeArrangedSubview(_:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "insertArrangedSubview(_:at:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "insertArrangedSubview(_:at:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "insertArrangedSubview(_:at:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          }
+        ],
+        "module" : "UIKit",
+        "name" : "UIStackView",
+        "ownedBy" : "创建它的强引用、UIKit 层级或业务组合根",
+        "properties" : [
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "axis",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "axis",
+            "observationQuestion" : "修改 axis 后，预览和日志分别发生什么变化？",
+            "type" : "NSLayoutConstraint.Axis"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "spacing",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "spacing",
+            "observationQuestion" : "修改 spacing 后，预览和日志分别发生什么变化？",
+            "type" : "CGFloat"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "alignment",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "alignment",
+            "observationQuestion" : "修改 alignment 后，预览和日志分别发生什么变化？",
+            "type" : "Alignment"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "distribution",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "distribution",
+            "observationQuestion" : "修改 distribution 后，预览和日志分别发生什么变化？",
+            "type" : "Distribution"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "arrangedSubviews",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "arrangedSubviews",
+            "observationQuestion" : "为什么 arrangedSubviews 不能直接赋值，应该改变哪个输入？",
+            "type" : "[UIView]"
+          }
+        ],
+        "purpose" : "按轴自动排列 arrangedSubviews 并管理间距。",
+        "relatedTypeIDs" : [
+
+        ],
+        "releasedWhen" : "最后一个强引用解除时"
+      }
+    },
+    {
+      "experiment" : {
+        "control" : "navigation",
+        "id" : "type.UIViewController",
+        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+      },
+      "lessons" : [
+        {
+          "coreAbility" : "能区分创建、加载、出现和离开",
+          "id" : 13,
+          "title" : "UIViewController 与生命周期"
+        }
+      ],
+      "metadata" : {
+        "analogy" : "一页内容的导演",
+        "conformances" : [
+
+        ],
+        "createdBy" : "UIKit、SceneDelegate 或页面配置代码",
+        "experimentID" : "type.UIViewController",
+        "id" : "UIViewController",
+        "inheritance" : [
+          "UIResponder"
+        ],
+        "kind" : "class",
+        "methods" : [
+          {
+            "id" : "loadView()",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "loadView()",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "loadView()",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "viewDidLoad()",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "viewDidLoad()",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "viewDidLoad()",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "present(_:animated:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "present(_:animated:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "present(_:animated:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "dismiss(animated:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "dismiss(animated:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "dismiss(animated:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          }
+        ],
+        "module" : "UIKit",
+        "name" : "UIViewController",
+        "ownedBy" : "创建它的强引用、UIKit 层级或业务组合根",
+        "properties" : [
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "view",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "view",
+            "observationQuestion" : "修改 view 后，预览和日志分别发生什么变化？",
+            "type" : "UIView!"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "title",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "title",
+            "observationQuestion" : "修改 title 后，预览和日志分别发生什么变化？",
+            "type" : "String?"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "preferredContentSize",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "preferredContentSize",
+            "observationQuestion" : "修改 preferredContentSize 后，预览和日志分别发生什么变化？",
+            "type" : "CGSize"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "navigationItem",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "navigationItem",
+            "observationQuestion" : "为什么 navigationItem 不能直接赋值，应该改变哪个输入？",
+            "type" : "UINavigationItem"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "isViewLoaded",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "isViewLoaded",
+            "observationQuestion" : "为什么 isViewLoaded 不能直接赋值，应该改变哪个输入？",
+            "type" : "Bool"
+          }
+        ],
+        "purpose" : "管理一棵 view 并协调出现、离开和展示。",
+        "relatedTypeIDs" : [
+          "UINavigationItem"
+        ],
+        "releasedWhen" : "最后一个强引用解除时"
+      }
+    },
+    {
+      "experiment" : {
+        "control" : "navigation",
+        "id" : "type.UINavigationItem",
+        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+      },
+      "lessons" : [
+        {
+          "coreAbility" : "能区分创建、加载、出现和离开",
+          "id" : 13,
+          "title" : "UIViewController 与生命周期"
+        }
+      ],
+      "metadata" : {
+        "analogy" : "页面交给导航栏的名片",
+        "conformances" : [
+
+        ],
+        "createdBy" : "UIKit、SceneDelegate 或页面配置代码",
+        "experimentID" : "type.UINavigationItem",
+        "id" : "UINavigationItem",
+        "inheritance" : [
+          "NSObject"
+        ],
+        "kind" : "class",
+        "methods" : [
+          {
+            "id" : "setLeftBarButton(_:animated:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "setLeftBarButton(_:animated:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "setLeftBarButton(_:animated:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "setRightBarButton(_:animated:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "setRightBarButton(_:animated:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "setRightBarButton(_:animated:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          }
+        ],
+        "module" : "UIKit",
+        "name" : "UINavigationItem",
+        "ownedBy" : "创建它的强引用、UIKit 层级或业务组合根",
+        "properties" : [
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "title",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "title",
+            "observationQuestion" : "修改 title 后，预览和日志分别发生什么变化？",
+            "type" : "String?"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "leftBarButtonItem",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "leftBarButtonItem",
+            "observationQuestion" : "修改 leftBarButtonItem 后，预览和日志分别发生什么变化？",
+            "type" : "UIBarButtonItem?"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "rightBarButtonItem",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "rightBarButtonItem",
+            "observationQuestion" : "修改 rightBarButtonItem 后，预览和日志分别发生什么变化？",
+            "type" : "UIBarButtonItem?"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "searchController",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "searchController",
+            "observationQuestion" : "修改 searchController 后，预览和日志分别发生什么变化？",
+            "type" : "UISearchController?"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "backBarButtonItem",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "backBarButtonItem",
+            "observationQuestion" : "修改 backBarButtonItem 后，预览和日志分别发生什么变化？",
+            "type" : "UIBarButtonItem?"
+          }
+        ],
+        "purpose" : "保存某个页面在 navigation bar 上的展示配置。",
+        "relatedTypeIDs" : [
+
+        ],
+        "releasedWhen" : "最后一个强引用解除时"
+      }
+    },
+    {
+      "experiment" : {
+        "control" : "navigation",
+        "id" : "type.UINavigationController",
+        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+      },
+      "lessons" : [
+        {
+          "coreAbility" : "能解释 push/pop 后实例是否仍存在",
+          "id" : 14,
+          "title" : "UINavigationController 与页面身份"
+        }
+      ],
+      "metadata" : {
+        "analogy" : "后进先出的页面栈",
+        "conformances" : [
+
+        ],
+        "createdBy" : "UIKit、SceneDelegate 或页面配置代码",
+        "experimentID" : "type.UINavigationController",
+        "id" : "UINavigationController",
+        "inheritance" : [
+          "UIViewController"
+        ],
+        "kind" : "class",
+        "methods" : [
+          {
+            "id" : "pushViewController(_:animated:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "pushViewController(_:animated:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "pushViewController(_:animated:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "popViewController(animated:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "popViewController(animated:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "popViewController(animated:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "setViewControllers(_:animated:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "setViewControllers(_:animated:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "setViewControllers(_:animated:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          }
+        ],
+        "module" : "UIKit",
+        "name" : "UINavigationController",
+        "ownedBy" : "创建它的强引用、UIKit 层级或业务组合根",
+        "properties" : [
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "viewControllers",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "viewControllers",
+            "observationQuestion" : "修改 viewControllers 后，预览和日志分别发生什么变化？",
+            "type" : "[UIViewController]"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "isNavigationBarHidden",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "isNavigationBarHidden",
+            "observationQuestion" : "修改 isNavigationBarHidden 后，预览和日志分别发生什么变化？",
+            "type" : "Bool"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "delegate",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "delegate",
+            "observationQuestion" : "修改 delegate 后，预览和日志分别发生什么变化？",
+            "type" : "UINavigationControllerDelegate?"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "topViewController",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "topViewController",
+            "observationQuestion" : "为什么 topViewController 不能直接赋值，应该改变哪个输入？",
+            "type" : "UIViewController?"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "visibleViewController",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "visibleViewController",
+            "observationQuestion" : "为什么 visibleViewController 不能直接赋值，应该改变哪个输入？",
+            "type" : "UIViewController?"
+          }
+        ],
+        "purpose" : "用栈保存页面实例并提供 push/pop 导航。",
+        "relatedTypeIDs" : [
+
+        ],
+        "releasedWhen" : "最后一个强引用解除时"
+      }
+    },
+    {
+      "experiment" : {
+        "control" : "viewAppearance",
+        "id" : "type.UILabel",
+        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+      },
+      "lessons" : [
+        {
+          "coreAbility" : "能配置常见展示属性并解释 contentMode",
+          "id" : 15,
+          "title" : "UILabel 与 UIImageView"
+        }
+      ],
+      "metadata" : {
+        "analogy" : "屏幕上的文字牌",
+        "conformances" : [
+
+        ],
+        "createdBy" : "UIKit、SceneDelegate 或页面配置代码",
+        "experimentID" : "type.UILabel",
+        "id" : "UILabel",
+        "inheritance" : [
+          "UIView"
+        ],
+        "kind" : "class",
+        "methods" : [
+          {
+            "id" : "sizeToFit()",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "sizeToFit()",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "sizeToFit()",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "drawText(in:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "drawText(in:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "drawText(in:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          }
+        ],
+        "module" : "UIKit",
+        "name" : "UILabel",
+        "ownedBy" : "创建它的强引用、UIKit 层级或业务组合根",
+        "properties" : [
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "text",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "text",
+            "observationQuestion" : "修改 text 后，预览和日志分别发生什么变化？",
+            "type" : "String?"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "font",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "font",
+            "observationQuestion" : "修改 font 后，预览和日志分别发生什么变化？",
+            "type" : "UIFont!"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "textColor",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "textColor",
+            "observationQuestion" : "修改 textColor 后，预览和日志分别发生什么变化？",
+            "type" : "UIColor!"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "numberOfLines",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "numberOfLines",
+            "observationQuestion" : "修改 numberOfLines 后，预览和日志分别发生什么变化？",
+            "type" : "Int"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "textAlignment",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "textAlignment",
+            "observationQuestion" : "修改 textAlignment 后，预览和日志分别发生什么变化？",
+            "type" : "NSTextAlignment"
+          }
+        ],
+        "purpose" : "展示一段不可直接编辑的文字。",
+        "relatedTypeIDs" : [
+
+        ],
+        "releasedWhen" : "最后一个强引用解除时"
+      }
+    },
+    {
+      "experiment" : {
+        "control" : "viewAppearance",
+        "id" : "type.UIImageView",
+        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+      },
+      "lessons" : [
+        {
+          "coreAbility" : "能配置常见展示属性并解释 contentMode",
+          "id" : 15,
+          "title" : "UILabel 与 UIImageView"
+        }
+      ],
+      "metadata" : {
+        "analogy" : "带缩放规则的相框",
+        "conformances" : [
+
+        ],
+        "createdBy" : "UIKit、SceneDelegate 或页面配置代码",
+        "experimentID" : "type.UIImageView",
+        "id" : "UIImageView",
+        "inheritance" : [
+          "UIView"
+        ],
+        "kind" : "class",
+        "methods" : [
+          {
+            "id" : "startAnimating()",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "startAnimating()",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "startAnimating()",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "stopAnimating()",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "stopAnimating()",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "stopAnimating()",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          }
+        ],
+        "module" : "UIKit",
+        "name" : "UIImageView",
+        "ownedBy" : "创建它的强引用、UIKit 层级或业务组合根",
+        "properties" : [
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "image",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "image",
+            "observationQuestion" : "修改 image 后，预览和日志分别发生什么变化？",
+            "type" : "UIImage?"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "highlightedImage",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "highlightedImage",
+            "observationQuestion" : "修改 highlightedImage 后，预览和日志分别发生什么变化？",
+            "type" : "UIImage?"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "isHighlighted",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "isHighlighted",
+            "observationQuestion" : "修改 isHighlighted 后，预览和日志分别发生什么变化？",
+            "type" : "Bool"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "contentMode",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "contentMode",
+            "observationQuestion" : "修改 contentMode 后，预览和日志分别发生什么变化？",
+            "type" : "UIView.ContentMode"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "animationImages",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "animationImages",
+            "observationQuestion" : "修改 animationImages 后，预览和日志分别发生什么变化？",
+            "type" : "[UIImage]?"
+          }
+        ],
+        "purpose" : "展示 UIImage 并控制其缩放与裁切方式。",
+        "relatedTypeIDs" : [
+
+        ],
+        "releasedWhen" : "最后一个强引用解除时"
+      }
+    },
+    {
+      "experiment" : {
+        "control" : "button",
+        "id" : "type.UIControl",
+        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+      },
+      "lessons" : [
+        {
+          "coreAbility" : "能证明禁用控件不会发送 action",
+          "id" : 16,
+          "title" : "UIButton、UIControl 与 target-action"
+        }
+      ],
+      "metadata" : {
+        "analogy" : "带事件线路的开关",
+        "conformances" : [
+
+        ],
+        "createdBy" : "UIKit、SceneDelegate 或页面配置代码",
+        "experimentID" : "type.UIControl",
+        "id" : "UIControl",
+        "inheritance" : [
+          "UIView"
+        ],
+        "kind" : "class",
+        "methods" : [
+          {
+            "id" : "addTarget(_:action:for:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "addTarget(_:action:for:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "addTarget(_:action:for:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "sendActions(for:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "sendActions(for:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "sendActions(for:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "removeTarget(_:action:for:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "removeTarget(_:action:for:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "removeTarget(_:action:for:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          }
+        ],
+        "module" : "UIKit",
+        "name" : "UIControl",
+        "ownedBy" : "创建它的强引用、UIKit 层级或业务组合根",
+        "properties" : [
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "isEnabled",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "isEnabled",
+            "observationQuestion" : "修改 isEnabled 后，预览和日志分别发生什么变化？",
+            "type" : "Bool"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "isSelected",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "isSelected",
+            "observationQuestion" : "修改 isSelected 后，预览和日志分别发生什么变化？",
+            "type" : "Bool"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "isHighlighted",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "isHighlighted",
+            "observationQuestion" : "修改 isHighlighted 后，预览和日志分别发生什么变化？",
+            "type" : "Bool"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "allControlEvents",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "allControlEvents",
+            "observationQuestion" : "为什么 allControlEvents 不能直接赋值，应该改变哪个输入？",
+            "type" : "Event"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "allTargets",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "allTargets",
+            "observationQuestion" : "为什么 allTargets 不能直接赋值，应该改变哪个输入？",
+            "type" : "Set<AnyHashable>"
+          }
+        ],
+        "purpose" : "把触摸等事件转换为可注册的 action。",
+        "relatedTypeIDs" : [
+
+        ],
+        "releasedWhen" : "最后一个强引用解除时"
+      }
+    },
+    {
+      "experiment" : {
+        "control" : "button",
+        "id" : "type.UIButton",
+        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+      },
+      "lessons" : [
+        {
+          "coreAbility" : "能证明禁用控件不会发送 action",
+          "id" : 16,
+          "title" : "UIButton、UIControl 与 target-action"
+        }
+      ],
+      "metadata" : {
+        "analogy" : "会汇报点击的按钮",
+        "conformances" : [
+
+        ],
+        "createdBy" : "UIKit、SceneDelegate 或页面配置代码",
+        "experimentID" : "type.UIButton",
+        "id" : "UIButton",
+        "inheritance" : [
+          "UIControl"
+        ],
+        "kind" : "class",
+        "methods" : [
+          {
+            "id" : "setTitle(_:for:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "setTitle(_:for:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "setTitle(_:for:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "setImage(_:for:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "setImage(_:for:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "setImage(_:for:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "addAction(_:for:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "addAction(_:for:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "addAction(_:for:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          }
+        ],
+        "module" : "UIKit",
+        "name" : "UIButton",
+        "ownedBy" : "创建它的强引用、UIKit 层级或业务组合根",
+        "properties" : [
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "configuration",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "configuration",
+            "observationQuestion" : "修改 configuration 后，预览和日志分别发生什么变化？",
+            "type" : "Configuration?"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "isEnabled",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "isEnabled",
+            "observationQuestion" : "修改 isEnabled 后，预览和日志分别发生什么变化？",
+            "type" : "Bool"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "isSelected",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "isSelected",
+            "observationQuestion" : "修改 isSelected 后，预览和日志分别发生什么变化？",
+            "type" : "Bool"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "role",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "role",
+            "observationQuestion" : "修改 role 后，预览和日志分别发生什么变化？",
+            "type" : "Role"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "buttonType",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "buttonType",
+            "observationQuestion" : "为什么 buttonType 不能直接赋值，应该改变哪个输入？",
+            "type" : "ButtonType"
+          }
+        ],
+        "purpose" : "提供可配置、可禁用并能发送 action 的按钮。",
+        "relatedTypeIDs" : [
+          "UIButton.Configuration"
+        ],
+        "releasedWhen" : "最后一个强引用解除时"
+      }
+    },
+    {
+      "experiment" : {
+        "control" : "button",
+        "id" : "type.UIButton.Configuration",
+        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+      },
+      "lessons" : [
+        {
+          "coreAbility" : "能证明禁用控件不会发送 action",
+          "id" : 16,
+          "title" : "UIButton、UIControl 与 target-action"
+        }
+      ],
+      "metadata" : {
+        "analogy" : "按钮的样式清单",
+        "conformances" : [
+
+        ],
+        "createdBy" : "UIKit、SceneDelegate 或页面配置代码",
+        "experimentID" : "type.UIButton.Configuration",
+        "id" : "UIButton.Configuration",
+        "inheritance" : [
+
+        ],
+        "kind" : "struct",
+        "methods" : [
+          {
+            "id" : "plain()",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "plain()",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "plain()",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "bordered()",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "bordered()",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "bordered()",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "filled()",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "filled()",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "filled()",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "tinted()",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "tinted()",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "tinted()",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          }
+        ],
+        "module" : "UIKit",
+        "name" : "UIButton.Configuration",
+        "ownedBy" : "当前变量或包含它的值",
+        "properties" : [
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "title",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "title",
+            "observationQuestion" : "修改 title 后，预览和日志分别发生什么变化？",
+            "type" : "String?"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "image",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "image",
+            "observationQuestion" : "修改 image 后，预览和日志分别发生什么变化？",
+            "type" : "UIImage?"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "baseForegroundColor",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "baseForegroundColor",
+            "observationQuestion" : "修改 baseForegroundColor 后，预览和日志分别发生什么变化？",
+            "type" : "UIColor?"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "baseBackgroundColor",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "baseBackgroundColor",
+            "observationQuestion" : "修改 baseBackgroundColor 后，预览和日志分别发生什么变化？",
+            "type" : "UIColor?"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "cornerStyle",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "cornerStyle",
+            "observationQuestion" : "修改 cornerStyle 后，预览和日志分别发生什么变化？",
+            "type" : "CornerStyle"
+          }
+        ],
+        "purpose" : "以值类型集中描述按钮标题、图标、颜色和尺寸。",
+        "relatedTypeIDs" : [
+
+        ],
+        "releasedWhen" : "值离开作用域或从容器移除时"
+      }
+    },
+    {
+      "experiment" : {
+        "control" : "textInput",
+        "id" : "type.UITextField",
+        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+      },
+      "lessons" : [
+        {
+          "coreAbility" : "能追踪 delegate、control event 和第一响应者顺序",
+          "id" : 17,
+          "title" : "UITextField、UITextView 与键盘"
+        }
+      ],
+      "metadata" : {
+        "analogy" : "单行填写框",
+        "conformances" : [
+
+        ],
+        "createdBy" : "UIKit、SceneDelegate 或页面配置代码",
+        "experimentID" : "type.UITextField",
+        "id" : "UITextField",
+        "inheritance" : [
+          "UIControl"
+        ],
+        "kind" : "class",
+        "methods" : [
+          {
+            "id" : "becomeFirstResponder()",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "becomeFirstResponder()",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "becomeFirstResponder()",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "resignFirstResponder()",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "resignFirstResponder()",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "resignFirstResponder()",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "addTarget(_:action:for:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "addTarget(_:action:for:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "addTarget(_:action:for:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          }
+        ],
+        "module" : "UIKit",
+        "name" : "UITextField",
+        "ownedBy" : "创建它的强引用、UIKit 层级或业务组合根",
+        "properties" : [
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "text",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "text",
+            "observationQuestion" : "修改 text 后，预览和日志分别发生什么变化？",
+            "type" : "String?"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "placeholder",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "placeholder",
+            "observationQuestion" : "修改 placeholder 后，预览和日志分别发生什么变化？",
+            "type" : "String?"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "delegate",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "delegate",
+            "observationQuestion" : "修改 delegate 后，预览和日志分别发生什么变化？",
+            "type" : "UITextFieldDelegate?"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "isSecureTextEntry",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "isSecureTextEntry",
+            "observationQuestion" : "修改 isSecureTextEntry 后，预览和日志分别发生什么变化？",
+            "type" : "Bool"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "returnKeyType",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "returnKeyType",
+            "observationQuestion" : "修改 returnKeyType 后，预览和日志分别发生什么变化？",
+            "type" : "UIReturnKeyType"
+          }
+        ],
+        "purpose" : "接收单行文本并参与第一响应者和 delegate 流程。",
+        "relatedTypeIDs" : [
+          "UITextFieldDelegate"
+        ],
+        "releasedWhen" : "最后一个强引用解除时"
+      }
+    },
+    {
+      "experiment" : {
+        "control" : "textInput",
+        "id" : "type.UITextView",
+        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+      },
+      "lessons" : [
+        {
+          "coreAbility" : "能追踪 delegate、control event 和第一响应者顺序",
+          "id" : 17,
+          "title" : "UITextField、UITextView 与键盘"
+        }
+      ],
+      "metadata" : {
+        "analogy" : "可滚动的多行稿纸",
+        "conformances" : [
+
+        ],
+        "createdBy" : "UIKit、SceneDelegate 或页面配置代码",
+        "experimentID" : "type.UITextView",
+        "id" : "UITextView",
+        "inheritance" : [
+          "UIScrollView"
+        ],
+        "kind" : "class",
+        "methods" : [
+          {
+            "id" : "scrollRangeToVisible(_:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "scrollRangeToVisible(_:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "scrollRangeToVisible(_:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "replace(_:withText:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "replace(_:withText:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "replace(_:withText:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "becomeFirstResponder()",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "becomeFirstResponder()",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "becomeFirstResponder()",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          }
+        ],
+        "module" : "UIKit",
+        "name" : "UITextView",
+        "ownedBy" : "创建它的强引用、UIKit 层级或业务组合根",
+        "properties" : [
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "text",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "text",
+            "observationQuestion" : "修改 text 后，预览和日志分别发生什么变化？",
+            "type" : "String!"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "font",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "font",
+            "observationQuestion" : "修改 font 后，预览和日志分别发生什么变化？",
+            "type" : "UIFont?"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "textColor",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "textColor",
+            "observationQuestion" : "修改 textColor 后，预览和日志分别发生什么变化？",
+            "type" : "UIColor?"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "delegate",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "delegate",
+            "observationQuestion" : "修改 delegate 后，预览和日志分别发生什么变化？",
+            "type" : "UITextViewDelegate?"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "isEditable",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "isEditable",
+            "observationQuestion" : "修改 isEditable 后，预览和日志分别发生什么变化？",
+            "type" : "Bool"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "selectedRange",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "selectedRange",
+            "observationQuestion" : "修改 selectedRange 后，预览和日志分别发生什么变化？",
+            "type" : "NSRange"
+          }
+        ],
+        "purpose" : "编辑和滚动多行富文本。",
+        "relatedTypeIDs" : [
+          "UITextViewDelegate"
+        ],
+        "releasedWhen" : "最后一个强引用解除时"
+      }
+    },
+    {
+      "experiment" : {
+        "control" : "textInput",
+        "id" : "type.UITextFieldDelegate",
+        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+      },
+      "lessons" : [
+        {
+          "coreAbility" : "能追踪 delegate、control event 和第一响应者顺序",
+          "id" : 17,
+          "title" : "UITextField、UITextView 与键盘"
+        }
+      ],
+      "metadata" : {
+        "analogy" : "单行输入框的观察员",
+        "conformances" : [
+
+        ],
+        "createdBy" : "UIKit、SceneDelegate 或页面配置代码",
+        "experimentID" : "type.UITextFieldDelegate",
+        "id" : "UITextFieldDelegate",
+        "inheritance" : [
+          "NSObjectProtocol"
+        ],
+        "kind" : "protocol",
+        "methods" : [
+          {
+            "id" : "textField(_:shouldChangeCharactersIn:replacementString:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "textField(_:shouldChangeCharactersIn:replacementString:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "textField(_:shouldChangeCharactersIn:replacementString:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "textFieldShouldReturn(_:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "textFieldShouldReturn(_:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "textFieldShouldReturn(_:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "textFieldDidEndEditing(_:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "textFieldDidEndEditing(_:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "textFieldDidEndEditing(_:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          }
+        ],
+        "module" : "UIKit",
+        "name" : "UITextFieldDelegate",
+        "ownedBy" : "当前变量或包含它的值",
+        "properties" : [
+
+        ],
+        "purpose" : "在文本变化、Return 和结束编辑前后提供决策与通知。",
+        "relatedTypeIDs" : [
+
+        ],
+        "releasedWhen" : "值离开作用域或从容器移除时"
+      }
+    },
+    {
+      "experiment" : {
+        "control" : "textInput",
+        "id" : "type.UITextViewDelegate",
+        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+      },
+      "lessons" : [
+        {
+          "coreAbility" : "能追踪 delegate、control event 和第一响应者顺序",
+          "id" : 17,
+          "title" : "UITextField、UITextView 与键盘"
+        }
+      ],
+      "metadata" : {
+        "analogy" : "多行输入框的观察员",
+        "conformances" : [
+
+        ],
+        "createdBy" : "UIKit、SceneDelegate 或页面配置代码",
+        "experimentID" : "type.UITextViewDelegate",
+        "id" : "UITextViewDelegate",
+        "inheritance" : [
+          "NSObjectProtocol"
+        ],
+        "kind" : "protocol",
+        "methods" : [
+          {
+            "id" : "textViewDidChange(_:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "textViewDidChange(_:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "textViewDidChange(_:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "textViewDidBeginEditing(_:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "textViewDidBeginEditing(_:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "textViewDidBeginEditing(_:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "textView(_:shouldChangeTextIn:replacementText:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "textView(_:shouldChangeTextIn:replacementText:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "textView(_:shouldChangeTextIn:replacementText:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          }
+        ],
+        "module" : "UIKit",
+        "name" : "UITextViewDelegate",
+        "ownedBy" : "当前变量或包含它的值",
+        "properties" : [
+
+        ],
+        "purpose" : "接收 UITextView 编辑、选择和链接交互回调。",
+        "relatedTypeIDs" : [
+
+        ],
+        "releasedWhen" : "值离开作用域或从容器移除时"
+      }
+    },
+    {
+      "experiment" : {
+        "control" : "collection",
+        "id" : "type.UIScrollView",
+        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+      },
+      "lessons" : [
+        {
+          "coreAbility" : "能解释可见区域与 cell 复用",
+          "id" : 18,
+          "title" : "UIScrollView、UICollectionView 与复用"
+        }
+      ],
+      "metadata" : {
+        "analogy" : "能移动视窗的长画卷",
+        "conformances" : [
+
+        ],
+        "createdBy" : "UIKit、SceneDelegate 或页面配置代码",
+        "experimentID" : "type.UIScrollView",
+        "id" : "UIScrollView",
+        "inheritance" : [
+          "UIView"
+        ],
+        "kind" : "class",
+        "methods" : [
+          {
+            "id" : "setContentOffset(_:animated:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "setContentOffset(_:animated:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "setContentOffset(_:animated:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "scrollRectToVisible(_:animated:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "scrollRectToVisible(_:animated:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "scrollRectToVisible(_:animated:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "flashScrollIndicators()",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "flashScrollIndicators()",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "flashScrollIndicators()",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          }
+        ],
+        "module" : "UIKit",
+        "name" : "UIScrollView",
+        "ownedBy" : "创建它的强引用、UIKit 层级或业务组合根",
+        "properties" : [
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "contentOffset",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "contentOffset",
+            "observationQuestion" : "修改 contentOffset 后，预览和日志分别发生什么变化？",
+            "type" : "CGPoint"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "contentSize",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "contentSize",
+            "observationQuestion" : "修改 contentSize 后，预览和日志分别发生什么变化？",
+            "type" : "CGSize"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "contentInset",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "contentInset",
+            "observationQuestion" : "修改 contentInset 后，预览和日志分别发生什么变化？",
+            "type" : "UIEdgeInsets"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "delegate",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "delegate",
+            "observationQuestion" : "修改 delegate 后，预览和日志分别发生什么变化？",
+            "type" : "UIScrollViewDelegate?"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "isScrollEnabled",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "isScrollEnabled",
+            "observationQuestion" : "修改 isScrollEnabled 后，预览和日志分别发生什么变化？",
+            "type" : "Bool"
+          }
+        ],
+        "purpose" : "通过 contentSize 与 contentOffset 展示大于可视区域的内容。",
+        "relatedTypeIDs" : [
+
+        ],
+        "releasedWhen" : "最后一个强引用解除时"
+      }
+    },
+    {
+      "experiment" : {
+        "control" : "collection",
+        "id" : "type.UICollectionView",
+        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+      },
+      "lessons" : [
+        {
+          "coreAbility" : "能解释可见区域与 cell 复用",
+          "id" : 18,
+          "title" : "UIScrollView、UICollectionView 与复用"
+        }
+      ],
+      "metadata" : {
+        "analogy" : "只摆出可见卡片的货架",
+        "conformances" : [
+
+        ],
+        "createdBy" : "UIKit、SceneDelegate 或页面配置代码",
+        "experimentID" : "type.UICollectionView",
+        "id" : "UICollectionView",
+        "inheritance" : [
+          "UIScrollView"
+        ],
+        "kind" : "class",
+        "methods" : [
+          {
+            "id" : "reloadData()",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "reloadData()",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "reloadData()",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "dequeueReusableCell(withReuseIdentifier:for:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "dequeueReusableCell(withReuseIdentifier:for:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "dequeueReusableCell(withReuseIdentifier:for:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "scrollToItem(at:at:animated:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "scrollToItem(at:at:animated:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "scrollToItem(at:at:animated:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          }
+        ],
+        "module" : "UIKit",
+        "name" : "UICollectionView",
+        "ownedBy" : "创建它的强引用、UIKit 层级或业务组合根",
+        "properties" : [
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "dataSource",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "dataSource",
+            "observationQuestion" : "修改 dataSource 后，预览和日志分别发生什么变化？",
+            "type" : "UICollectionViewDataSource?"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "delegate",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "delegate",
+            "observationQuestion" : "修改 delegate 后，预览和日志分别发生什么变化？",
+            "type" : "UICollectionViewDelegate?"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "collectionViewLayout",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "collectionViewLayout",
+            "observationQuestion" : "修改 collectionViewLayout 后，预览和日志分别发生什么变化？",
+            "type" : "UICollectionViewLayout"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "visibleCells",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "visibleCells",
+            "observationQuestion" : "为什么 visibleCells 不能直接赋值，应该改变哪个输入？",
+            "type" : "[UICollectionViewCell]"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "indexPathsForVisibleItems",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "indexPathsForVisibleItems",
+            "observationQuestion" : "为什么 indexPathsForVisibleItems 不能直接赋值，应该改变哪个输入？",
+            "type" : "[IndexPath]"
+          }
+        ],
+        "purpose" : "通过 layout、data source 和复用 cell 展示大量项目。",
+        "relatedTypeIDs" : [
+
+        ],
+        "releasedWhen" : "最后一个强引用解除时"
+      }
+    },
+    {
+      "experiment" : {
+        "control" : "collection",
+        "id" : "type.UICollectionViewCell",
+        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+      },
+      "lessons" : [
+        {
+          "coreAbility" : "能解释可见区域与 cell 复用",
+          "id" : 18,
+          "title" : "UIScrollView、UICollectionView 与复用"
+        }
+      ],
+      "metadata" : {
+        "analogy" : "反复换内容的展示卡",
+        "conformances" : [
+
+        ],
+        "createdBy" : "UIKit、SceneDelegate 或页面配置代码",
+        "experimentID" : "type.UICollectionViewCell",
+        "id" : "UICollectionViewCell",
+        "inheritance" : [
+          "UICollectionReusableView"
+        ],
+        "kind" : "class",
+        "methods" : [
+          {
+            "id" : "prepareForReuse()",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "prepareForReuse()",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "prepareForReuse()",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "preferredLayoutAttributesFitting(_:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "preferredLayoutAttributesFitting(_:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "preferredLayoutAttributesFitting(_:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          }
+        ],
+        "module" : "UIKit",
+        "name" : "UICollectionViewCell",
+        "ownedBy" : "创建它的强引用、UIKit 层级或业务组合根",
+        "properties" : [
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "isSelected",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "isSelected",
+            "observationQuestion" : "修改 isSelected 后，预览和日志分别发生什么变化？",
+            "type" : "Bool"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "isHighlighted",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "isHighlighted",
+            "observationQuestion" : "修改 isHighlighted 后，预览和日志分别发生什么变化？",
+            "type" : "Bool"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "backgroundConfiguration",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "backgroundConfiguration",
+            "observationQuestion" : "修改 backgroundConfiguration 后，预览和日志分别发生什么变化？",
+            "type" : "UIBackgroundConfiguration?"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "contentView",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "contentView",
+            "observationQuestion" : "为什么 contentView 不能直接赋值，应该改变哪个输入？",
+            "type" : "UIView"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "reuseIdentifier",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "reuseIdentifier",
+            "observationQuestion" : "为什么 reuseIdentifier 不能直接赋值，应该改变哪个输入？",
+            "type" : "String?"
+          }
+        ],
+        "purpose" : "作为可复用容器展示一个 item。",
+        "relatedTypeIDs" : [
+
+        ],
+        "releasedWhen" : "最后一个强引用解除时"
+      }
+    },
+    {
+      "experiment" : {
+        "control" : "collection",
+        "id" : "type.UICollectionViewDataSource",
+        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+      },
+      "lessons" : [
+        {
+          "coreAbility" : "能用稳定 identity 更新列表且不重复 item",
+          "id" : 19,
+          "title" : "data source、delegate 与 diffable snapshot"
+        }
+      ],
+      "metadata" : {
+        "analogy" : "货架的供货清单",
+        "conformances" : [
+
+        ],
+        "createdBy" : "UIKit、SceneDelegate 或页面配置代码",
+        "experimentID" : "type.UICollectionViewDataSource",
+        "id" : "UICollectionViewDataSource",
+        "inheritance" : [
+          "NSObjectProtocol"
+        ],
+        "kind" : "protocol",
+        "methods" : [
+          {
+            "id" : "collectionView(_:numberOfItemsInSection:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "collectionView(_:numberOfItemsInSection:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "collectionView(_:numberOfItemsInSection:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "collectionView(_:cellForItemAt:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "collectionView(_:cellForItemAt:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "collectionView(_:cellForItemAt:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "numberOfSections(in:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "numberOfSections(in:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "numberOfSections(in:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          }
+        ],
+        "module" : "UIKit",
+        "name" : "UICollectionViewDataSource",
+        "ownedBy" : "当前变量或包含它的值",
+        "properties" : [
+
+        ],
+        "purpose" : "回答 collection view 有多少项以及每项使用哪个 cell。",
+        "relatedTypeIDs" : [
+
+        ],
+        "releasedWhen" : "值离开作用域或从容器移除时"
+      }
+    },
+    {
+      "experiment" : {
+        "control" : "collection",
+        "id" : "type.UICollectionViewDelegate",
+        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+      },
+      "lessons" : [
+        {
+          "coreAbility" : "能用稳定 identity 更新列表且不重复 item",
+          "id" : 19,
+          "title" : "data source、delegate 与 diffable snapshot"
+        }
+      ],
+      "metadata" : {
+        "analogy" : "货架交互观察员",
+        "conformances" : [
+
+        ],
+        "createdBy" : "UIKit、SceneDelegate 或页面配置代码",
+        "experimentID" : "type.UICollectionViewDelegate",
+        "id" : "UICollectionViewDelegate",
+        "inheritance" : [
+          "UIScrollViewDelegate"
+        ],
+        "kind" : "protocol",
+        "methods" : [
+          {
+            "id" : "collectionView(_:didSelectItemAt:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "collectionView(_:didSelectItemAt:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "collectionView(_:didSelectItemAt:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "collectionView(_:willDisplay:forItemAt:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "collectionView(_:willDisplay:forItemAt:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "collectionView(_:willDisplay:forItemAt:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "collectionView(_:didEndDisplaying:forItemAt:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "collectionView(_:didEndDisplaying:forItemAt:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "collectionView(_:didEndDisplaying:forItemAt:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          }
+        ],
+        "module" : "UIKit",
+        "name" : "UICollectionViewDelegate",
+        "ownedBy" : "当前变量或包含它的值",
+        "properties" : [
+
+        ],
+        "purpose" : "接收选中、显示和交互等 collection view 事件。",
+        "relatedTypeIDs" : [
+
+        ],
+        "releasedWhen" : "值离开作用域或从容器移除时"
+      }
+    },
+    {
+      "experiment" : {
+        "control" : "collection",
+        "id" : "type.UICollectionViewDiffableDataSource",
+        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+      },
+      "lessons" : [
+        {
+          "coreAbility" : "能用稳定 identity 更新列表且不重复 item",
+          "id" : 19,
+          "title" : "data source、delegate 与 diffable snapshot"
+        }
+      ],
+      "metadata" : {
+        "analogy" : "按身份证更新货架的管理员",
+        "conformances" : [
+
+        ],
+        "createdBy" : "UIKit、SceneDelegate 或页面配置代码",
+        "experimentID" : "type.UICollectionViewDiffableDataSource",
+        "id" : "UICollectionViewDiffableDataSource",
+        "inheritance" : [
+          "NSObject"
+        ],
+        "kind" : "class",
+        "methods" : [
+          {
+            "id" : "init(collectionView:cellProvider:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "init(collectionView:cellProvider:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "init(collectionView:cellProvider:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "apply(_:animatingDifferences:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "apply(_:animatingDifferences:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "apply(_:animatingDifferences:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "snapshot()",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "snapshot()",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "snapshot()",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "itemIdentifier(for:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "itemIdentifier(for:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "itemIdentifier(for:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          }
+        ],
+        "module" : "UIKit",
+        "name" : "UICollectionViewDiffableDataSource",
+        "ownedBy" : "创建它的强引用、UIKit 层级或业务组合根",
+        "properties" : [
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "supplementaryViewProvider",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "supplementaryViewProvider",
+            "observationQuestion" : "修改 supplementaryViewProvider 后，预览和日志分别发生什么变化？",
+            "type" : "SupplementaryViewProvider?"
+          }
+        ],
+        "purpose" : "用稳定 item identity 从 snapshot 计算安全差异更新。",
+        "relatedTypeIDs" : [
+          "NSDiffableDataSourceSnapshot"
+        ],
+        "releasedWhen" : "最后一个强引用解除时"
+      }
+    },
+    {
+      "experiment" : {
+        "control" : "collection",
+        "id" : "type.NSDiffableDataSourceSnapshot",
+        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+      },
+      "lessons" : [
+        {
+          "coreAbility" : "能用稳定 identity 更新列表且不重复 item",
+          "id" : 19,
+          "title" : "data source、delegate 与 diffable snapshot"
+        }
+      ],
+      "metadata" : {
+        "analogy" : "货架当前摆放快照",
+        "conformances" : [
+
+        ],
+        "createdBy" : "UIKit、SceneDelegate 或页面配置代码",
+        "experimentID" : "type.NSDiffableDataSourceSnapshot",
+        "id" : "NSDiffableDataSourceSnapshot",
+        "inheritance" : [
+
+        ],
+        "kind" : "struct",
+        "methods" : [
+          {
+            "id" : "appendSections(_:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "appendSections(_:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "appendSections(_:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "appendItems(_:toSection:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "appendItems(_:toSection:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "appendItems(_:toSection:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "deleteItems(_:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "deleteItems(_:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "deleteItems(_:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "reloadItems(_:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "reloadItems(_:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "reloadItems(_:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          }
+        ],
+        "module" : "UIKit",
+        "name" : "NSDiffableDataSourceSnapshot",
+        "ownedBy" : "当前变量或包含它的值",
+        "properties" : [
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "numberOfItems",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "numberOfItems",
+            "observationQuestion" : "为什么 numberOfItems 不能直接赋值，应该改变哪个输入？",
+            "type" : "Int"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "numberOfSections",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "numberOfSections",
+            "observationQuestion" : "为什么 numberOfSections 不能直接赋值，应该改变哪个输入？",
+            "type" : "Int"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "itemIdentifiers",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "itemIdentifiers",
+            "observationQuestion" : "为什么 itemIdentifiers 不能直接赋值，应该改变哪个输入？",
+            "type" : "[ItemIdentifierType]"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "sectionIdentifiers",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "sectionIdentifiers",
+            "observationQuestion" : "为什么 sectionIdentifiers 不能直接赋值，应该改变哪个输入？",
+            "type" : "[SectionIdentifierType]"
+          }
+        ],
+        "purpose" : "以有序 section/item identifier 描述某一时刻的数据状态。",
+        "relatedTypeIDs" : [
+          "UICollectionViewDiffableDataSource"
+        ],
+        "releasedWhen" : "值离开作用域或从容器移除时"
+      }
+    },
+    {
+      "experiment" : {
+        "control" : "stateMachine",
+        "id" : "type.AppEnvironment",
+        "sourceFile" : "SwiftMessengerLab/App/AppEnvironment.swift"
+      },
+      "lessons" : [
+        {
+          "coreAbility" : "能从点击 Send 追到发送、落库、失败和重试",
+          "id" : 20,
+          "title" : "映射回 IM：环境、仓库、传输与缓存"
+        }
+      ],
+      "metadata" : {
+        "analogy" : "应用的配电箱",
+        "conformances" : [
+
+        ],
+        "createdBy" : "源码中的初始化器、字面量或工厂方法",
+        "experimentID" : "type.AppEnvironment",
+        "id" : "AppEnvironment",
+        "inheritance" : [
+
+        ],
+        "kind" : "class",
+        "methods" : [
+          {
+            "id" : "makeDefault()",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "makeDefault()",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "makeDefault()",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "persist()",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "persist()",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "persist()",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          }
+        ],
+        "module" : "SwiftMessengerLab",
+        "name" : "AppEnvironment",
+        "ownedBy" : "创建它的强引用、UIKit 层级或业务组合根",
+        "properties" : [
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "log",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "log",
+            "observationQuestion" : "为什么 log 不能直接赋值，应该改变哪个输入？",
+            "type" : "LabLogStore"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "cache",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "cache",
+            "observationQuestion" : "为什么 cache 不能直接赋值，应该改变哪个输入？",
+            "type" : "JSONInboxCache"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "repository",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "repository",
+            "observationQuestion" : "为什么 repository 不能直接赋值，应该改变哪个输入？",
+            "type" : "MessageRepository"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "delivery",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "delivery",
+            "observationQuestion" : "为什么 delivery 不能直接赋值，应该改变哪个输入？",
+            "type" : "DeliveryCoordinator"
+          }
+        ],
+        "purpose" : "在组合根创建并持有日志、缓存、Repository 与发送协调器。",
+        "relatedTypeIDs" : [
+          "MessageRepository",
+          "JSONInboxCache",
+          "MessageTransport"
+        ],
+        "releasedWhen" : "最后一个强引用解除时"
+      }
+    },
+    {
+      "experiment" : {
+        "control" : "stateMachine",
+        "id" : "type.MessageRepository",
+        "sourceFile" : "SwiftMessengerLab/Core/MessageRepository.swift"
+      },
+      "lessons" : [
+        {
+          "coreAbility" : "能从点击 Send 追到发送、落库、失败和重试",
+          "id" : 20,
+          "title" : "映射回 IM：环境、仓库、传输与缓存"
+        }
+      ],
+      "metadata" : {
+        "analogy" : "消息账本管理员",
+        "conformances" : [
+
+        ],
+        "createdBy" : "源码中的初始化器、字面量或工厂方法",
+        "experimentID" : "type.MessageRepository",
+        "id" : "MessageRepository",
+        "inheritance" : [
+
+        ],
+        "kind" : "class",
+        "methods" : [
+          {
+            "id" : "enqueueOutgoing(text:conversationID:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "enqueueOutgoing(text:conversationID:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "enqueueOutgoing(text:conversationID:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "messages(conversationID:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "messages(conversationID:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "messages(conversationID:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "markSending(id:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "markSending(id:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "markSending(id:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "markSent(id:serverID:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "markSent(id:serverID:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "markSent(id:serverID:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          }
+        ],
+        "module" : "SwiftMessengerCore",
+        "name" : "MessageRepository",
+        "ownedBy" : "创建它的强引用、UIKit 层级或业务组合根",
+        "properties" : [
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "conversations",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "conversations",
+            "observationQuestion" : "为什么 conversations 不能直接赋值，应该改变哪个输入？",
+            "type" : "[Conversation]"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "snapshot",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "snapshot",
+            "observationQuestion" : "为什么 snapshot 不能直接赋值，应该改变哪个输入？",
+            "type" : "InboxSnapshot"
+          }
+        ],
+        "purpose" : "作为消息与会话状态的单一内存 owner。",
+        "relatedTypeIDs" : [
+          "Message",
+          "InboxSnapshot"
+        ],
+        "releasedWhen" : "最后一个强引用解除时"
+      }
+    },
+    {
+      "experiment" : {
+        "control" : "foundation",
+        "id" : "type.JSONInboxCache",
+        "sourceFile" : "SwiftMessengerLab/Core/JSONInboxCache.swift"
+      },
+      "lessons" : [
+        {
+          "coreAbility" : "能从点击 Send 追到发送、落库、失败和重试",
+          "id" : 20,
+          "title" : "映射回 IM：环境、仓库、传输与缓存"
+        }
+      ],
+      "metadata" : {
+        "analogy" : "本地文件保险柜",
+        "conformances" : [
+          "Sendable"
+        ],
+        "createdBy" : "源码中的初始化器、字面量或工厂方法",
+        "experimentID" : "type.JSONInboxCache",
+        "id" : "JSONInboxCache",
+        "inheritance" : [
+
+        ],
+        "kind" : "struct",
+        "methods" : [
+          {
+            "id" : "load()",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "load()",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "load()",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "save(_:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "save(_:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "save(_:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          }
+        ],
+        "module" : "SwiftMessengerCore",
+        "name" : "JSONInboxCache",
+        "ownedBy" : "当前变量或包含它的值",
+        "properties" : [
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "fileURL",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "fileURL",
+            "observationQuestion" : "为什么 fileURL 不能直接赋值，应该改变哪个输入？",
+            "type" : "URL"
+          }
+        ],
+        "purpose" : "把 InboxSnapshot 原子编码到本地 JSON 文件。",
+        "relatedTypeIDs" : [
+          "InboxSnapshot"
+        ],
+        "releasedWhen" : "值离开作用域或从容器移除时"
+      }
+    },
+    {
+      "experiment" : {
+        "control" : "concurrency",
+        "id" : "type.MockMessageTransport",
+        "sourceFile" : "SwiftMessengerLab/Core/MessageTransport.swift"
+      },
+      "lessons" : [
+        {
+          "coreAbility" : "能从点击 Send 追到发送、落库、失败和重试",
+          "id" : 20,
+          "title" : "映射回 IM：环境、仓库、传输与缓存"
+        }
+      ],
+      "metadata" : {
+        "analogy" : "可重复排练的假快递员",
+        "conformances" : [
+          "MessageTransport",
+          "Sendable"
+        ],
+        "createdBy" : "源码中的初始化器、字面量或工厂方法",
+        "experimentID" : "type.MockMessageTransport",
+        "id" : "MockMessageTransport",
+        "inheritance" : [
+
+        ],
+        "kind" : "struct",
+        "methods" : [
+          {
+            "id" : "init(delayNanoseconds:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "init(delayNanoseconds:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "init(delayNanoseconds:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "send(_:isRetry:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "send(_:isRetry:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "send(_:isRetry:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          }
+        ],
+        "module" : "SwiftMessengerCore",
+        "name" : "MockMessageTransport",
+        "ownedBy" : "当前变量或包含它的值",
+        "properties" : [
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "delayNanoseconds",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "delayNanoseconds",
+            "observationQuestion" : "为什么 delayNanoseconds 不能直接赋值，应该改变哪个输入？",
+            "type" : "UInt64 (private)"
+          }
+        ],
+        "purpose" : "用确定性延迟与失败规则替代真实网络。",
+        "relatedTypeIDs" : [
+
+        ],
+        "releasedWhen" : "值离开作用域或从容器移除时"
+      }
+    },
+    {
+      "experiment" : {
+        "compilerSample" : "enum-state-machine",
+        "control" : "stateMachine",
+        "id" : "type.Message",
+        "sourceFile" : "SwiftMessengerLab/Core/Models.swift"
+      },
+      "lessons" : [
+        {
+          "coreAbility" : "能从点击 Send 追到发送、落库、失败和重试",
+          "id" : 20,
+          "title" : "映射回 IM：环境、仓库、传输与缓存"
+        }
+      ],
+      "metadata" : {
+        "analogy" : "带身份和轨迹的消息包裹",
+        "conformances" : [
+          "Identifiable",
+          "Codable",
+          "Hashable",
+          "Sendable"
+        ],
+        "createdBy" : "源码中的初始化器、字面量或工厂方法",
+        "experimentID" : "type.Message",
+        "id" : "Message",
+        "inheritance" : [
+
+        ],
+        "kind" : "struct",
+        "methods" : [
+          {
+            "id" : "init(id:conversationID:author:text:createdAt:deliveryState:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "init(id:conversationID:author:text:createdAt:deliveryState:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "init(id:conversationID:author:text:createdAt:deliveryState:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "encode(to:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "encode(to:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "encode(to:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          }
+        ],
+        "module" : "SwiftMessengerCore",
+        "name" : "Message",
+        "ownedBy" : "当前变量或包含它的值",
+        "properties" : [
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "deliveryState",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "deliveryState",
+            "observationQuestion" : "修改 deliveryState 后，预览和日志分别发生什么变化？",
+            "type" : "DeliveryState"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "serverID",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "serverID",
+            "observationQuestion" : "修改 serverID 后，预览和日志分别发生什么变化？",
+            "type" : "String?"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "id",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "id",
+            "observationQuestion" : "为什么 id 不能直接赋值，应该改变哪个输入？",
+            "type" : "UUID"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "conversationID",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "conversationID",
+            "observationQuestion" : "为什么 conversationID 不能直接赋值，应该改变哪个输入？",
+            "type" : "UUID"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "text",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "text",
+            "observationQuestion" : "为什么 text 不能直接赋值，应该改变哪个输入？",
+            "type" : "String"
+          },
+          {
+            "access" : "get-only",
+            "defaultValue" : "见实验默认状态",
+            "id" : "createdAt",
+            "mutableRange" : "通过改变输入或调用方法观察",
+            "name" : "createdAt",
+            "observationQuestion" : "为什么 createdAt 不能直接赋值，应该改变哪个输入？",
+            "type" : "Date"
+          }
+        ],
+        "purpose" : "保存稳定身份、正文、时间与发送状态。",
+        "relatedTypeIDs" : [
+          "DeliveryState"
+        ],
+        "releasedWhen" : "值离开作用域或从容器移除时"
+      }
+    },
+    {
+      "experiment" : {
+        "control" : "foundation",
+        "id" : "type.InboxSnapshot",
+        "sourceFile" : "SwiftMessengerLab/Core/Models.swift"
+      },
+      "lessons" : [
+        {
+          "coreAbility" : "能从点击 Send 追到发送、落库、失败和重试",
+          "id" : 20,
+          "title" : "映射回 IM：环境、仓库、传输与缓存"
+        }
+      ],
+      "metadata" : {
+        "analogy" : "收件箱的存档照片",
+        "conformances" : [
+          "Codable",
+          "Equatable",
+          "Sendable"
+        ],
+        "createdBy" : "源码中的初始化器、字面量或工厂方法",
+        "experimentID" : "type.InboxSnapshot",
+        "id" : "InboxSnapshot",
+        "inheritance" : [
+
+        ],
+        "kind" : "struct",
+        "methods" : [
+          {
+            "id" : "init(conversations:messages:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "init(conversations:messages:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "init(conversations:messages:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "encode(to:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "encode(to:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "encode(to:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          }
+        ],
+        "module" : "SwiftMessengerCore",
+        "name" : "InboxSnapshot",
+        "ownedBy" : "当前变量或包含它的值",
+        "properties" : [
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "conversations",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "conversations",
+            "observationQuestion" : "修改 conversations 后，预览和日志分别发生什么变化？",
+            "type" : "[Conversation]"
+          },
+          {
+            "access" : "get / set",
+            "defaultValue" : "见实验默认状态",
+            "id" : "messages",
+            "mutableRange" : "仅 App 白名单控件范围",
+            "name" : "messages",
+            "observationQuestion" : "修改 messages 后，预览和日志分别发生什么变化？",
+            "type" : "[Message]"
+          }
+        ],
+        "purpose" : "把会话和消息组合为可编码、可恢复的业务快照。",
+        "relatedTypeIDs" : [
+          "Message"
+        ],
+        "releasedWhen" : "值离开作用域或从容器移除时"
+      }
+    }
+  ],
+  "schemaVersion" : 1,
+  "source" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+}

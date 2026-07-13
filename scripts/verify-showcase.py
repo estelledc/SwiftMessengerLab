@@ -3,6 +3,7 @@
 
 from __future__ import annotations
 
+import json
 import re
 import struct
 import sys
@@ -68,12 +69,67 @@ def verify_screenshot_contract(html: str, css: str) -> None:
             fail(f"screenshot intrinsic dimensions are missing or incorrect: {name}")
 
 
+def verify_type_catalog(document: object) -> list[dict[str, object]]:
+    if not isinstance(document, dict) or document.get("schemaVersion") != 1:
+        fail("type catalog schemaVersion must be 1")
+    if document.get("source") != "SwiftMessengerLab/Core/LearningCatalog.swift":
+        fail("type catalog source marker is missing or incorrect")
+
+    cards = document.get("cards")
+    if not isinstance(cards, list) or len(cards) != 52:
+        fail("published type catalog must contain exactly 52 cards")
+
+    ids: list[str] = []
+    related_ids: list[str] = []
+    for index, card in enumerate(cards):
+        if not isinstance(card, dict):
+            fail(f"type card {index} is not an object")
+        metadata = card.get("metadata")
+        lessons = card.get("lessons")
+        experiment = card.get("experiment")
+        if not isinstance(metadata, dict) or not isinstance(lessons, list) or not isinstance(experiment, dict):
+            fail(f"type card {index} is missing metadata, lessons, or experiment")
+
+        identifier = metadata.get("id")
+        if not isinstance(identifier, str) or not identifier:
+            fail(f"type card {index} has no stable ID")
+        ids.append(identifier)
+        if metadata.get("name") != identifier:
+            fail(f"type card name and ID differ: {identifier}")
+        if metadata.get("kind") not in {"class", "struct", "enum", "protocol"}:
+            fail(f"type card has unsupported kind: {identifier}")
+        for field in ("module", "purpose", "analogy"):
+            if not isinstance(metadata.get(field), str) or not metadata[field]:
+                fail(f"type card {identifier} has empty {field}")
+        if not isinstance(metadata.get("properties"), list) or not isinstance(metadata.get("methods"), list):
+            fail(f"type card {identifier} has invalid API lists")
+        if not lessons:
+            fail(f"type card {identifier} is not referenced by any lesson")
+        if experiment.get("id") != metadata.get("experimentID"):
+            fail(f"type card {identifier} experiment ID drifted")
+        if not isinstance(experiment.get("control"), str) or not isinstance(experiment.get("sourceFile"), str):
+            fail(f"type card {identifier} has an invalid experiment reference")
+
+        related = metadata.get("relatedTypeIDs")
+        if not isinstance(related, list) or not all(isinstance(value, str) for value in related):
+            fail(f"type card {identifier} has invalid related type IDs")
+        related_ids.extend(related)
+
+    if len(set(ids)) != len(ids):
+        fail("published type catalog IDs are not unique")
+    missing_relations = sorted(set(related_ids) - set(ids))
+    if missing_relations:
+        fail(f"published type relations cannot be resolved: {', '.join(missing_relations)}")
+    return cards
+
+
 def main() -> None:
     required = [
         HTML,
         DOCS / "404.html",
         DOCS / "assets" / "style.css",
         DOCS / "assets" / "app.js",
+        DOCS / "assets" / "type-catalog.json",
         DOCS / "assets" / "jx" / "VERSION",
         DOCS / "assets" / "jx" / "tokens.css",
         DOCS / "assets" / "jx" / "base.css",
@@ -94,14 +150,23 @@ def main() -> None:
     not_found = (DOCS / "404.html").read_text(encoding="utf-8")
     css = (DOCS / "assets" / "style.css").read_text(encoding="utf-8")
     javascript = (DOCS / "assets" / "app.js").read_text(encoding="utf-8")
+    type_catalog_path = DOCS / "assets" / "type-catalog.json"
+    try:
+        type_catalog_document = json.loads(type_catalog_path.read_text(encoding="utf-8"))
+    except (json.JSONDecodeError, UnicodeDecodeError) as error:
+        fail(f"type catalog is not valid UTF-8 JSON: {error}")
+    type_cards = verify_type_catalog(type_catalog_document)
     tokens = (DOCS / "assets" / "jx" / "tokens.css").read_text(encoding="utf-8")
     components = (DOCS / "assets" / "jx" / "components.css").read_text(encoding="utf-8")
     workflow = WORKFLOW.read_text(encoding="utf-8")
     catalog = (ROOT / "SwiftMessengerLab" / "Core" / "LearningCatalog.swift").read_text(encoding="utf-8")
 
-    for marker in ('data-lessons="20"', 'data-types="52"', 'data-samples="5"'):
+    for marker in ('data-lessons="20"', 'data-samples="5"'):
         if marker not in html:
             fail(f"missing verified metric marker: {marker}")
+    type_metric = re.search(r'\bdata-types="(\d+)"', html)
+    if type_metric is None or int(type_metric.group(1)) != len(type_cards):
+        fail("HTML type metric does not match the published type catalog")
     design_markers = [
         '<meta name="theme-color" content="#f6f6f3">',
         'assets/jx/tokens.css',
@@ -132,8 +197,18 @@ def main() -> None:
         fail("LearningCatalog does not contain exactly 20 lesson declarations")
     if len(list((ROOT / "CompilerLab" / "Samples").glob("*.swift"))) != 5:
         fail("CompilerLab does not contain exactly five Swift samples")
-    if len(re.findall(r'^\s*"[^"]+",?$', javascript, re.MULTILINE)) != 52:
-        fail("web type explorer does not list exactly 52 types")
+    for marker in (
+        'fetch(catalogURL)',
+        'type-module-filter',
+        'type-kind-filter',
+        'details',
+        'textContent',
+    ):
+        source = javascript if marker not in {"type-module-filter", "type-kind-filter"} else html
+        if marker not in source:
+            fail(f"type explorer is missing behavior marker: {marker}")
+    if ".innerHTML" in javascript:
+        fail("type explorer must render catalog data with textContent, not innerHTML")
 
     verify_local_links(html)
     verify_local_links(not_found)
@@ -161,13 +236,19 @@ def main() -> None:
     ]
     visible_sources = "\n".join(
         path.read_text(encoding="utf-8", errors="ignore")
-        for path in [HTML, DOCS / "404.html", DOCS / "assets" / "style.css", DOCS / "assets" / "app.js"]
+        for path in [
+            HTML,
+            DOCS / "404.html",
+            DOCS / "assets" / "style.css",
+            DOCS / "assets" / "app.js",
+            type_catalog_path,
+        ]
     ).lower()
     for term in forbidden:
         if term.lower() in visible_sources:
             fail(f"forbidden public marker found: {term}")
 
-    print("Showcase audit: Jason DS 2.2.0, links, metrics, images, boundaries, and action pins passed")
+    print("Showcase audit: 52 detailed type cards, Jason DS 2.2.0, links, metrics, images, boundaries, and action pins passed")
 
 
 if __name__ == "__main__":

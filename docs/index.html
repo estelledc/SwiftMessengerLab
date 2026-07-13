@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#f6f6f3">
   <title>SwiftMessengerLab｜Swift / UIKit 类型与 IM 业务实验室</title>
-  <meta name="description" content="面向零基础学习者的公开 Swift、Foundation、UIKit 与 IM 业务实验室：20 节短课、52 张类型卡和 5 个编译器显微镜样本。">
+  <meta name="description" content="面向零基础学习者的公开 Swift、Foundation、UIKit 与 IM 业务实验室：可搜索展开 52 张类型卡，连接 20 节短课和 5 个编译器显微镜样本。">
   <link rel="canonical" href="https://estelledc.github.io/SwiftMessengerLab/">
   <link rel="icon" type="image/png" href="assets/favicon.png">
   <link rel="stylesheet" href="assets/jx/tokens.css">
@@ -16,7 +16,7 @@
   <meta property="og:locale" content="zh_CN">
   <meta property="og:site_name" content="Jason Xun">
   <meta property="og:title" content="SwiftMessengerLab｜类型与业务实验室">
-  <meta property="og:description" content="从改一个属性，到追踪一次消息发送，再到观察 SIL 与 ARM64。">
+  <meta property="og:description" content="展开 52 张类型卡，从改一个属性，到追踪一次消息发送，再到观察 SIL 与 ARM64。">
   <meta property="og:url" content="https://estelledc.github.io/SwiftMessengerLab/">
   <meta property="og:image" content="https://estelledc.github.io/SwiftMessengerLab/assets/og-image.png">
   <meta property="og:image:width" content="1200">
@@ -24,7 +24,7 @@
   <meta property="og:image:alt" content="SwiftMessengerLab 类型、消息状态和编译器证据概览">
   <meta name="twitter:card" content="summary_large_image">
   <meta name="twitter:title" content="SwiftMessengerLab｜类型与业务实验室">
-  <meta name="twitter:description" content="20 节短课、52 张类型卡与 5 个编译器样本。">
+  <meta name="twitter:description" content="可搜索展开的 52 张类型卡、20 节短课与 5 个编译器样本。">
   <meta name="twitter:image" content="https://estelledc.github.io/SwiftMessengerLab/assets/og-image.png">
 </head>
 <body data-lessons="20" data-types="52" data-samples="5">
@@ -35,8 +35,8 @@
         <strong>SwiftMessengerLab</strong><span>Swift / UIKit learning lab</span>
       </a>
       <nav class="jx-site-nav" aria-label="主导航">
-        <div class="jx-site-nav__links"><a href="#system">System</a><a href="#evidence">Evidence</a><a href="#run">Run</a><a href="https://github.com/estelledc/SwiftMessengerLab" target="_blank" rel="noopener">GitHub ↗</a></div>
-        <details class="jx-site-nav__menu"><summary>Menu</summary><nav aria-label="移动导航"><a href="#system">System</a><a href="#evidence">Evidence</a><a href="#run">Run</a><a href="https://github.com/estelledc/SwiftMessengerLab" target="_blank" rel="noopener">GitHub ↗</a></nav></details>
+        <div class="jx-site-nav__links"><a href="#system">System</a><a href="#types">Types</a><a href="#evidence">Evidence</a><a href="#run">Run</a><a href="https://github.com/estelledc/SwiftMessengerLab" target="_blank" rel="noopener">GitHub ↗</a></div>
+        <details class="jx-site-nav__menu"><summary>Menu</summary><nav aria-label="移动导航"><a href="#system">System</a><a href="#types">Types</a><a href="#evidence">Evidence</a><a href="#run">Run</a><a href="https://github.com/estelledc/SwiftMessengerLab" target="_blank" rel="noopener">GitHub ↗</a></nav></details>
       </nav>
     </div>
   </header>
@@ -59,7 +59,7 @@
 
       <aside class="jx-case-question jx-container" aria-label="本项目回答的问题">
         <p class="jx-case-question__label">This lab answers</p>
-        <div><strong class="jx-case-question__prompt">怎样让零基础学习者不只“看懂 API”，而能亲手改值、追调用链，并用编译器证据解释结果？</strong><p class="jx-case-question__context">每个重点类型都连接 App 控件、LLDB 和源码；学习进度只记录操作与回答，不把点击完成冒充掌握。</p></div>
+        <div><strong class="jx-case-question__prompt">怎样让零基础学习者不只“看懂 API”，而能亲手改值、追调用链，并用编译器证据解释结果？</strong><p class="jx-case-question__context">类型卡连接知识元数据与本地实验入口；App renderer 按机制分组共享。学习进度只记录操作与回答，不把点击完成冒充掌握。</p></div>
       </aside>
 
       <div class="jx-container">
@@ -67,7 +67,7 @@
           <li><span class="jx-proof-rail__label">Curriculum</span><strong class="jx-proof-rail__value">20</strong><span class="jx-proof-rail__detail">节短课</span><span class="jx-source-tag" data-source="build">source count</span></li>
           <li><span class="jx-proof-rail__label">Type catalog</span><strong class="jx-proof-rail__value">52</strong><span class="jx-proof-rail__detail">张唯一类型卡</span><span class="jx-source-tag" data-source="build">source count</span></li>
           <li><span class="jx-proof-rail__label">Compiler lab</span><strong class="jx-proof-rail__value">5</strong><span class="jx-proof-rail__detail">个最小样本</span><span class="jx-source-tag" data-source="measured">verified</span></li>
-          <li><span class="jx-proof-rail__label">Test scenarios</span><strong class="jx-proof-rail__value">9 + 9</strong><span class="jx-proof-rail__detail">Core / UI</span><span class="jx-source-tag" data-source="measured">release gate</span></li>
+          <li><span class="jx-proof-rail__label">Test scenarios</span><strong class="jx-proof-rail__value">9 + 9</strong><span class="jx-proof-rail__detail">Core / UI</span><span class="jx-source-tag" data-source="measured">local release-check</span></li>
         </ul>
       </div>
 
@@ -75,7 +75,7 @@
         <div class="lab-section__heading"><div><p class="jx-eyebrow"><span class="jx-eyebrow__rule"></span>System</p><h2>两间实验室，共用一条证据链。</h2></div><p>业务行为提供问题，类型实验拆解机制，编译器样本负责把观察继续向下追。</p></div>
         <div class="lab-card-grid">
           <article class="lab-card"><span class="lab-index">01 / Messenger</span><h3>消息发送不是一次按钮点击</h3><p>输入普通文本观察 <code>queued → sending → sent</code>；输入 <code>/fail</code> 走失败与同 id 重试。Repository、Transport 和 JSON Cache 都可打断点。</p></article>
-          <article class="lab-card"><span class="lab-index">02 / Learn</span><h3>类型卡不是 API 百科</h3><p>每张卡给出类型种类、属性、方法、owner 和三层实验。课程可自由查看，进度只写“已操作 / 已回答”。</p></article>
+          <article class="lab-card"><span class="lab-index">02 / Learn</span><h3>类型卡不是 API 百科</h3><p>每张卡给出类型种类、属性、方法、owner 和本地实验入口；共享 renderer 按机制分组。课程可自由查看，进度只写“已操作 / 已回答”。</p></article>
         </div>
       </section>
 
@@ -88,10 +88,27 @@
         </div>
       </section>
 
-      <section class="lab-section jx-container" aria-labelledby="type-title">
-        <div class="lab-section__heading lab-section__heading--control"><div><p class="jx-eyebrow"><span class="jx-eyebrow__rule"></span>Type explorer</p><h2 id="type-title">搜索 52 张类型卡。</h2></div><label class="lab-filter">筛选类型<input id="type-filter" type="search" autocomplete="off" placeholder="例如 UIView、Array、Repository"></label></div>
-        <p id="type-count" class="lab-count" aria-live="polite">52 / 52 types</p>
-        <div id="type-list" class="lab-token-list"></div>
+      <section class="lab-section jx-container" id="types" aria-labelledby="type-title">
+        <div class="lab-section__heading">
+          <div><p class="jx-eyebrow"><span class="jx-eyebrow__rule"></span>Type explorer</p><h2 id="type-title">打开 52 张卡，而不只看名字。</h2></div>
+          <p>每张卡展示类型种类、模块、用途、类比、精选属性与方法、关系、课程和仓库内观察入口。网页公开知识元数据；App、LLDB 与源码实验仍需<a href="https://github.com/estelledc/SwiftMessengerLab/blob/main/docs/type-lab.md" target="_blank" rel="noopener">在本地运行 ↗</a>。</p>
+        </div>
+        <div class="lab-type-controls" aria-label="类型卡筛选">
+          <label class="lab-filter lab-filter--query">搜索卡片<input id="type-filter" type="search" autocomplete="off" aria-controls="type-list" placeholder="名称、属性、方法、类比或课程"></label>
+          <label class="lab-filter">模块<select id="type-module-filter" aria-controls="type-list"><option value="all">全部模块</option></select></label>
+          <label class="lab-filter">种类<select id="type-kind-filter" aria-controls="type-list"><option value="all">全部种类</option></select></label>
+          <div class="lab-type-actions" role="group" aria-label="类型卡视图操作">
+            <button id="type-reset" class="lab-control-button" type="button">重置筛选</button>
+            <button id="type-expand" class="lab-control-button" type="button">全部展开</button>
+            <button id="type-collapse" class="lab-control-button" type="button">全部收起</button>
+          </div>
+        </div>
+        <div class="lab-type-toolbar">
+          <p id="type-count" class="lab-count" aria-live="polite">正在加载 52 张类型卡…</p>
+          <p class="lab-type-note">数据由 Swift <code>TypeCatalog</code> 确定性导出；Core 测试逐字段检查公开 JSON 未漂移。</p>
+        </div>
+        <div id="type-list" class="lab-type-grid" aria-busy="true"></div>
+        <noscript><p class="lab-type-empty">类型卡浏览器需要 JavaScript。也可以在仓库中直接查看 <code>docs/assets/type-catalog.json</code>。</p></noscript>
       </section>
 
       <section class="lab-section jx-container">
@@ -102,7 +119,7 @@
 
       <section class="lab-section jx-container" id="evidence">
         <div class="lab-section__heading"><div><p class="jx-eyebrow"><span class="jx-eyebrow__rule"></span>Evidence, not claims</p><h2>1.0.0 发布门禁。</h2></div><p>页面上的数字必须能回到源码、测试或构建结果，不能用展示文案替代验证。</p></div>
-        <ul class="lab-evidence-list"><li><div><strong>Core</strong><p>发送、失败重试、缓存、目录引用、依赖无环和旧进度迁移。</p></div><span class="jx-source-tag" data-source="measured">XCTest</span></li><li><div><strong>UI</strong><p>真实点击、属性 Reset、delegate 顺序、导航身份、稳定 id、搜索与数据隔离。</p></div><span class="jx-source-tag" data-source="measured">XCUITest</span></li><li><div><strong>Compiler</strong><p>五个样本均生成非空 SIL、IR 和 Debug / Optimized ARM64 片段。</p></div><span class="jx-source-tag" data-source="build">script</span></li><li><div><strong>Public</strong><p>本地路径、凭证特征、内部标识、页面资源与 Action SHA 固定均自动审计。</p></div><span class="jx-source-tag" data-source="build">audit</span></li></ul>
+        <ul class="lab-evidence-list"><li><div><strong>Core</strong><p>发送、失败重试、缓存、目录引用、依赖无环和旧进度迁移。</p></div><span class="jx-source-tag" data-source="measured">XCTest</span></li><li><div><strong>UI</strong><p>本地 <code>make release-check</code> 覆盖真实点击、Reset、delegate 顺序、导航身份、稳定 id、搜索与数据隔离。</p></div><span class="jx-source-tag" data-source="measured">XCUITest</span></li><li><div><strong>Compiler</strong><p>五个样本均生成非空 SIL、IR 和 Debug / Optimized ARM64 片段。</p></div><span class="jx-source-tag" data-source="build">script</span></li><li><div><strong>Public</strong><p>部署 CI 覆盖 Core、构建、编译器、公开边界、页面资源与 Action SHA 固定审计。</p></div><span class="jx-source-tag" data-source="build">audit</span></li></ul>
         <p class="jx-verification-line">Release evidence is reproducible from the public repository.</p>
       </section>
 

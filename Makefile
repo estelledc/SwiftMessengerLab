@@ -6,7 +6,7 @@ SIMULATOR_TARGET ?= booted
 DERIVED_DATA := .DerivedData
 BUNDLE_ID := io.github.estelledc.SwiftMessengerLab
 
-.PHONY: build test test-ui compiler-lab compiler-test verify-showcase public-scan check release-check run open clean
+.PHONY: build test test-ui type-cards verify-type-cards compiler-lab compiler-test verify-showcase public-scan check release-check run open clean
 
 SAMPLE ?= property-access
 MODE ?= debug
@@ -33,6 +33,12 @@ test-ui:
 		CODE_SIGNING_ALLOWED=NO \
 		test
 
+type-cards:
+	swift run type-catalog-exporter
+
+verify-type-cards:
+	swift run type-catalog-exporter --check
+
 compiler-lab:
 	./scripts/compiler-lab.sh '$(SAMPLE)' '$(MODE)'
 
@@ -45,9 +51,9 @@ verify-showcase:
 public-scan:
 	./scripts/public-scan.sh
 
-check: test compiler-test build verify-showcase public-scan
+check: test verify-type-cards compiler-test build verify-showcase public-scan
 
-release-check: test test-ui compiler-test build verify-showcase public-scan
+release-check: test test-ui verify-type-cards compiler-test build verify-showcase public-scan
 
 run: build
 	xcrun simctl bootstatus '$(SIMULATOR_TARGET)' -b

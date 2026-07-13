@@ -74,7 +74,7 @@ struct SwiftMessengerCoreTests {
     }
 
     @Test
-    func typeCatalogHasFiftyTwoUniqueAccurateCardsAndResolvableRelations() {
+    func typeCatalogHasFiftyTwoUniqueAccurateCardsAndResolvableRelations() throws {
         let types = TypeCatalog.all
         let ids = Set(types.map(\.id))
 
@@ -87,6 +87,16 @@ struct SwiftMessengerCoreTests {
         #expect(TypeCatalog.type(id: "Array")?.kind == .struct)
         #expect(TypeCatalog.type(id: "DeliveryState")?.kind == .enum)
         #expect(TypeCatalog.type(id: "MessageTransport")?.kind == .protocol)
+
+        let repositoryRoot = URL(fileURLWithPath: #filePath)
+            .deletingLastPathComponent()
+            .deletingLastPathComponent()
+            .deletingLastPathComponent()
+        let publishedData = try Data(
+            contentsOf: repositoryRoot.appendingPathComponent("docs/assets/type-catalog.json")
+        )
+        let published = try JSONDecoder().decode(PublishedTypeCatalogDocument.self, from: publishedData)
+        #expect(published == PublishedTypeCatalog.document)
     }
 
     @Test

@@ -2,6 +2,17 @@
 
 All notable changes to SwiftMessengerLab are documented here. The project follows Semantic Versioning.
 
+## [Unreleased]
+
+### Added
+
+- GitHub Pages Type Explorer 现在公开 52 张可搜索、可按模块和种类筛选、可展开的完整类型卡。
+- 新增 Swift `TypeCatalog` 到 Pages JSON 的确定性导出器，并由 Core 测试逐字段验证公开数据未漂移。
+
+### Changed
+
+- 公开页把共享 App renderer 标为“实验族”，明确网页知识元数据与本地 App / LLDB / 源码实验的边界。
+
 ## [1.0.0] - 2026-07-13
 
 ### Added

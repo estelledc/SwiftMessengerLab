@@ -80,6 +80,10 @@ make open
 
 非类型的语法机制使用独立的 `LanguageConcept`，不会伪装成 `struct`。每个真实类型在全局 `TypeCatalog` 中只有一个 ID，课程只保存引用。
 
+公开页的 [Type Explorer](https://estelledc.github.io/SwiftMessengerLab/#types) 可展开查看全部 52 张卡的模块、类型种类、用途、类比、精选属性与方法、关系、关联课程和仓库内观察入口。页面数据由 Swift 目录确定性导出为 `docs/assets/type-catalog.json`；Core 测试会逐字段比对，防止网页与 App 只保持数量相同却内容漂移。
+
+网页只负责公开知识元数据。App 控件、LLDB、源码改值和编译器样本仍需在本地运行；共享 renderer 会明确标为实验族，不等同于 52 套独立的目标类型实现。
+
 ## 编译器显微镜
 
 ```bash
@@ -100,6 +104,7 @@ SwiftMessengerLab/
 │   ├── Features/               # Inbox 与 Chat
 │   └── Learning/               # 搜索、类型卡和白名单实验
 ├── CompilerLab/Samples/        # 5 个最小编译器样本
+├── Tools/TypeCatalogExporter/  # Swift 目录 → Pages JSON
 ├── Tests/                      # 9 个 Core 测试场景
 ├── SwiftMessengerLabUITests/   # 9 个真实 UI 场景
 ├── docs/                       # 课程文档与 GitHub Pages
@@ -111,6 +116,8 @@ SwiftMessengerLab/
 ```bash
 make test              # 9 个 Core 场景
 make test-ui           # 9 个 Simulator UI 场景
+make type-cards        # 从 Swift 源目录刷新公开 JSON
+make verify-type-cards # 检查公开 JSON 未漂移
 make compiler-test     # 5 个编译器样本
 make build             # iOS Simulator build
 make verify-showcase   # Pages 资源、Jason DS、指标、链接和 action pin
