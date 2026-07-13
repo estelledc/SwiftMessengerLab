@@ -4,7 +4,7 @@ SIMULATOR_NAME ?= iPhone 17 Pro
 DESTINATION ?= platform=iOS Simulator,name=$(SIMULATOR_NAME),OS=latest
 SIMULATOR_TARGET ?= booted
 DERIVED_DATA := .DerivedData
-BUNDLE_ID := org.example.SwiftMessengerLab
+BUNDLE_ID := io.github.estelledc.SwiftMessengerLab
 
 .PHONY: build test test-ui compiler-lab compiler-test verify-showcase public-scan check release-check run open clean
 
