@@ -55,6 +55,19 @@ def verify_layout_composition(html: str) -> None:
         fail("proof rail is missing its shared layout container")
 
 
+def verify_screenshot_contract(html: str, css: str) -> None:
+    rule = re.search(r"\.lab-screen img\s*\{([^}]*)\}", css, re.DOTALL)
+    if rule is None or not re.search(r"\bheight\s*:\s*auto\s*;", rule.group(1)):
+        fail("responsive screenshots must declare height: auto")
+    for name in ("screenshot-messenger.png", "screenshot-learn.png", "screenshot-uiview.png"):
+        tag = re.search(rf'<img\b[^>]*\bsrc="assets/{re.escape(name)}"[^>]*>', html)
+        if tag is None:
+            fail(f"missing screenshot tag: {name}")
+        attributes = dict(re.findall(r'(\w+)="([^"]*)"', tag.group(0)))
+        if attributes.get("width") != "1206" or attributes.get("height") != "2622":
+            fail(f"screenshot intrinsic dimensions are missing or incorrect: {name}")
+
+
 def main() -> None:
     required = [
         HTML,
@@ -126,6 +139,7 @@ def main() -> None:
     verify_local_links(not_found)
     verify_action_pins(workflow)
     verify_layout_composition(html)
+    verify_screenshot_contract(html, css)
 
     if png_size(DOCS / "assets" / "og-image.png") != (1200, 630):
         fail("Open Graph image must be 1200x630")

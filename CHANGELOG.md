@@ -24,5 +24,6 @@ All notable changes to SwiftMessengerLab are documented here. The project follow
 ### Fixed
 
 - 修复 GitHub Pages 指标栏绕过共享容器、在桌面视口向左错位的问题，并增加结构审计防止同类回归。
+- 修复 Simulator 截图在响应式宽度下可能保留固定高度而纵向拉伸的问题，并统一声明固有尺寸与自动高度。
 
 [1.0.0]: https://github.com/estelledc/SwiftMessengerLab/releases/tag/v1.0.0
