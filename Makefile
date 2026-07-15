@@ -56,6 +56,7 @@ check: test verify-type-cards compiler-test build verify-showcase public-scan
 release-check: test test-ui verify-type-cards compiler-test build verify-showcase public-scan
 
 run: build
+	@if [ "$(SIMULATOR_TARGET)" = "booted" ]; then xcrun simctl boot "$(SIMULATOR_NAME)" >/dev/null 2>&1 || true; fi
 	xcrun simctl bootstatus '$(SIMULATOR_TARGET)' -b
 	xcrun simctl install '$(SIMULATOR_TARGET)' '$(DERIVED_DATA)/Build/Products/Debug-iphonesimulator/SwiftMessengerLab.app'
 	xcrun simctl launch --terminate-running-process '$(SIMULATOR_TARGET)' $(BUNDLE_ID)

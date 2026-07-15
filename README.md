@@ -37,14 +37,13 @@ Messenger 把常见 IM 客户端问题压缩成一条本地链路：
 ```bash
 git clone https://github.com/estelledc/SwiftMessengerLab.git
 cd SwiftMessengerLab
-make build
 make run
 ```
 
 如果本机没有默认的 `iPhone 17 Pro`：
 
 ```bash
-make build SIMULATOR_NAME="你的 Simulator 名称"
+make run SIMULATOR_NAME="你的 Simulator 名称"
 ```
 
 打开 Xcode：
@@ -60,6 +59,8 @@ make open
 3. 发送 `/fail`，观察 `sending → failed`。
 4. 点击失败消息，确认同一个 `Message.id` 重试后变为 `sent`。
 5. 打开 `Logs`，复述 `UI → Repository → Transport → Repository → UI`。
+
+如果只做一次验收，优先证明两件事：失败重试不新增重复消息，学习进度 reset 不会删除 Messenger 消息。前者对应消息身份，后者对应业务数据和学习数据的边界。
 
 ## 第一个类型实验
 
