@@ -1,0 +1,203 @@
+Makefile
+  s_cb2d63fbbfba65::t_def524628a1d78 59 gitai:{"mixed_line_ranges":[],"operations":[{"operation_id":"6a5733a6327f744c7a926351","tool_type":"agent","tool_id":"apply_patch","line_ranges":[{"Single":59}]}]}
+SwiftMessengerLab/Learning/GuideViewController.swift
+  s_cb2d63fbbfba65::t_f876191df1f0c4 15,17-18,20-22,24-26,28-30,32-34,36-41 gitai:{"mixed_line_ranges":[],"operations":[{"operation_id":"6a5733ef327f744c7a9263ed","tool_type":"agent","tool_id":"apply_patch","line_ranges":[{"Single":15},{"Range":[17,18]},{"Range":[20,22]},{"Range":[24,26]},{"Range":[28,30]},{"Range":[32,34]},{"Range":[36,41]}]}]}
+README.md
+  s_cb2d63fbbfba65::t_d660731003461b 46,63 gitai:{"mixed_line_ranges":[],"operations":[{"operation_id":"6a57340a327f744c7a92644f","tool_type":"agent","tool_id":"apply_patch","line_ranges":[{"Single":46},{"Single":63}]}]}
+  s_cb2d63fbbfba65::t_35b467c4dbee24 64
+---
+{
+  "schema_version": "authorship/3.0.0",
+  "git_ai_version": "1.6.10",
+  "base_commit_sha": "e5276fd1dde17b461af6b5c8a24df38e00e9a40b",
+  "prompts": {},
+  "sessions": {
+    "s_cb2d63fbbfba65": {
+      "agent_id": {
+        "tool": "trae",
+        "id": "6a5731fa327f744c7a92614e",
+        "model": "gpt-5.5__max"
+      },
+      "human_author": "estelledc <150260202+estelledc@users.noreply.github.com>"
+    }
+  },
+  "attestation_metadata": {
+    "Makefile": [
+      {
+        "hash": "s_cb2d63fbbfba65::t_def524628a1d78",
+        "line_ranges": [
+          {
+            "Single": 59
+          }
+        ],
+        "mixed_line_ranges": [],
+        "operations": [
+          {
+            "operation_id": "6a5733a6327f744c7a926351",
+            "tool_type": "agent",
+            "tool_id": "apply_patch",
+            "line_ranges": [
+              {
+                "Single": 59
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "README.md": [
+      {
+        "hash": "s_cb2d63fbbfba65::t_d660731003461b",
+        "line_ranges": [
+          {
+            "Single": 46
+          },
+          {
+            "Single": 63
+          }
+        ],
+        "mixed_line_ranges": [],
+        "operations": [
+          {
+            "operation_id": "6a57340a327f744c7a92644f",
+            "tool_type": "agent",
+            "tool_id": "apply_patch",
+            "line_ranges": [
+              {
+                "Single": 46
+              },
+              {
+                "Single": 63
+              }
+            ]
+          }
+        ]
+      }
+    ],
+    "SwiftMessengerLab/Learning/GuideViewController.swift": [
+      {
+        "hash": "s_cb2d63fbbfba65::t_f876191df1f0c4",
+        "line_ranges": [
+          {
+            "Single": 15
+          },
+          {
+            "Range": [
+              17,
+              18
+            ]
+          },
+          {
+            "Range": [
+              20,
+              22
+            ]
+          },
+          {
+            "Range": [
+              24,
+              26
+            ]
+          },
+          {
+            "Range": [
+              28,
+              30
+            ]
+          },
+          {
+            "Range": [
+              32,
+              34
+            ]
+          },
+          {
+            "Range": [
+              36,
+              41
+            ]
+          }
+        ],
+        "mixed_line_ranges": [],
+        "operations": [
+          {
+            "operation_id": "6a5733ef327f744c7a9263ed",
+            "tool_type": "agent",
+            "tool_id": "apply_patch",
+            "line_ranges": [
+              {
+                "Single": 15
+              },
+              {
+                "Range": [
+                  17,
+                  18
+                ]
+              },
+              {
+                "Range": [
+                  20,
+                  22
+                ]
+              },
+              {
+                "Range": [
+                  24,
+                  26
+                ]
+              },
+              {
+                "Range": [
+                  28,
+                  30
+                ]
+              },
+              {
+                "Range": [
+                  32,
+                  34
+                ]
+              },
+              {
+                "Range": [
+                  36,
+                  41
+                ]
+              }
+            ]
+          }
+        ]
+      }
+    ]
+  },
+  "remote_transcripts": {
+    "s_cb2d63fbbfba65": {
+      "tool": "trae",
+      "conversation_id": "6a5731fa327f744c7a92614e",
+      "session_id": "6a5731fa327f744c7a92614e",
+      "status": "remote_only",
+      "message": "Remote transcript resolution is not implemented yet for TRAE prompts."
+    },
+    "s_cb2d63fbbfba65::t_d660731003461b": {
+      "tool": "trae",
+      "conversation_id": "6a5731fa327f744c7a92614e",
+      "session_id": "6a5731fa327f744c7a92614e",
+      "status": "remote_only",
+      "message": "Remote transcript resolution is not implemented yet for TRAE prompts."
+    },
+    "s_cb2d63fbbfba65::t_def524628a1d78": {
+      "tool": "trae",
+      "conversation_id": "6a5731fa327f744c7a92614e",
+      "session_id": "6a5731fa327f744c7a92614e",
+      "status": "remote_only",
+      "message": "Remote transcript resolution is not implemented yet for TRAE prompts."
+    },
+    "s_cb2d63fbbfba65::t_f876191df1f0c4": {
+      "tool": "trae",
+      "conversation_id": "6a5731fa327f744c7a92614e",
+      "session_id": "6a5731fa327f744c7a92614e",
+      "status": "remote_only",
+      "message": "Remote transcript resolution is not implemented yet for TRAE prompts."
+    }
+  }
+}
