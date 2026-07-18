@@ -4,8 +4,11 @@
       "experiment" : {
         "compilerSample" : "property-access",
         "control" : "propertyObserver",
+        "docsPath" : "docs/experiment-cards.md",
         "id" : "type.PropertyBox",
-        "sourceFile" : "SwiftMessengerLab/Core/LabTypes.swift"
+        "sourceFile" : "SwiftMessengerLab/Learning/InteractiveExperimentViewController.swift",
+        "sourceSymbol" : "incrementPropertyProbe()",
+        "xcodeAction" : "在 incrementPropertyProbe() 设置断点，点击 Increment stored 后检查 didSetCount 与 doubled。"
       },
       "lessons" : [
         {
@@ -106,8 +109,11 @@
     {
       "experiment" : {
         "control" : "text",
+        "docsPath" : "docs/experiment-cards.md",
         "id" : "type.MessageDraft",
-        "sourceFile" : "SwiftMessengerLab/Core/LabTypes.swift"
+        "sourceFile" : "SwiftMessengerLab/Learning/InteractiveExperimentViewController.swift",
+        "sourceSymbol" : "applyTextProbe()",
+        "xcodeAction" : "在 applyTextProbe() 设置断点，点击 Apply Text 后检查 MessageDraft 与 String 状态。"
       },
       "lessons" : [
         {
@@ -191,8 +197,11 @@
       "experiment" : {
         "compilerSample" : "value-and-reference",
         "control" : "valueReference",
+        "docsPath" : "docs/experiment-cards.md",
         "id" : "type.ValueCounter",
-        "sourceFile" : "SwiftMessengerLab/Core/LabTypes.swift"
+        "sourceFile" : "SwiftMessengerLab/Learning/InteractiveExperimentViewController.swift",
+        "sourceSymbol" : "mutateValueReferenceProbes()",
+        "xcodeAction" : "在 mutateValueReferenceProbes() 设置断点，点击 Mutate 后比较 struct copy 与 class alias。"
       },
       "lessons" : [
         {
@@ -258,8 +267,11 @@
       "experiment" : {
         "compilerSample" : "value-and-reference",
         "control" : "valueReference",
+        "docsPath" : "docs/experiment-cards.md",
         "id" : "type.ReferenceCounter",
-        "sourceFile" : "SwiftMessengerLab/Core/LabTypes.swift"
+        "sourceFile" : "SwiftMessengerLab/Learning/InteractiveExperimentViewController.swift",
+        "sourceSymbol" : "mutateValueReferenceProbes()",
+        "xcodeAction" : "在 mutateValueReferenceProbes() 设置断点，点击 Mutate 后比较 struct copy 与 class alias。"
       },
       "lessons" : [
         {
@@ -325,8 +337,11 @@
       "experiment" : {
         "compilerSample" : "enum-state-machine",
         "control" : "stateMachine",
+        "docsPath" : "docs/experiment-cards.md",
         "id" : "type.Optional",
-        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+        "sourceFile" : "SwiftMessengerLab/Learning/InteractiveExperimentViewController.swift",
+        "sourceSymbol" : "advanceDeliveryState()",
+        "xcodeAction" : "在 advanceDeliveryState() 设置断点，点击 Advance 后检查 DeliveryState 与 stateIndex。"
       },
       "lessons" : [
         {
@@ -401,8 +416,11 @@
       "experiment" : {
         "compilerSample" : "enum-state-machine",
         "control" : "stateMachine",
+        "docsPath" : "docs/experiment-cards.md",
         "id" : "type.DeliveryState",
-        "sourceFile" : "SwiftMessengerLab/Core/Models.swift"
+        "sourceFile" : "SwiftMessengerLab/Learning/InteractiveExperimentViewController.swift",
+        "sourceSymbol" : "advanceDeliveryState()",
+        "xcodeAction" : "在 advanceDeliveryState() 设置断点，点击 Advance 后检查 DeliveryState 与 stateIndex。"
       },
       "lessons" : [
         {
@@ -483,9 +501,12 @@
     {
       "experiment" : {
         "compilerSample" : "method-dispatch",
-        "control" : "ownership",
+        "control" : "concurrency",
+        "docsPath" : "docs/experiment-cards.md",
         "id" : "type.MessageTransport",
-        "sourceFile" : "SwiftMessengerLab/Core/MessageTransport.swift"
+        "sourceFile" : "SwiftMessengerLab/Core/MessageTransport.swift",
+        "sourceSymbol" : "send(_:isRetry:)",
+        "xcodeAction" : "在 MockMessageTransport.send(_:isRetry:) 设置断点，运行异步实验后查看线程与 Call Stack。"
       },
       "lessons" : [
         {
@@ -540,8 +561,11 @@
       "experiment" : {
         "compilerSample" : "closure-capture",
         "control" : "ownership",
+        "docsPath" : "docs/experiment-cards.md",
         "id" : "type.CaptureOwner",
-        "sourceFile" : "SwiftMessengerLab/Core/LabTypes.swift"
+        "sourceFile" : "SwiftMessengerLab/Learning/InteractiveExperimentViewController.swift",
+        "sourceSymbol" : "recordOperation(_:)",
+        "xcodeAction" : "在 recordOperation(_:) 设置断点，释放 owner 后观察 weak 引用与 Call Stack。"
       },
       "lessons" : [
         {
@@ -615,8 +639,11 @@
     {
       "experiment" : {
         "control" : "text",
+        "docsPath" : "docs/experiment-cards.md",
         "id" : "type.String",
-        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+        "sourceFile" : "SwiftMessengerLab/Learning/InteractiveExperimentViewController.swift",
+        "sourceSymbol" : "applyTextProbe()",
+        "xcodeAction" : "在 applyTextProbe() 设置断点，点击 Apply Text 后检查 MessageDraft 与 String 状态。"
       },
       "lessons" : [
         {
@@ -718,9 +745,12 @@
     },
     {
       "experiment" : {
-        "control" : "text",
+        "control" : "collection",
+        "docsPath" : "docs/experiment-cards.md",
         "id" : "type.Array",
-        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+        "sourceFile" : "SwiftMessengerLab/Learning/InteractiveExperimentViewController.swift",
+        "sourceSymbol" : "applyCollectionSnapshot()",
+        "xcodeAction" : "在 applyCollectionSnapshot() 设置断点，刷新后检查稳定 item id。"
       },
       "lessons" : [
         {
@@ -820,9 +850,12 @@
     },
     {
       "experiment" : {
-        "control" : "text",
+        "control" : "collection",
+        "docsPath" : "docs/experiment-cards.md",
         "id" : "type.Set",
-        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+        "sourceFile" : "SwiftMessengerLab/Learning/InteractiveExperimentViewController.swift",
+        "sourceSymbol" : "applyCollectionSnapshot()",
+        "xcodeAction" : "在 applyCollectionSnapshot() 设置断点，刷新后检查稳定 item id。"
       },
       "lessons" : [
         {
@@ -913,9 +946,12 @@
     },
     {
       "experiment" : {
-        "control" : "text",
+        "control" : "dictionary",
+        "docsPath" : "docs/experiment-cards.md",
         "id" : "type.Dictionary",
-        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+        "sourceFile" : "SwiftMessengerLab/Learning/InteractiveExperimentViewController.swift",
+        "sourceSymbol" : "runDictionaryWorkload()",
+        "xcodeAction" : "在 runDictionaryWorkload() 设置断点，执行后检查 key 的更新、合并与删除。"
       },
       "lessons" : [
         {
@@ -1016,8 +1052,11 @@
     {
       "experiment" : {
         "control" : "foundation",
+        "docsPath" : "docs/experiment-cards.md",
         "id" : "type.UUID",
-        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+        "sourceFile" : "SwiftMessengerLab/Learning/InteractiveExperimentViewController.swift",
+        "sourceSymbol" : "runFoundationRoundTrip()",
+        "xcodeAction" : "在 runFoundationRoundTrip() 设置断点，执行 Save + Load 后核对 URL、Data 与磁盘 fixture。"
       },
       "lessons" : [
         {
@@ -1093,8 +1132,11 @@
     {
       "experiment" : {
         "control" : "foundation",
+        "docsPath" : "docs/experiment-cards.md",
         "id" : "type.Date",
-        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+        "sourceFile" : "SwiftMessengerLab/Learning/InteractiveExperimentViewController.swift",
+        "sourceSymbol" : "runFoundationRoundTrip()",
+        "xcodeAction" : "在 runFoundationRoundTrip() 设置断点，执行 Save + Load 后核对 URL、Data 与磁盘 fixture。"
       },
       "lessons" : [
         {
@@ -1179,8 +1221,11 @@
     {
       "experiment" : {
         "control" : "foundation",
+        "docsPath" : "docs/experiment-cards.md",
         "id" : "type.URL",
-        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+        "sourceFile" : "SwiftMessengerLab/Learning/InteractiveExperimentViewController.swift",
+        "sourceSymbol" : "runFoundationRoundTrip()",
+        "xcodeAction" : "在 runFoundationRoundTrip() 设置断点，执行 Save + Load 后核对 URL、Data 与磁盘 fixture。"
       },
       "lessons" : [
         {
@@ -1274,8 +1319,11 @@
     {
       "experiment" : {
         "control" : "foundation",
+        "docsPath" : "docs/experiment-cards.md",
         "id" : "type.Data",
-        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+        "sourceFile" : "SwiftMessengerLab/Learning/InteractiveExperimentViewController.swift",
+        "sourceSymbol" : "runFoundationRoundTrip()",
+        "xcodeAction" : "在 runFoundationRoundTrip() 设置断点，执行 Save + Load 后核对 URL、Data 与磁盘 fixture。"
       },
       "lessons" : [
         {
@@ -1378,8 +1426,11 @@
     {
       "experiment" : {
         "control" : "foundation",
+        "docsPath" : "docs/experiment-cards.md",
         "id" : "type.FileManager",
-        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+        "sourceFile" : "SwiftMessengerLab/Learning/InteractiveExperimentViewController.swift",
+        "sourceSymbol" : "runFoundationRoundTrip()",
+        "xcodeAction" : "在 runFoundationRoundTrip() 设置断点，执行 Save + Load 后核对 URL、Data 与磁盘 fixture。"
       },
       "lessons" : [
         {
@@ -1471,8 +1522,11 @@
     {
       "experiment" : {
         "control" : "concurrency",
+        "docsPath" : "docs/experiment-cards.md",
         "id" : "type.Task",
-        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+        "sourceFile" : "SwiftMessengerLab/Core/MessageTransport.swift",
+        "sourceSymbol" : "send(_:isRetry:)",
+        "xcodeAction" : "在 MockMessageTransport.send(_:isRetry:) 设置断点，运行异步实验后查看线程与 Call Stack。"
       },
       "lessons" : [
         {
@@ -1565,8 +1619,11 @@
       "experiment" : {
         "compilerSample" : "enum-state-machine",
         "control" : "stateMachine",
+        "docsPath" : "docs/experiment-cards.md",
         "id" : "type.Result",
-        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+        "sourceFile" : "SwiftMessengerLab/Learning/InteractiveExperimentViewController.swift",
+        "sourceSymbol" : "advanceDeliveryState()",
+        "xcodeAction" : "在 advanceDeliveryState() 设置断点，点击 Advance 后检查 DeliveryState 与 stateIndex。"
       },
       "lessons" : [
         {
@@ -1641,8 +1698,11 @@
     {
       "experiment" : {
         "control" : "navigation",
+        "docsPath" : "docs/experiment-cards.md",
         "id" : "type.UIResponder",
-        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+        "sourceFile" : "SwiftMessengerLab/Learning/InteractiveExperimentViewController.swift",
+        "sourceSymbol" : "recordOperation(_:)",
+        "xcodeAction" : "在 recordOperation(_:) 设置断点，点击 Push 后查看 probe id 与 Call Stack。"
       },
       "lessons" : [
         {
@@ -1734,8 +1794,11 @@
     {
       "experiment" : {
         "control" : "navigation",
+        "docsPath" : "docs/experiment-cards.md",
         "id" : "type.UIApplication",
-        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+        "sourceFile" : "SwiftMessengerLab/Learning/InteractiveExperimentViewController.swift",
+        "sourceSymbol" : "recordOperation(_:)",
+        "xcodeAction" : "在 recordOperation(_:) 设置断点，点击 Push 后查看 probe id 与 Call Stack。"
       },
       "lessons" : [
         {
@@ -1818,8 +1881,11 @@
     {
       "experiment" : {
         "control" : "navigation",
+        "docsPath" : "docs/experiment-cards.md",
         "id" : "type.UIScene",
-        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+        "sourceFile" : "SwiftMessengerLab/Learning/InteractiveExperimentViewController.swift",
+        "sourceSymbol" : "recordOperation(_:)",
+        "xcodeAction" : "在 recordOperation(_:) 设置断点，点击 Push 后查看 probe id 与 Call Stack。"
       },
       "lessons" : [
         {
@@ -1911,8 +1977,11 @@
     {
       "experiment" : {
         "control" : "navigation",
+        "docsPath" : "docs/experiment-cards.md",
         "id" : "type.UIWindow",
-        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+        "sourceFile" : "SwiftMessengerLab/Learning/InteractiveExperimentViewController.swift",
+        "sourceSymbol" : "recordOperation(_:)",
+        "xcodeAction" : "在 recordOperation(_:) 设置断点，点击 Push 后查看 probe id 与 Call Stack。"
       },
       "lessons" : [
         {
@@ -2014,8 +2083,11 @@
     {
       "experiment" : {
         "control" : "viewAppearance",
+        "docsPath" : "docs/experiment-cards.md",
         "id" : "type.UIView",
-        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+        "sourceFile" : "SwiftMessengerLab/Learning/InteractiveExperimentViewController.swift",
+        "sourceSymbol" : "applyViewState()",
+        "xcodeAction" : "运行实验后使用 Debug View Hierarchy 定位 experiment-preview。"
       },
       "lessons" : [
         {
@@ -2125,8 +2197,11 @@
     {
       "experiment" : {
         "control" : "viewAppearance",
+        "docsPath" : "docs/experiment-cards.md",
         "id" : "type.NSLayoutAnchor",
-        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+        "sourceFile" : "SwiftMessengerLab/Learning/InteractiveExperimentViewController.swift",
+        "sourceSymbol" : "applyViewState()",
+        "xcodeAction" : "运行实验后使用 Debug View Hierarchy 定位 experiment-preview。"
       },
       "lessons" : [
         {
@@ -2192,8 +2267,11 @@
     {
       "experiment" : {
         "control" : "viewAppearance",
+        "docsPath" : "docs/experiment-cards.md",
         "id" : "type.NSLayoutConstraint",
-        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+        "sourceFile" : "SwiftMessengerLab/Learning/InteractiveExperimentViewController.swift",
+        "sourceSymbol" : "applyViewState()",
+        "xcodeAction" : "运行实验后使用 Debug View Hierarchy 定位 experiment-preview。"
       },
       "lessons" : [
         {
@@ -2294,8 +2372,11 @@
     {
       "experiment" : {
         "control" : "viewAppearance",
+        "docsPath" : "docs/experiment-cards.md",
         "id" : "type.UIStackView",
-        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+        "sourceFile" : "SwiftMessengerLab/Learning/InteractiveExperimentViewController.swift",
+        "sourceSymbol" : "applyViewState()",
+        "xcodeAction" : "运行实验后使用 Debug View Hierarchy 定位 experiment-preview。"
       },
       "lessons" : [
         {
@@ -2405,8 +2486,11 @@
     {
       "experiment" : {
         "control" : "navigation",
+        "docsPath" : "docs/experiment-cards.md",
         "id" : "type.UIViewController",
-        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+        "sourceFile" : "SwiftMessengerLab/Learning/InteractiveExperimentViewController.swift",
+        "sourceSymbol" : "recordOperation(_:)",
+        "xcodeAction" : "在 recordOperation(_:) 设置断点，点击 Push 后查看 probe id 与 Call Stack。"
       },
       "lessons" : [
         {
@@ -2525,8 +2609,11 @@
     {
       "experiment" : {
         "control" : "navigation",
+        "docsPath" : "docs/experiment-cards.md",
         "id" : "type.UINavigationItem",
-        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+        "sourceFile" : "SwiftMessengerLab/Learning/InteractiveExperimentViewController.swift",
+        "sourceSymbol" : "recordOperation(_:)",
+        "xcodeAction" : "在 recordOperation(_:) 设置断点，点击 Push 后查看 probe id 与 Call Stack。"
       },
       "lessons" : [
         {
@@ -2627,8 +2714,11 @@
     {
       "experiment" : {
         "control" : "navigation",
+        "docsPath" : "docs/experiment-cards.md",
         "id" : "type.UINavigationController",
-        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+        "sourceFile" : "SwiftMessengerLab/Learning/InteractiveExperimentViewController.swift",
+        "sourceSymbol" : "recordOperation(_:)",
+        "xcodeAction" : "在 recordOperation(_:) 设置断点，点击 Push 后查看 probe id 与 Call Stack。"
       },
       "lessons" : [
         {
@@ -2738,8 +2828,11 @@
     {
       "experiment" : {
         "control" : "viewAppearance",
+        "docsPath" : "docs/experiment-cards.md",
         "id" : "type.UILabel",
-        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+        "sourceFile" : "SwiftMessengerLab/Learning/InteractiveExperimentViewController.swift",
+        "sourceSymbol" : "applyViewState()",
+        "xcodeAction" : "运行实验后使用 Debug View Hierarchy 定位 experiment-preview。"
       },
       "lessons" : [
         {
@@ -2840,8 +2933,11 @@
     {
       "experiment" : {
         "control" : "viewAppearance",
+        "docsPath" : "docs/experiment-cards.md",
         "id" : "type.UIImageView",
-        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+        "sourceFile" : "SwiftMessengerLab/Learning/InteractiveExperimentViewController.swift",
+        "sourceSymbol" : "applyViewState()",
+        "xcodeAction" : "运行实验后使用 Debug View Hierarchy 定位 experiment-preview。"
       },
       "lessons" : [
         {
@@ -2942,8 +3038,11 @@
     {
       "experiment" : {
         "control" : "button",
+        "docsPath" : "docs/experiment-cards.md",
         "id" : "type.UIControl",
-        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+        "sourceFile" : "SwiftMessengerLab/Learning/InteractiveExperimentViewController.swift",
+        "sourceSymbol" : "actionButtonTapped()",
+        "xcodeAction" : "在 actionButtonTapped() 设置断点，点击 Send Action 后查看调用来源。"
       },
       "lessons" : [
         {
@@ -3053,8 +3152,11 @@
     {
       "experiment" : {
         "control" : "button",
+        "docsPath" : "docs/experiment-cards.md",
         "id" : "type.UIButton",
-        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+        "sourceFile" : "SwiftMessengerLab/Learning/InteractiveExperimentViewController.swift",
+        "sourceSymbol" : "actionButtonTapped()",
+        "xcodeAction" : "在 actionButtonTapped() 设置断点，点击 Send Action 后查看调用来源。"
       },
       "lessons" : [
         {
@@ -3164,8 +3266,11 @@
     {
       "experiment" : {
         "control" : "button",
+        "docsPath" : "docs/experiment-cards.md",
         "id" : "type.UIButton.Configuration",
-        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+        "sourceFile" : "SwiftMessengerLab/Learning/InteractiveExperimentViewController.swift",
+        "sourceSymbol" : "actionButtonTapped()",
+        "xcodeAction" : "在 actionButtonTapped() 设置断点，点击 Send Action 后查看调用来源。"
       },
       "lessons" : [
         {
@@ -3284,8 +3389,11 @@
     {
       "experiment" : {
         "control" : "textInput",
+        "docsPath" : "docs/experiment-cards.md",
         "id" : "type.UITextField",
-        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+        "sourceFile" : "SwiftMessengerLab/Learning/InteractiveExperimentViewController.swift",
+        "sourceSymbol" : "textFieldShouldReturn(_:)",
+        "xcodeAction" : "在 textFieldShouldReturn(_:) 设置断点，按 Return 后查看 delegate Call Stack。"
       },
       "lessons" : [
         {
@@ -3395,8 +3503,11 @@
     {
       "experiment" : {
         "control" : "textInput",
+        "docsPath" : "docs/experiment-cards.md",
         "id" : "type.UITextView",
-        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+        "sourceFile" : "SwiftMessengerLab/Learning/InteractiveExperimentViewController.swift",
+        "sourceSymbol" : "textFieldShouldReturn(_:)",
+        "xcodeAction" : "在 textFieldShouldReturn(_:) 设置断点，按 Return 后查看 delegate Call Stack。"
       },
       "lessons" : [
         {
@@ -3515,8 +3626,11 @@
     {
       "experiment" : {
         "control" : "textInput",
+        "docsPath" : "docs/experiment-cards.md",
         "id" : "type.UITextFieldDelegate",
-        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+        "sourceFile" : "SwiftMessengerLab/Learning/InteractiveExperimentViewController.swift",
+        "sourceSymbol" : "textFieldShouldReturn(_:)",
+        "xcodeAction" : "在 textFieldShouldReturn(_:) 设置断点，按 Return 后查看 delegate Call Stack。"
       },
       "lessons" : [
         {
@@ -3582,8 +3696,11 @@
     {
       "experiment" : {
         "control" : "textInput",
+        "docsPath" : "docs/experiment-cards.md",
         "id" : "type.UITextViewDelegate",
-        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+        "sourceFile" : "SwiftMessengerLab/Learning/InteractiveExperimentViewController.swift",
+        "sourceSymbol" : "textFieldShouldReturn(_:)",
+        "xcodeAction" : "在 textFieldShouldReturn(_:) 设置断点，按 Return 后查看 delegate Call Stack。"
       },
       "lessons" : [
         {
@@ -3649,8 +3766,11 @@
     {
       "experiment" : {
         "control" : "collection",
+        "docsPath" : "docs/experiment-cards.md",
         "id" : "type.UIScrollView",
-        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+        "sourceFile" : "SwiftMessengerLab/Learning/InteractiveExperimentViewController.swift",
+        "sourceSymbol" : "applyCollectionSnapshot()",
+        "xcodeAction" : "在 applyCollectionSnapshot() 设置断点，刷新后检查稳定 item id。"
       },
       "lessons" : [
         {
@@ -3760,8 +3880,11 @@
     {
       "experiment" : {
         "control" : "collection",
+        "docsPath" : "docs/experiment-cards.md",
         "id" : "type.UICollectionView",
-        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+        "sourceFile" : "SwiftMessengerLab/Learning/InteractiveExperimentViewController.swift",
+        "sourceSymbol" : "applyCollectionSnapshot()",
+        "xcodeAction" : "在 applyCollectionSnapshot() 设置断点，刷新后检查稳定 item id。"
       },
       "lessons" : [
         {
@@ -3871,8 +3994,11 @@
     {
       "experiment" : {
         "control" : "collection",
+        "docsPath" : "docs/experiment-cards.md",
         "id" : "type.UICollectionViewCell",
-        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+        "sourceFile" : "SwiftMessengerLab/Learning/InteractiveExperimentViewController.swift",
+        "sourceSymbol" : "applyCollectionSnapshot()",
+        "xcodeAction" : "在 applyCollectionSnapshot() 设置断点，刷新后检查稳定 item id。"
       },
       "lessons" : [
         {
@@ -3973,8 +4099,11 @@
     {
       "experiment" : {
         "control" : "collection",
+        "docsPath" : "docs/experiment-cards.md",
         "id" : "type.UICollectionViewDataSource",
-        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+        "sourceFile" : "SwiftMessengerLab/Learning/InteractiveExperimentViewController.swift",
+        "sourceSymbol" : "applyCollectionSnapshot()",
+        "xcodeAction" : "在 applyCollectionSnapshot() 设置断点，刷新后检查稳定 item id。"
       },
       "lessons" : [
         {
@@ -4040,8 +4169,11 @@
     {
       "experiment" : {
         "control" : "collection",
+        "docsPath" : "docs/experiment-cards.md",
         "id" : "type.UICollectionViewDelegate",
-        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+        "sourceFile" : "SwiftMessengerLab/Learning/InteractiveExperimentViewController.swift",
+        "sourceSymbol" : "applyCollectionSnapshot()",
+        "xcodeAction" : "在 applyCollectionSnapshot() 设置断点，刷新后检查稳定 item id。"
       },
       "lessons" : [
         {
@@ -4107,8 +4239,11 @@
     {
       "experiment" : {
         "control" : "collection",
+        "docsPath" : "docs/experiment-cards.md",
         "id" : "type.UICollectionViewDiffableDataSource",
-        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+        "sourceFile" : "SwiftMessengerLab/Learning/InteractiveExperimentViewController.swift",
+        "sourceSymbol" : "applyCollectionSnapshot()",
+        "xcodeAction" : "在 applyCollectionSnapshot() 设置断点，刷新后检查稳定 item id。"
       },
       "lessons" : [
         {
@@ -4191,8 +4326,11 @@
     {
       "experiment" : {
         "control" : "collection",
+        "docsPath" : "docs/experiment-cards.md",
         "id" : "type.NSDiffableDataSourceSnapshot",
-        "sourceFile" : "SwiftMessengerLab/Core/LearningCatalog.swift"
+        "sourceFile" : "SwiftMessengerLab/Learning/InteractiveExperimentViewController.swift",
+        "sourceSymbol" : "applyCollectionSnapshot()",
+        "xcodeAction" : "在 applyCollectionSnapshot() 设置断点，刷新后检查稳定 item id。"
       },
       "lessons" : [
         {
@@ -4302,8 +4440,11 @@
     {
       "experiment" : {
         "control" : "stateMachine",
+        "docsPath" : "docs/experiment-cards.md",
         "id" : "type.AppEnvironment",
-        "sourceFile" : "SwiftMessengerLab/App/AppEnvironment.swift"
+        "sourceFile" : "SwiftMessengerLab/Learning/InteractiveExperimentViewController.swift",
+        "sourceSymbol" : "advanceDeliveryState()",
+        "xcodeAction" : "在 advanceDeliveryState() 设置断点，点击 Advance 后检查 DeliveryState 与 stateIndex。"
       },
       "lessons" : [
         {
@@ -4396,9 +4537,12 @@
     },
     {
       "experiment" : {
-        "control" : "stateMachine",
+        "control" : "repository",
+        "docsPath" : "docs/experiment-cards.md",
         "id" : "type.MessageRepository",
-        "sourceFile" : "SwiftMessengerLab/Core/MessageRepository.swift"
+        "sourceFile" : "SwiftMessengerLab/Core/MessageRepository.swift",
+        "sourceSymbol" : "enqueueOutgoing(text:conversationID:id:date:)",
+        "xcodeAction" : "在 enqueueOutgoing(...) 设置断点，执行后检查消息数、queued 状态与会话预览。"
       },
       "lessons" : [
         {
@@ -4455,6 +4599,24 @@
             "sideEffect" : "以类型卡说明和实验日志为准",
             "signature" : "markSent(id:serverID:)",
             "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "reset(to:)",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "reset(to:)",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "reset(to:)",
+            "triggeredBy" : "App 白名单实验或业务调用方"
+          },
+          {
+            "id" : "recoverInterruptedOutgoingMessages()",
+            "input" : "按签名传入参数；无参数时写无",
+            "output" : "在返回值、预览或日志中观察",
+            "recommendedBreakpoint" : "recoverInterruptedOutgoingMessages()",
+            "sideEffect" : "以类型卡说明和实验日志为准",
+            "signature" : "recoverInterruptedOutgoingMessages()",
+            "triggeredBy" : "App 白名单实验或业务调用方"
           }
         ],
         "module" : "SwiftMessengerCore",
@@ -4491,8 +4653,11 @@
     {
       "experiment" : {
         "control" : "foundation",
+        "docsPath" : "docs/experiment-cards.md",
         "id" : "type.JSONInboxCache",
-        "sourceFile" : "SwiftMessengerLab/Core/JSONInboxCache.swift"
+        "sourceFile" : "SwiftMessengerLab/Learning/InteractiveExperimentViewController.swift",
+        "sourceSymbol" : "runFoundationRoundTrip()",
+        "xcodeAction" : "在 runFoundationRoundTrip() 设置断点，执行 Save + Load 后核对 URL、Data 与磁盘 fixture。"
       },
       "lessons" : [
         {
@@ -4557,8 +4722,11 @@
     {
       "experiment" : {
         "control" : "concurrency",
+        "docsPath" : "docs/experiment-cards.md",
         "id" : "type.MockMessageTransport",
-        "sourceFile" : "SwiftMessengerLab/Core/MessageTransport.swift"
+        "sourceFile" : "SwiftMessengerLab/Core/MessageTransport.swift",
+        "sourceSymbol" : "send(_:isRetry:)",
+        "xcodeAction" : "在 MockMessageTransport.send(_:isRetry:) 设置断点，运行异步实验后查看线程与 Call Stack。"
       },
       "lessons" : [
         {
@@ -4624,9 +4792,12 @@
     {
       "experiment" : {
         "compilerSample" : "enum-state-machine",
-        "control" : "stateMachine",
+        "control" : "concurrency",
+        "docsPath" : "docs/experiment-cards.md",
         "id" : "type.Message",
-        "sourceFile" : "SwiftMessengerLab/Core/Models.swift"
+        "sourceFile" : "SwiftMessengerLab/Core/MessageTransport.swift",
+        "sourceSymbol" : "send(_:isRetry:)",
+        "xcodeAction" : "在 MockMessageTransport.send(_:isRetry:) 设置断点，运行异步实验后查看线程与 Call Stack。"
       },
       "lessons" : [
         {
@@ -4739,8 +4910,11 @@
     {
       "experiment" : {
         "control" : "foundation",
+        "docsPath" : "docs/experiment-cards.md",
         "id" : "type.InboxSnapshot",
-        "sourceFile" : "SwiftMessengerLab/Core/Models.swift"
+        "sourceFile" : "SwiftMessengerLab/Learning/InteractiveExperimentViewController.swift",
+        "sourceSymbol" : "runFoundationRoundTrip()",
+        "xcodeAction" : "在 runFoundationRoundTrip() 设置断点，执行 Save + Load 后核对 URL、Data 与磁盘 fixture。"
       },
       "lessons" : [
         {
@@ -4814,6 +4988,6 @@
       }
     }
   ],
-  "schemaVersion" : 1,
+  "schemaVersion" : 2,
   "source" : "SwiftMessengerLab/Core/LearningCatalog.swift"
 }

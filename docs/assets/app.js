@@ -7,10 +7,10 @@ const controlLabels = {
   propertyObserver: "属性观察",
   text: "文本与集合",
   valueReference: "值与引用",
-  stateMachine: "状态机代理",
-  ownership: "所有权代理",
-  foundation: "Foundation 代理",
-  concurrency: "并发代理",
+  stateMachine: "状态机",
+  ownership: "所有权与 weak",
+  foundation: "JSON 持久化",
+  concurrency: "Task 与确定性 transport",
   navigation: "导航与生命周期",
   viewAppearance: "视图外观",
   button: "控件事件",
@@ -93,6 +93,8 @@ function searchableText(card) {
     ...lessons.flatMap((lesson) => [lesson.title, lesson.coreAbility, `lesson ${lesson.id}`]),
     experiment.control,
     experiment.sourceFile,
+    experiment.sourceSymbol,
+    experiment.xcodeAction,
   ].join(" ").toLocaleLowerCase();
 }
 
@@ -199,13 +201,23 @@ function typeCard(card, openIDs) {
   const experimentText = element(
     "p",
     "",
-    `App 实验族：${controlLabels[experiment.control] ?? experiment.control}。这是共享教学 renderer 的分类；网页不执行 App、LLDB 或源码改值。`,
+    `App 实验族：${controlLabels[experiment.control] ?? experiment.control}。App 只运行共享 renderer；完整解释与 LLDB 命令留在 docs。`,
   );
-  const sourceLink = element("a", "type-card__source", `查看仓库内观察入口 · ${experiment.sourceFile} ↗`);
+  const sourceLink = element(
+    "a",
+    "type-card__source",
+    `Source · ${experiment.sourceFile} · ${experiment.sourceSymbol} ↗`,
+  );
   sourceLink.href = sourceURL(experiment.sourceFile);
   sourceLink.target = "_blank";
   sourceLink.rel = "noopener";
-  experimentBlock.append(experimentText, sourceLink);
+  const action = element("p", "type-card__command");
+  action.append("Xcode action：", element("code", "", experiment.xcodeAction));
+  const docsLink = element("a", "type-card__source", `详细材料 · ${experiment.docsPath} ↗`);
+  docsLink.href = sourceURL(experiment.docsPath);
+  docsLink.target = "_blank";
+  docsLink.rel = "noopener";
+  experimentBlock.append(experimentText, sourceLink, action, docsLink);
   if (experiment.compilerSample) {
     const command = element("p", "type-card__command");
     command.append("概念类比样本：", element("code", "", `make compiler-lab SAMPLE=${experiment.compilerSample}`));

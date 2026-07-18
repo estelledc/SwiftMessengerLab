@@ -90,6 +90,9 @@ final class ConversationListViewController: UICollectionViewController {
     }
 
     @objc private func showGuide() {
-        navigationController?.pushViewController(GuideViewController(), animated: true)
+        navigationController?.pushViewController(
+            GuideViewController(environment: environment),
+            animated: true
+        )
     }
 }

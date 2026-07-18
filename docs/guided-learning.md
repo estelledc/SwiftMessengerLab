@@ -10,6 +10,8 @@
 
 第一轮只看 App 内 Logs 和 Xcode Console，证明“发生顺序”；第二轮再打断点看 Call Stack，证明“调用来源”。
 
+进入实验后只显示一个 Goal、一个真实 `file + symbol` Code cue、一个 Xcode action 和 docs 短路径；入口按钮只显示标题。预期结果不在操作前渲染，真实结果从状态与 Logs 读取。完整 LLDB 命令不复制进 App；IM 业务链留在本文，70 个 type/concept 的独立材料统一位于 `docs/experiment-cards.md`。
+
 ## Session 0：建立运行基线
 
 操作：
@@ -17,7 +19,7 @@
 ```bash
 make test
 make build
-make run
+make run-fresh
 ```
 
 胜利条件：
@@ -45,6 +47,11 @@ make run
 
 胜利条件：能解释位置、身份和导航之间的区别。
 
+Messenger 的紧凑入口在 `Guide`：
+
+- Source cue：`SwiftMessengerLab/Features/Chat/ChatViewController.swift · submit(text:)`
+- 唯一 Xcode action：在 `ChatViewController.submit(text:)` 设置断点，发送 `/fail` 后查看 Call Stack。
+
 ## Session 2：发送成功主链路
 
 ### 先预测
@@ -65,13 +72,19 @@ make run
 ```text
 Composer send
 Repository enqueue
-UI apply snapshot (sending)
+Cache save (queued)
+UI apply snapshot (queued)
+Repository update (sending)
 Transport start
+Cache save (sending)
+UI apply snapshot (sending)
 Transport success
-Repository mark sent
-Cache save
+Repository update (sent)
+Cache save (sent)
 UI apply snapshot (sent)
 ```
+
+这条实现会在 `queued / sending / sent` 三个持久化边界各写一次 cache；不要把“最终保存”误解成只有一次磁盘写入。
 
 ### 第二轮：看调用来源
 
@@ -119,7 +132,39 @@ UI apply snapshot (sent)
 3. 进入同一会话确认消息仍在。
 4. 在 `JSONInboxCache.save/load` 打断点观察 `Codable`。
 
-胜利条件：能区分内存 repository 和磁盘 cache 的职责。
+再做一次中断恢复：
+
+1. 在 `MockMessageTransport.send(_:,isRetry:)` 的 `Task.sleep` 行打断点。
+2. 发送任意消息；断点停住时，`sending` 已经写入 cache。
+3. 直接点 Xcode Stop，再重新 Run。
+4. 进入同一会话，确认这条消息恢复成 `failed`，可以用同一个 id 重试。
+
+恢复策略故意不自动重发：本地 lab 没有真实服务端幂等协议，无法证明中断前请求是否已经被服务端接收。把瞬态状态降为 `failed`，会把下一步交回给学习者。
+
+再验证损坏 cache：
+
+1. 停止 App。
+2. 把 Application Support 中的 `inbox.json` 改成无法解码的文本。
+3. 重新运行。
+4. Logs 应显示 `Cache invalid -> replace with public sample data`。
+5. 再次重启应走正常 `Cache load success`，证明坏文件已经被原子替换，而不是每次 fallback。
+
+胜利条件：能区分内存 repository 和磁盘 cache 的职责，并解释为什么冷启动不能让 `queued / sending` 永久卡住、为什么损坏 cache 必须被持久修复。
+
+## Reset 边界
+
+| 操作 | Messenger JSON Cache | 学习进度 | 当前实验控件 |
+|---|---:|---:|---:|
+| `make run` | 保留 | 保留 | 新建页面时用源码默认值 |
+| `make run APP_ARGUMENTS='--reset-cache'` | 重置 | 保留 | 不负责 |
+| `make run-fresh` | 重置 | 重置 | 不负责 |
+| App Guide 内 `Reset Messenger Data` | 重置为 sample | 保留 | 不负责 |
+| App 内 `Reset Learning Progress` | 保留 | 重置 | 不负责 |
+| App 内 `Reset Experiment` | 保留 | 保留 | 只重置当前实验 |
+
+做 reset 实验时先写下你预计会变化的存储，再执行；不要仅凭“界面看起来回去了”判断数据边界。
+
+共享 Run scheme 默认启用 Main Thread Checker、Thread Performance Checker、queue debugging 与 view debugging。`--reset-cache` 和 `--reset-learning-progress` 已作为默认关闭的 Scheme 参数列出；需要确定性基线时手动勾选，做冷启动恢复实验时保持关闭。
 
 ## Session 5：公开生产源码对照
 
@@ -139,4 +184,3 @@ UI apply snapshot (sent)
 3. transport 回调后，为什么 UI 刷新必须回到主 actor？
 4. cache、repository、transport 分别保存或处理什么？
 5. 如果要加入已读回执，你会在哪些对象之间增加什么状态变化？
-

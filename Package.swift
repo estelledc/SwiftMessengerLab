@@ -7,7 +7,8 @@ let package = Package(
     platforms: [.macOS(.v14)],
     products: [
         .library(name: "SwiftMessengerCore", targets: ["SwiftMessengerCore"]),
-        .executable(name: "type-catalog-exporter", targets: ["TypeCatalogExporter"])
+        .executable(name: "type-catalog-exporter", targets: ["TypeCatalogExporter"]),
+        .executable(name: "experiment-card-exporter", targets: ["ExperimentCardExporter"])
     ],
     targets: [
         .target(
@@ -23,6 +24,11 @@ let package = Package(
             name: "TypeCatalogExporter",
             dependencies: ["SwiftMessengerCore"],
             path: "Tools/TypeCatalogExporter"
+        ),
+        .executableTarget(
+            name: "ExperimentCardExporter",
+            dependencies: ["SwiftMessengerCore"],
+            path: "Tools/ExperimentCardExporter"
         )
     ]
 )

@@ -22,11 +22,14 @@ public struct PublishedExperimentReference: Codable, Equatable, Sendable {
     public let id: String
     public let control: ExperimentControl
     public let sourceFile: String
+    public let sourceSymbol: String
+    public let xcodeAction: String
+    public let docsPath: String
     public let compilerSample: String?
 }
 
 /// The deterministic, public projection consumed by the GitHub Pages type explorer.
-/// Full experiment instructions remain in the app because the website cannot execute App, LLDB, or source edits.
+/// The App and website share only the compact console contract. Full instructions live in docs.
 public enum PublishedTypeCatalog {
     public static let document: PublishedTypeCatalogDocument = {
         let cards = TypeCatalog.all.map { metadata -> PublishedTypeCard in
@@ -50,14 +53,17 @@ public enum PublishedTypeCatalog {
                 experiment: PublishedExperimentReference(
                     id: experiment.id,
                     control: experiment.control,
-                    sourceFile: experiment.sourceFile,
+                    sourceFile: experiment.console.sourceCue.file,
+                    sourceSymbol: experiment.console.sourceCue.symbol,
+                    xcodeAction: experiment.console.xcodeAction,
+                    docsPath: experiment.console.docsPath,
                     compilerSample: experiment.compilerSample
                 )
             )
         }
 
         return PublishedTypeCatalogDocument(
-            schemaVersion: 1,
+            schemaVersion: 2,
             source: "SwiftMessengerLab/Core/LearningCatalog.swift",
             cards: cards
         )

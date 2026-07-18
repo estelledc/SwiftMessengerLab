@@ -1,52 +1,97 @@
 import UIKit
 
 final class GuideViewController: UIViewController {
+    private let environment: AppEnvironment
+    private let resultLabel = ExperimentConsoleUI.label(
+        "Status\n等待操作；发送结果见消息列表，调用顺序见 Logs。",
+        style: .body,
+        identifier: "guide-result"
+    )
+
+    private let descriptor = ExperimentConsoleDescriptor(
+        goal: "用同一个 message id 观察 queued → sending → failed → retry → sent。",
+        sourceCue: ExperimentSourceCue(
+            file: "SwiftMessengerLab/Features/Chat/ChatViewController.swift",
+            symbol: "submit(text:)"
+        ),
+        xcodeAction: "在 ChatViewController.submit(text:) 设置断点，发送 /fail 后查看 Call Stack。",
+        expectedResult: "失败重试不新增消息；同一 id 最终从 failed 变为 sent。",
+        docsPath: "docs/guided-learning.md"
+    )
+
+    init(environment: AppEnvironment) {
+        self.environment = environment
+        super.init(nibName: nil, bundle: nil)
+    }
+
+    @available(*, unavailable)
+    required init?(coder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Guided Experiment"
+        title = "Messenger Experiment"
         view.backgroundColor = .systemBackground
 
-        let textView = UITextView()
-        textView.translatesAutoresizingMaskIntoConstraints = false
-        textView.isEditable = false
-        textView.adjustsFontForContentSizeCategory = true
-        textView.font = .preferredFont(forTextStyle: .body)
-        textView.text = """
-        第一次只做一条消息发送链路。
+        let stack = ExperimentConsoleUI.installScrollableStack(
+            in: self,
+            accessibilityIdentifier: "messenger-console"
+        )
+        stack.addArrangedSubview(ExperimentConsoleUI.descriptorView(descriptor))
+        stack.addArrangedSubview(
+            ExperimentConsoleUI.button(
+                title: "Open Message Lab",
+                identifier: "guide-open-message-lab",
+                emphasized: true
+            ) { [weak self] in
+                guard let self else { return }
+                navigationController?.pushViewController(
+                    ChatViewController(
+                        environment: environment,
+                        conversationID: SampleInbox.designID
+                    ),
+                    animated: true
+                )
+            }
+        )
+        stack.addArrangedSubview(
+            ExperimentConsoleUI.button(
+                title: "View Logs",
+                identifier: "guide-view-logs",
+                emphasized: false
+            ) { [weak self] in
+                guard let self else { return }
+                navigationController?.pushViewController(
+                    LogViewController(log: environment.log),
+                    animated: true
+                )
+            }
+        )
+        stack.addArrangedSubview(
+            ExperimentConsoleUI.button(
+                title: "Reset Messenger Data",
+                identifier: "guide-reset-messenger",
+                emphasized: false
+            ) { [weak self] in
+                self?.confirmReset()
+            }
+        )
+        stack.addArrangedSubview(resultLabel)
+    }
 
-        1. 先预测
-           普通文本会按什么顺序经过 UI、Repository、Transport，再回到 UI？
-
-        2. 发送成功
-           回到 Messenger，打开 Design Study Group，发送 hello。
-           你要看到状态从 sending 变成 sent。
-
-        3. 发送失败与重试
-           输入 /fail，等它变成 failed，再点失败消息重试。
-           你要证明同一个 message id 被重试，不是新增一条重复消息。
-
-        4. 看 Logs
-           找到 UI -> Repository -> Transport -> Repository -> UI。
-           Logs 证明顺序；断点和 Call Stack 证明谁调用谁。
-
-        5. 再学类型
-           完成发送链路后，再去第 11 课 UIView 类型卡。
-           先操作 App 控件，再看 LLDB 命令，最后改源码默认值。
-
-        完成标准：
-        - 能区分 Message.id 和 serverID。
-        - 能解释 failed 消息为什么可以原地 retry。
-        - 能指出 Reset Learning Progress 不会删除 Messenger 消息。
-
-        完整问题和断点见 docs/guided-learning.md。
-        """
-
-        view.addSubview(textView)
-        NSLayoutConstraint.activate([
-            textView.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 16),
-            textView.leadingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.leadingAnchor, constant: 16),
-            textView.trailingAnchor.constraint(equalTo: view.safeAreaLayoutGuide.trailingAnchor, constant: -16),
-            textView.bottomAnchor.constraint(equalTo: view.bottomAnchor)
-        ])
+    private func confirmReset() {
+        let alert = UIAlertController(
+            title: "Reset Messenger Data?",
+            message: "This replaces local conversations and messages with the public sample. Learning progress is unchanged.",
+            preferredStyle: .alert
+        )
+        alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))
+        alert.addAction(UIAlertAction(title: "Reset", style: .destructive) { [weak self] _ in
+            guard let self else { return }
+            environment.resetMessengerData()
+            resultLabel.text = "Status\nMessenger 已恢复为 public sample；学习进度未改变。"
+        })
+        present(alert, animated: true)
     }
 }

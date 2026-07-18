@@ -33,16 +33,22 @@ final class AppEnvironment {
 
         let initialSnapshot: InboxSnapshot
         do {
-            if let cached = try cache.load() {
-                initialSnapshot = cached
-                log.record(.cache, "Cache load success messages=\(cached.messages.count)")
-            } else {
-                initialSnapshot = SampleInbox.snapshot
-                log.record(.cache, "Cache empty -> use public sample data")
+            let bootstrap = try cache.loadOrRepair(seed: SampleInbox.snapshot)
+            initialSnapshot = bootstrap.snapshot
+            switch bootstrap.source {
+            case .cached:
+                log.record(
+                    .cache,
+                    "Cache load success messages=\(bootstrap.snapshot.messages.count)"
+                )
+            case .seededMissingCache:
+                log.record(.cache, "Cache missing -> seed and persist public sample data")
+            case .repairedInvalidCache:
+                log.record(.cache, "Cache invalid -> replace with public sample data")
             }
         } catch {
             initialSnapshot = SampleInbox.snapshot
-            log.record(.cache, "Cache load failed -> fallback to sample error=\(error)")
+            log.record(.cache, "Cache bootstrap failed -> in-memory sample error=\(error)")
         }
 
         let repository = MessageRepository(snapshot: initialSnapshot) { message in
@@ -55,12 +61,21 @@ final class AppEnvironment {
             log.record(.transport, message)
         }
 
-        return AppEnvironment(
+        let environment = AppEnvironment(
             log: log,
             cache: cache,
             repository: repository,
             delivery: delivery
         )
+        let recoveredIDs = repository.recoverInterruptedOutgoingMessages()
+        if !recoveredIDs.isEmpty {
+            log.record(
+                .cache,
+                "Cache recovered interrupted outgoing messages=\(recoveredIDs.count)"
+            )
+            environment.persist()
+        }
+        return environment
     }
 
     func persist() {
@@ -70,5 +85,11 @@ final class AppEnvironment {
         } catch {
             log.record(.cache, "Cache save failed error=\(error)")
         }
+    }
+
+    func resetMessengerData() {
+        repository.reset(to: SampleInbox.snapshot)
+        persist()
+        log.record(.ui, "Messenger data reset to public sample")
     }
 }

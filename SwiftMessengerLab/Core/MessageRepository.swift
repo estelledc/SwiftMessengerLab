@@ -83,6 +83,37 @@ public final class MessageRepository {
         record("Repository conversation id=\(id.short) unread=0")
     }
 
+    public func reset(to snapshot: InboxSnapshot) {
+        snapshotValue = snapshot
+        record(
+            "Repository reset conversations=\(snapshot.conversations.count) "
+                + "messages=\(snapshot.messages.count)"
+        )
+    }
+
+    @discardableResult
+    public func recoverInterruptedOutgoingMessages() -> [UUID] {
+        var recoveredIDs: [UUID] = []
+
+        for index in snapshotValue.messages.indices {
+            let message = snapshotValue.messages[index]
+            guard
+                message.author == .me,
+                message.deliveryState == .queued || message.deliveryState == .sending
+            else { continue }
+
+            snapshotValue.messages[index].deliveryState = .failed
+            snapshotValue.messages[index].serverID = nil
+            recoveredIDs.append(message.id)
+            record(
+                "Repository recover id=\(message.id.short) "
+                    + "from=\(message.deliveryState.rawValue) state=failed"
+            )
+        }
+
+        return recoveredIDs
+    }
+
     private func mutateMessage(id: UUID, mutation: (inout Message) -> Void) {
         guard let index = snapshotValue.messages.firstIndex(where: { $0.id == id }) else { return }
         mutation(&snapshotValue.messages[index])
@@ -99,4 +130,3 @@ public extension UUID {
         String(uuidString.prefix(8))
     }
 }
-
