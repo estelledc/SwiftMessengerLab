@@ -75,38 +75,20 @@ final class LearningCatalogViewController: UITableViewController, UISearchResult
         isSearching ? typeResults.count : LearningCatalog.lessons.count
     }
 
-    override func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        isSearching
-            ? "\(typeResults.count) 张类型卡"
-            : "20 lessons · 52 type cards · recommended order, no hard lock"
-    }
-
-    override func tableView(_ tableView: UITableView, titleForFooterInSection section: Int) -> String? {
-        "记录只表示已操作/已回答，不代表掌握。Messenger 数据与学习进度分别保存。"
-    }
-
     override func tableView(
         _ tableView: UITableView,
         cellForRowAt indexPath: IndexPath
     ) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "LessonCell", for: indexPath)
-        var content = UIListContentConfiguration.subtitleCell()
-        content.secondaryTextProperties.numberOfLines = 2
+        var content = UIListContentConfiguration.cell()
 
         if isSearching {
             let metadata = typeResults[indexPath.row]
-            let lesson = LearningCatalog.lesson(containingTypeID: metadata.id)
-            content.text = "\(metadata.name) · \(metadata.kind.rawValue)"
-            content.secondaryText = "\(metadata.module) · Lesson \(lesson?.id ?? 0)\n\(metadata.purpose)"
+            content.text = metadata.name
             cell.accessibilityIdentifier = "type-search-result-\(metadata.id)"
         } else {
             let lesson = LearningCatalog.lessons[indexPath.row]
-            let experimentIDs = lesson.typeIDs.compactMap { TypeCatalog.type(id: $0)?.experimentID }
-                + lesson.conceptIDs.compactMap { LanguageConceptCatalog.byID[$0]?.experimentID }
-            let operatedCount = experimentIDs.filter(progressStore.progress.hasOperated).count
-            let answered = progressStore.progress.hasAnswered(lesson.id)
             content.text = String(format: "%02d · %@", lesson.id, lesson.title)
-            content.secondaryText = "已操作 \(operatedCount)/\(experimentIDs.count) · \(answered ? "已回答" : "未回答")\n\(lesson.coreAbility)"
             cell.accessibilityIdentifier = "lesson-\(lesson.id)"
         }
 
@@ -119,11 +101,11 @@ final class LearningCatalogViewController: UITableViewController, UISearchResult
         tableView.deselectRow(at: indexPath, animated: true)
         if isSearching {
             let metadata = typeResults[indexPath.row]
-            guard let lesson = LearningCatalog.lesson(containingTypeID: metadata.id) else { return }
-            navigationController?.pushViewController(
-                TypeDetailViewController(metadata: metadata, lesson: lesson, progressStore: progressStore),
-                animated: true
-            )
+            guard
+                let lesson = LearningCatalog.lesson(containingTypeID: metadata.id),
+                let experiment = ExperimentCatalog.experiment(id: metadata.experimentID)
+            else { return }
+            openExperiment(experiment, lesson: lesson)
         } else {
             let lesson = LearningCatalog.lessons[indexPath.row]
             navigationController?.pushViewController(
@@ -133,10 +115,21 @@ final class LearningCatalogViewController: UITableViewController, UISearchResult
         }
     }
 
+    private func openExperiment(_ experiment: LearningExperiment, lesson: LessonDefinition) {
+        navigationController?.pushViewController(
+            InteractiveExperimentViewController(
+                lesson: lesson,
+                experiment: experiment,
+                progressStore: progressStore
+            ),
+            animated: true
+        )
+    }
+
     @objc private func confirmResetProgress() {
         let alert = UIAlertController(
             title: "Reset Learning Progress?",
-            message: "只清除已操作/已回答记录；Messenger 消息和实验默认值不受影响。",
+            message: "只清除 direct workload 的已操作记录与已回答记录；Messenger 消息不受影响。",
             preferredStyle: .alert
         )
         alert.addAction(UIAlertAction(title: "Cancel", style: .cancel))

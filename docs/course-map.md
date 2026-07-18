@@ -8,8 +8,11 @@
 
 - IM 业务链路：`docs/guided-learning.md`
 - 20 节类型短课：`docs/20-session-curriculum.md`
+- 52 type + 18 concept 独立操作卡：`docs/experiment-cards.md`
 - App / LLDB / 源码三层改值：`docs/type-lab.md`
 - Swift → SIL → LLVM IR → ARM64：`docs/compiler-lab.md`
+
+App 不承载讲义。课程和搜索入口直接进入共享 renderer；进入后只显示 Goal、真实 Code cue、一个 Xcode action 与 docs 短路径，结果由状态和 Logs 给出。下面的完整映射与解释以 docs 为准。
 
 | 课程主题 | 项目落点 | 可观察证据 |
 |---|---|---|

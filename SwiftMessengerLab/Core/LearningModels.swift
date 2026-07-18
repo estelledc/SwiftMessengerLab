@@ -27,6 +27,14 @@ public enum ExperimentControl: String, CaseIterable, Codable, Sendable {
     case button
     case textInput
     case collection
+    case dictionary
+    case repository
+}
+
+/// Whether an entry executes the named target or only reuses a nearby interaction model.
+public enum ExperimentEvidenceKind: String, CaseIterable, Codable, Sendable {
+    case directWorkload
+    case relatedObservation
 }
 
 public struct PropertyLesson: Identifiable, Codable, Equatable, Sendable {
@@ -164,19 +172,54 @@ public struct LanguageConcept: Identifiable, Codable, Equatable, Sendable {
     }
 }
 
+public struct ExperimentSourceCue: Codable, Equatable, Sendable {
+    public let file: String
+    public let symbol: String
+
+    public init(file: String, symbol: String) {
+        self.file = file
+        self.symbol = symbol
+    }
+
+    public var displayText: String {
+        "\(file) · \(symbol)"
+    }
+}
+
+/// Metadata shared by the App and docs.
+/// The App renders goal/source/action/docs; expected results and LLDB details stay in docs.
+public struct ExperimentConsoleDescriptor: Codable, Equatable, Sendable {
+    public let goal: String
+    public let sourceCue: ExperimentSourceCue
+    public let xcodeAction: String
+    public let expectedResult: String
+    public let docsPath: String
+
+    public init(
+        goal: String,
+        sourceCue: ExperimentSourceCue,
+        xcodeAction: String,
+        expectedResult: String,
+        docsPath: String
+    ) {
+        self.goal = goal
+        self.sourceCue = sourceCue
+        self.xcodeAction = xcodeAction
+        self.expectedResult = expectedResult
+        self.docsPath = docsPath
+    }
+}
+
 public struct LearningExperiment: Identifiable, Codable, Equatable, Sendable {
     public let id: String
     public let targetTypeID: String?
     public let targetConceptID: String?
     public let title: String
     public let control: ExperimentControl
-    public let predictionPrompt: String
-    public let appInstructions: String
-    public let observationPrompt: String
-    public let resetExpectation: String
-    public let lldbCommand: String
-    public let sourceFile: String
-    public let sourceChange: String
+    public let evidenceKind: ExperimentEvidenceKind
+    public let evidenceToken: String?
+    public let targetEvidence: String
+    public let console: ExperimentConsoleDescriptor
     public let compilerSample: String?
 
     public init(
@@ -185,13 +228,10 @@ public struct LearningExperiment: Identifiable, Codable, Equatable, Sendable {
         targetConceptID: String? = nil,
         title: String,
         control: ExperimentControl,
-        predictionPrompt: String,
-        appInstructions: String,
-        observationPrompt: String,
-        resetExpectation: String,
-        lldbCommand: String,
-        sourceFile: String,
-        sourceChange: String,
+        evidenceKind: ExperimentEvidenceKind,
+        evidenceToken: String?,
+        targetEvidence: String,
+        console: ExperimentConsoleDescriptor,
         compilerSample: String? = nil
     ) {
         self.id = id
@@ -199,14 +239,132 @@ public struct LearningExperiment: Identifiable, Codable, Equatable, Sendable {
         self.targetConceptID = targetConceptID
         self.title = title
         self.control = control
-        self.predictionPrompt = predictionPrompt
-        self.appInstructions = appInstructions
-        self.observationPrompt = observationPrompt
-        self.resetExpectation = resetExpectation
-        self.lldbCommand = lldbCommand
-        self.sourceFile = sourceFile
-        self.sourceChange = sourceChange
+        self.evidenceKind = evidenceKind
+        self.evidenceToken = evidenceToken
+        self.targetEvidence = targetEvidence
+        self.console = console
         self.compilerSample = compilerSample
+    }
+
+
+    public var recordsOperationEvidence: Bool {
+        evidenceKind == .directWorkload && evidenceToken != nil
+    }
+}
+
+public struct DictionaryWorkloadResult: Equatable, Sendable {
+    public let previousQueuedCount: Int?
+    public let removedQueuedCount: Int?
+    public let sentCount: Int
+    public let failedCount: Int
+    public let sortedKeys: [String]
+
+    public init(
+        previousQueuedCount: Int?,
+        removedQueuedCount: Int?,
+        sentCount: Int,
+        failedCount: Int,
+        sortedKeys: [String]
+    ) {
+        self.previousQueuedCount = previousQueuedCount
+        self.removedQueuedCount = removedQueuedCount
+        self.sentCount = sentCount
+        self.failedCount = failedCount
+        self.sortedKeys = sortedKeys
+    }
+}
+
+/// A deterministic key/value workload shared by the App and Core tests.
+public enum DictionaryEvidenceWorkload {
+    public static func run() -> DictionaryWorkloadResult {
+        var stateCounts = ["queued": 1, "sent": 1]
+        let previousQueuedCount = stateCounts.updateValue(2, forKey: "queued")
+        stateCounts["sent", default: 0] += 1
+        stateCounts.merge(["failed": 1], uniquingKeysWith: +)
+        let removedQueuedCount = stateCounts.removeValue(forKey: "queued")
+
+        return DictionaryWorkloadResult(
+            previousQueuedCount: previousQueuedCount,
+            removedQueuedCount: removedQueuedCount,
+            sentCount: stateCounts["sent"] ?? 0,
+            failedCount: stateCounts["failed"] ?? 0,
+            sortedKeys: stateCounts.keys.sorted()
+        )
+    }
+}
+
+public enum FoundationRoundTripError: Error, Equatable {
+    case missingSnapshotAfterSave
+}
+
+public struct FoundationRoundTripResult: Equatable, Sendable {
+    public let probeID: UUID
+    public let completedAt: Date
+    public let fileURL: URL
+    public let byteCount: Int
+    public let restoredSnapshot: InboxSnapshot
+
+    public init(
+        probeID: UUID,
+        completedAt: Date,
+        fileURL: URL,
+        byteCount: Int,
+        restoredSnapshot: InboxSnapshot
+    ) {
+        self.probeID = probeID
+        self.completedAt = completedAt
+        self.fileURL = fileURL
+        self.byteCount = byteCount
+        self.restoredSnapshot = restoredSnapshot
+    }
+}
+
+/// Owns one temporary JSON fixture. Reset and deinit both remove the owned directory.
+public final class FoundationRoundTripProbe {
+    public let probeID: UUID
+    public let directoryURL: URL
+    public let fileURL: URL
+
+    public init(
+        rootDirectory: URL = FileManager.default.temporaryDirectory,
+        probeID: UUID = UUID()
+    ) {
+        self.probeID = probeID
+        directoryURL = rootDirectory.appendingPathComponent(
+            "swiftmessengerlab-foundation-probe-\(probeID.uuidString)",
+            isDirectory: true
+        )
+        fileURL = directoryURL.appendingPathComponent("inbox.json")
+    }
+
+    public var fixtureExists: Bool {
+        FileManager.default.fileExists(atPath: fileURL.path)
+    }
+
+    @discardableResult
+    public func run(snapshot: InboxSnapshot) throws -> FoundationRoundTripResult {
+        reset()
+        let cache = JSONInboxCache(fileURL: fileURL)
+        try cache.save(snapshot)
+        let data = try Data(contentsOf: fileURL)
+        guard let restoredSnapshot = try cache.load() else {
+            throw FoundationRoundTripError.missingSnapshotAfterSave
+        }
+        return FoundationRoundTripResult(
+            probeID: probeID,
+            completedAt: Date(),
+            fileURL: fileURL,
+            byteCount: data.count,
+            restoredSnapshot: restoredSnapshot
+        )
+    }
+
+    public func reset() {
+        try? FileManager.default.removeItem(at: directoryURL)
+    }
+
+    deinit {
+        reset()
     }
 }
 
@@ -236,8 +394,13 @@ public struct PracticeProgress: Codable, Equatable, Sendable {
         self.answeredLessonIDs = answeredLessonIDs
     }
 
-    public mutating func recordOperation(experimentID: String) {
+    @discardableResult
+    public mutating func recordOperation(experimentID: String) -> Bool {
+        guard ExperimentCatalog.experiment(id: experimentID)?.recordsOperationEvidence == true else {
+            return false
+        }
         operatedExperimentIDs.insert(experimentID)
+        return true
     }
 
     public mutating func recordAnswers(lessonID: Int) {
@@ -246,14 +409,16 @@ public struct PracticeProgress: Codable, Equatable, Sendable {
 
     public mutating func migrateLegacyExperimentIDs(_ mapping: [String: String]) {
         for legacyID in operatedExperimentIDs {
-            if let currentID = mapping[legacyID] {
+            if let currentID = mapping[legacyID],
+               ExperimentCatalog.experiment(id: currentID)?.recordsOperationEvidence == true {
                 operatedExperimentIDs.insert(currentID)
             }
         }
     }
 
     public func hasOperated(_ experimentID: String) -> Bool {
-        operatedExperimentIDs.contains(experimentID)
+        ExperimentCatalog.experiment(id: experimentID)?.recordsOperationEvidence == true
+            && operatedExperimentIDs.contains(experimentID)
     }
 
     public func hasAnswered(_ lessonID: Int) -> Bool {

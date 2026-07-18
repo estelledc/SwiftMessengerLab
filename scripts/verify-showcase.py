@@ -70,8 +70,8 @@ def verify_screenshot_contract(html: str, css: str) -> None:
 
 
 def verify_type_catalog(document: object) -> list[dict[str, object]]:
-    if not isinstance(document, dict) or document.get("schemaVersion") != 1:
-        fail("type catalog schemaVersion must be 1")
+    if not isinstance(document, dict) or document.get("schemaVersion") != 2:
+        fail("type catalog schemaVersion must be 2")
     if document.get("source") != "SwiftMessengerLab/Core/LearningCatalog.swift":
         fail("type catalog source marker is missing or incorrect")
 
@@ -107,8 +107,29 @@ def verify_type_catalog(document: object) -> list[dict[str, object]]:
             fail(f"type card {identifier} is not referenced by any lesson")
         if experiment.get("id") != metadata.get("experimentID"):
             fail(f"type card {identifier} experiment ID drifted")
-        if not isinstance(experiment.get("control"), str) or not isinstance(experiment.get("sourceFile"), str):
+        required_experiment_fields = (
+            "control",
+            "sourceFile",
+            "sourceSymbol",
+            "xcodeAction",
+            "docsPath",
+        )
+        if not all(
+            isinstance(experiment.get(field), str) and experiment[field]
+            for field in required_experiment_fields
+        ):
             fail(f"type card {identifier} has an invalid experiment reference")
+        source_path = ROOT / experiment["sourceFile"]
+        docs_path = ROOT / experiment["docsPath"]
+        if not source_path.is_file():
+            fail(f"type card {identifier} source file does not exist")
+        if not docs_path.is_file():
+            fail(f"type card {identifier} docs path does not exist")
+        symbol_name = experiment["sourceSymbol"].split("(", 1)[0]
+        if f"{symbol_name}(" not in source_path.read_text(encoding="utf-8"):
+            fail(f"type card {identifier} source symbol is not searchable")
+        if "\n" in experiment["xcodeAction"]:
+            fail(f"type card {identifier} must expose exactly one compact Xcode action")
 
         related = metadata.get("relatedTypeIDs")
         if not isinstance(related, list) or not all(isinstance(value, str) for value in related):
@@ -191,9 +212,9 @@ def main() -> None:
             fail(f"project stylesheet is missing Jason DS mapping: {marker}")
     if "transition: all" in css or "transition: all" in components:
         fail("transition: all is not allowed")
-    if len(re.findall(r'^\s*card\("', catalog, re.MULTILINE)) != 52:
+    if len(re.findall(r'\bcard\(\s*"[^"]+"\s*,', catalog)) != 52:
         fail("TypeCatalog does not contain exactly 52 card declarations")
-    if len(re.findall(r'^\s*lesson\(\d+', catalog, re.MULTILINE)) != 20:
+    if len(re.findall(r'\blesson\(\s*\d+', catalog)) != 20:
         fail("LearningCatalog does not contain exactly 20 lesson declarations")
     if len(list((ROOT / "CompilerLab" / "Samples").glob("*.swift"))) != 5:
         fail("CompilerLab does not contain exactly five Swift samples")

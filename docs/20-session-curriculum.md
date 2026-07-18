@@ -32,4 +32,4 @@
 | 19 | data source、delegate、diffable snapshot、identity | 用稳定 id 刷新且不重复 |
 | 20 | Environment、Repository、Transport、Cache、重试 | 从按钮追到缓存并证明重试不换 id |
 
-具体属性、方法、断点与检索题以 App 的 Learn 类型卡为源真相。52 张类型卡只在全局 `TypeCatalog` 定义一次，课程保存类型 ID；`let / var` 等非类型机制由 `LanguageConcept` 表达。目录模型位于 `SwiftMessengerLab/Core/LearningCatalog.swift`，单元测试检查数量、引用、类型种类和前置关系。
+具体机制、属性、方法、LLDB、Reset、边界与检索题统一见 `docs/experiment-cards.md`：它按稳定 ID 覆盖 52 个 type experiment 与 18 个 concept experiment，并在顶部提供本 20 Session 索引。公开 Type Explorer 继续展示 52 张类型知识卡。App 的 Learn 页面只保留 `Goal / Code / Xcode / Docs`、真实控件和操作日志；入口按钮只有标题，预期结果不提前渲染，搜索结果直接进入实验。52 张类型卡只在全局 `TypeCatalog` 定义一次，课程保存类型 ID；`let / var` 等非类型机制由 `LanguageConcept` 表达。目录模型位于 `SwiftMessengerLab/Core/LearningCatalog.swift`，生成器与审计检查 70 ID 一一对应、source cue 真实可搜索且 Markdown 字段完整。
